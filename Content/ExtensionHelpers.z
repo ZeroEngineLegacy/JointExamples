@@ -1,0 +1,33 @@
+// Helper extension methods on orientation
+class OrientationExtensions
+{
+  // Draw the world basis with a given scaled length
+  [Extension(typeid(Orientation))]
+  function DrawBases(scalar : Real)
+  {
+    var worldPoint = this.Owner.Transform.WorldTranslation;
+    
+    var rightLine   = DebugLine() {Start = worldPoint, End = worldPoint + this.WorldRight, Color = Real4(1, 0, 0, 1)};
+    var upLine      = DebugLine() {Start = worldPoint, End = worldPoint + this.WorldUp, Color = Real4(0, 1, 0, 1)};
+    var rorwardLine = DebugLine() {Start = worldPoint, End = worldPoint + this.WorldForward, Color = Real4(0, 0, 1, 1)};
+    DebugDraw.Add(rightLine);
+    DebugDraw.Add(upLine);
+    DebugDraw.Add(rorwardLine);
+  }
+}
+
+// Extend the cog class to get the orientation's world bases if they exist.
+// Otherwise, fall back on the transform's world rotation.
+class CogExtensions
+{
+    [Extension(typeid(Cog))]
+    function GetWorldBasis() : Quaternion
+    {
+        var orientation = this.Orientation;
+        if(orientation != null)
+            return orientation.LocalToWorldRotation;
+        else
+            return this.Transform.WorldRotation;
+    }
+}
+
