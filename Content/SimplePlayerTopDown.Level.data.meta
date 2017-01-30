@@ -3,7 +3,7 @@ DataContent
 {
 	DataBuilder 
 	{
-		var Name = "SimplePlayer"
+		var Name = "SimplePlayerTopDown"
 		var ResourceId = 0x58dd17006932c9c2
 		var LoaderType = "Level"
 		var Version = 0
