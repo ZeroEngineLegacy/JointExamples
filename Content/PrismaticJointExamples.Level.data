@@ -172,9 +172,9 @@ Level
 		var LinkId = 4
 		Transform 
 		{
-			var Translation = Vec3{6.53296041, 11.036438, 16.2144928}
+			var Translation = Vec3{0.626400709, 4.43508625, 11.9524307}
 			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{-0.08712589, 0.0260773059, 0.00228146743, 0.995853364}
+			var Rotation = Quat{-0.100153722, 0.0260452535, 0.00262261857, 0.994627595}
 		}
 		CameraViewport 
 		{
@@ -231,10 +231,10 @@ Level
 		EditorCameraController 
 		{
 			var ControlMode = ControlMode.Orbit
-			var LookDistance = 16.4872246
-			var VerticalAngle = 0.17453292
-			var HorizontalAngle = -0.0523598418
-			var LookTarget = Vec3{5.68319511, 8.17346191, 0}
+			var LookDistance = 12.2140341
+			var VerticalAngle = 0.200712845
+			var HorizontalAngle = -0.0523599088
+			var LookTarget = Vec3{0, 2, 0}
 			var MoveSensitivity = 1
 		}
 	}
@@ -326,7 +326,7 @@ Level
 		var LinkId = 6
 		Transform 
 		{
-			var Translation = Vec3{0, 0, 0}
+			var Translation = Vec3{0, -1, 0}
 			var Scale = Vec3{20, 1, 20}
 			var Rotation = Quat{0, 0, 0, 1}
 		}
@@ -350,11 +350,36 @@ Level
 	}
 	Cog 
 	{
-		var Name = "StickRoot"
+		var Name = "SpriteText"
 		var LinkId = 7
 		Transform 
 		{
-			var Translation = Vec3{-7.57336903, 6.67346239, 0}
+			var Translation = Vec3{0, 7.33674192, 0}
+			var Scale = Vec3{1, 1, 1}
+			var Rotation = Quat{0, 0, 0, 1}
+		}
+		SpriteText 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Vec4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var FontSize = 32
+			var Text = "Prismatic Joint"
+			var Align = TextAlign.Center
+			var PixelsPerUnit = 128
+		}
+	}
+	Cog 
+	{
+		var Name = "RootRegular"
+		var LinkId = 8
+		Transform 
+		{
+			var Translation = Vec3{-6, 5, 0}
 			var Scale = Vec3{1, 1, 1}
 			var Rotation = Quat{0, 0, 0, 1}
 		}
@@ -362,49 +387,36 @@ Level
 		{
 			Cog 
 			{
-				var Name = "Constrained"
-				var LinkId = 8
-				Transform 
-				{
-					var Translation = Vec3{0.5, -0.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
-				}
-				Model 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var Material = "583afb5e7bf75e18:ZeroMaterial"
-					var Mesh = "4de0354322b345ae:Cube"
-				}
-				RigidBody 
-				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Dynamic
-					var AllowSleep = true
-					var Asleep = false
-					var RotationLocked = false
-					var Mode2D = Mode2DStates.InheritFromSpace
-				}
-				BoxCollider 
-				{
-					var Ghost = false
-					var SendsEvents = true
-					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
-				}
-			}
-			Cog 
-			{
-				var Name = "Anchor"
+				var Name = "SpriteText"
 				var LinkId = 9
 				Transform 
 				{
-					var Translation = Vec3{-0.5, 0.5, 0}
+					var Translation = Vec3{0, 1, 0}
+					var Scale = Vec3{1, 1, 1}
+					var Rotation = Quat{0, 0, 0, 1}
+				}
+				SpriteText 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Vec4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Font = "57343753bb4eaaec:NotoSans-Regular"
+					var FontSize = 32
+					var Text = "Regular"
+					var Align = TextAlign.Center
+					var PixelsPerUnit = 128
+				}
+			}
+			Cog 
+			{
+				var Name = "Anchor"
+				var LinkId = 10
+				Transform 
+				{
+					var Translation = Vec3{-1.05972147, 0, 0}
 					var Scale = Vec3{1, 1, 1}
 					var Rotation = Quat{0, 0, 0, 1}
 				}
@@ -413,14 +425,14 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
-					var Material = "583afb5e7bf75e18:ZeroMaterial"
+					var Material = "58c60ce585ca4e6a:AnchorMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
 				RigidBody 
 				{
 					var Velocity = Vec3{0, 0, 0}
 					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Static
+					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
 					var Asleep = false
 					var RotationLocked = false
@@ -438,111 +450,11 @@ Level
 			}
 			Cog 
 			{
-				var Name = "CustomStickJoint"
-				var LinkId = 10
-				ObjectLink 
-				{
-					var ObjectAPath = CogPath
-					{
-						var Path = "../Anchor"
-						var ErrorOnResolveToNull = false
-						var ErrorOnPathCantCompute = false
-						var ErrorOnDirectLinkFail = false
-						var UpdateCogOnPathChange = true
-						var UpdatePathOnCogChange = true
-						var UpdateCogOnInitialize = true
-						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 9
-						var PathPreference0 = CogPathPreference.CogRelative
-						var PathPreference1 = CogPathPreference.SpaceRelative
-						var PathPreference2 = CogPathPreference.Absolute
-					}
-					var ObjectBPath = CogPath
-					{
-						var Path = "../Constrained"
-						var ErrorOnResolveToNull = false
-						var ErrorOnPathCantCompute = false
-						var ErrorOnDirectLinkFail = false
-						var UpdateCogOnPathChange = true
-						var UpdatePathOnCogChange = true
-						var UpdateCogOnInitialize = true
-						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 8
-						var PathPreference0 = CogPathPreference.CogRelative
-						var PathPreference1 = CogPathPreference.SpaceRelative
-						var PathPreference2 = CogPathPreference.Absolute
-					}
-					var LocalPointA = Vec3{0.5, -0.5, 0.5}
-					var LocalPointB = Vec3{-0.5, 0.5, 0.5}
-				}
-				CustomJoint 
-				{
-					var Active = true
-					var SendsEvents = false
-					var AutoSnaps = false
-					var CollideConnected = true
-					var MaxForce = 0
-				}
-				CustomStickJoint 
-				{
-					var MinDistance = 2
-					var MaxDistance = 4
-				}
-				JointMotor 
-				{
-					var Active = true
-					var Reverse = true
-					var Speed = 5
-					var MaxForce = 2
-					var AtomIds = 255
-				}
-			}
-			Cog 
-			{
-				var Name = "Text"
+				var Name = "Constrained"
 				var LinkId = 11
 				Transform 
 				{
-					var Translation = Vec3{0, 1.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
-				}
-				SpriteText 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var Material = "582c575af53d18c9:AlphaSprite"
-					var VertexColor = Vec4{1, 1, 1, 1}
-					var GeometryMode = SpriteGeometryMode.ZPlane
-					var Font = "57343753bb4eaaec:NotoSans-Regular"
-					var FontSize = 32
-					var Text = "Custom Stick Joint"
-					var Align = TextAlign.Center
-					var PixelsPerUnit = 128
-				}
-			}
-		}
-	}
-	Cog 
-	{
-		var Name = "PositionRoot"
-		var LinkId = 12
-		Transform 
-		{
-			var Translation = Vec3{-2.30677128, 6.67346239, 0}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
-		}
-		Hierarchy 
-		{
-			Cog 
-			{
-				var Name = "Constrained"
-				var LinkId = 13
-				Transform 
-				{
-					var Translation = Vec3{0.5, -0.5, 0}
+					var Translation = Vec3{0.94027853, 0, 0}
 					var Scale = Vec3{1, 1, 1}
 					var Rotation = Quat{0, 0, 0, 1}
 				}
@@ -576,11 +488,107 @@ Level
 			}
 			Cog 
 			{
-				var Name = "Anchor"
+				var Name = "PrismaticJoint"
+				var LinkId = 12
+				ObjectLink 
+				{
+					var ObjectAPath = CogPath
+					{
+						var Path = "../Constrained"
+						var ErrorOnResolveToNull = false
+						var ErrorOnPathCantCompute = false
+						var ErrorOnDirectLinkFail = false
+						var UpdateCogOnPathChange = true
+						var UpdatePathOnCogChange = true
+						var UpdateCogOnInitialize = true
+						var ResolvedNullErrorOccurred = false
+						var ResolvedCog = 11
+						var PathPreference0 = CogPathPreference.CogRelative
+						var PathPreference1 = CogPathPreference.SpaceRelative
+						var PathPreference2 = CogPathPreference.Absolute
+					}
+					var ObjectBPath = CogPath
+					{
+						var Path = "../Anchor"
+						var ErrorOnResolveToNull = false
+						var ErrorOnPathCantCompute = false
+						var ErrorOnDirectLinkFail = false
+						var UpdateCogOnPathChange = true
+						var UpdatePathOnCogChange = true
+						var UpdateCogOnInitialize = true
+						var ResolvedNullErrorOccurred = false
+						var ResolvedCog = 10
+						var PathPreference0 = CogPathPreference.CogRelative
+						var PathPreference1 = CogPathPreference.SpaceRelative
+						var PathPreference2 = CogPathPreference.Absolute
+					}
+					var LocalPointA = Vec3{0, 0, 0}
+					var LocalPointB = Vec3{0, 0, 0}
+				}
+				DebugDrawer 
+				{
+				}
+				PrismaticJoint 
+				{
+					var Active = true
+					var SendsEvents = false
+					var AutoSnaps = false
+					var CollideConnected = true
+					var MaxForce = 0
+					var LocalPointA = Vec3{0, 0, 0}
+					var LocalPointB = Vec3{0, 0, 0}
+					var LocalAngleA = Quat{-0, -0, -0, 1}
+					var LocalAngleB = Quat{-0, -0, -0, 1}
+					var LocalAxisA = Vec3{1, 0, 0}
+					var LocalAxisB = Vec3{1, 0, 0}
+				}
+			}
+		}
+	}
+	Cog 
+	{
+		var Name = "RootLimit"
+		var LinkId = 13
+		Transform 
+		{
+			var Translation = Vec3{-1.90514755, 5, 0}
+			var Scale = Vec3{1, 1, 1}
+			var Rotation = Quat{0, 0, 0, 1}
+		}
+		Hierarchy 
+		{
+			Cog 
+			{
+				var Name = "SpriteText"
 				var LinkId = 14
 				Transform 
 				{
-					var Translation = Vec3{-0.5, 0.5, 0}
+					var Translation = Vec3{0, 1, 0}
+					var Scale = Vec3{1, 1, 1}
+					var Rotation = Quat{0, 0, 0, 1}
+				}
+				SpriteText 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Vec4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Font = "57343753bb4eaaec:NotoSans-Regular"
+					var FontSize = 32
+					var Text = "Limit"
+					var Align = TextAlign.Center
+					var PixelsPerUnit = 128
+				}
+			}
+			Cog 
+			{
+				var Name = "Anchor"
+				var LinkId = 15
+				Transform 
+				{
+					var Translation = Vec3{0, 0, 0}
 					var Scale = Vec3{1, 1, 1}
 					var Rotation = Quat{0, 0, 0, 1}
 				}
@@ -589,14 +597,14 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
-					var Material = "583afb5e7bf75e18:ZeroMaterial"
+					var Material = "58c60ce585ca4e6a:AnchorMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
 				RigidBody 
 				{
 					var Velocity = Vec3{0, 0, 0}
 					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Static
+					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
 					var Asleep = false
 					var RotationLocked = false
@@ -614,101 +622,11 @@ Level
 			}
 			Cog 
 			{
-				var Name = "CustomPositionJoint"
-				var LinkId = 15
-				ObjectLink 
-				{
-					var ObjectAPath = CogPath
-					{
-						var Path = "../Anchor"
-						var ErrorOnResolveToNull = false
-						var ErrorOnPathCantCompute = false
-						var ErrorOnDirectLinkFail = false
-						var UpdateCogOnPathChange = true
-						var UpdatePathOnCogChange = true
-						var UpdateCogOnInitialize = true
-						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 14
-						var PathPreference0 = CogPathPreference.CogRelative
-						var PathPreference1 = CogPathPreference.SpaceRelative
-						var PathPreference2 = CogPathPreference.Absolute
-					}
-					var ObjectBPath = CogPath
-					{
-						var Path = "../Constrained"
-						var ErrorOnResolveToNull = false
-						var ErrorOnPathCantCompute = false
-						var ErrorOnDirectLinkFail = false
-						var UpdateCogOnPathChange = true
-						var UpdatePathOnCogChange = true
-						var UpdateCogOnInitialize = true
-						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 13
-						var PathPreference0 = CogPathPreference.CogRelative
-						var PathPreference1 = CogPathPreference.SpaceRelative
-						var PathPreference2 = CogPathPreference.Absolute
-					}
-					var LocalPointA = Vec3{0.5, -0.5, 0.5}
-					var LocalPointB = Vec3{-0.5, 0.5, 0.5}
-				}
-				CustomJoint 
-				{
-					var Active = true
-					var SendsEvents = false
-					var AutoSnaps = false
-					var CollideConnected = true
-					var MaxForce = 0
-				}
-				CustomPositionJoint 
-				{
-				}
-			}
-			Cog 
-			{
-				var Name = "Text"
+				var Name = "Constrained"
 				var LinkId = 16
 				Transform 
 				{
-					var Translation = Vec3{0, 1.49999952, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
-				}
-				SpriteText 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var Material = "582c575af53d18c9:AlphaSprite"
-					var VertexColor = Vec4{1, 1, 1, 1}
-					var GeometryMode = SpriteGeometryMode.ZPlane
-					var Font = "57343753bb4eaaec:NotoSans-Regular"
-					var FontSize = 32
-					var Text = "Custom Position Joint"
-					var Align = TextAlign.Center
-					var PixelsPerUnit = 128
-				}
-			}
-		}
-	}
-	Cog 
-	{
-		var Name = "WeldRoot"
-		var LinkId = 17
-		Transform 
-		{
-			var Translation = Vec3{2.18173218, 6.67346239, 0}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
-		}
-		Hierarchy 
-		{
-			Cog 
-			{
-				var Name = "Constrained"
-				var LinkId = 18
-				Transform 
-				{
-					var Translation = Vec3{0.5, -0.5, 0}
+					var Translation = Vec3{0, -2, 0}
 					var Scale = Vec3{1, 1, 1}
 					var Rotation = Quat{0, 0, 0, 1}
 				}
@@ -739,68 +657,11 @@ Level
 					var Offset = Vec3{0, 0, 0}
 					var HalfSize = Vec3{0.5, 0.5, 0.5}
 				}
-				Orientation 
-				{
-					var GlobalUp = Vec3{0, 1, 0}
-					var UpVector = Vec3{0, 1, 0}
-					var ForwardVector = Vec3{0, 0, 1}
-					var DefaultBases = OrientationBases.ForwardZUpY
-				}
 			}
 			Cog 
 			{
-				var Name = "Anchor"
-				var LinkId = 19
-				Transform 
-				{
-					var Translation = Vec3{-0.5, 0.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
-				}
-				Model 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var Material = "583afb5e7bf75e18:ZeroMaterial"
-					var Mesh = "4de0354322b345ae:Cube"
-				}
-				RigidBody 
-				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Kinematic
-					var AllowSleep = true
-					var Asleep = false
-					var RotationLocked = false
-					var Mode2D = Mode2DStates.InheritFromSpace
-				}
-				BoxCollider 
-				{
-					var Ghost = false
-					var SendsEvents = true
-					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
-				}
-				Orientation 
-				{
-					var GlobalUp = Vec3{0, 1, 0}
-					var UpVector = Vec3{0, 1, 0}
-					var ForwardVector = Vec3{0, 0, 1}
-					var DefaultBases = OrientationBases.ForwardZUpY
-				}
-				SimpleRotator 
-				{
-					var WorldRotationAxis = Vec3{0, 0, 1}
-					var RotationDegreesPerSecond = 45
-				}
-			}
-			Cog 
-			{
-				var Name = "CustomWeldJoint"
-				var LinkId = 20
+				var Name = "PrismaticJoint"
+				var LinkId = 17
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -813,7 +674,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 19
+						var ResolvedCog = 15
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -828,223 +689,60 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 18
+						var ResolvedCog = 16
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0.5, -0.5, 0}
-					var LocalPointB = Vec3{-0.5, 0.5, 0}
+					var LocalPointA = Vec3{0, 0, 0}
+					var LocalPointB = Vec3{0, 0, 0}
 				}
-				CustomJoint 
+				DebugDrawer 
+				{
+				}
+				PrismaticJoint 
 				{
 					var Active = true
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
 					var MaxForce = 0
-				}
-				CustomWeldJoint 
-				{
-				}
-			}
-			Cog 
-			{
-				var Name = "Text"
-				var LinkId = 21
-				Transform 
-				{
-					var Translation = Vec3{0, 1.49999952, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
-				}
-				SpriteText 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var Material = "582c575af53d18c9:AlphaSprite"
-					var VertexColor = Vec4{1, 1, 1, 1}
-					var GeometryMode = SpriteGeometryMode.ZPlane
-					var Font = "57343753bb4eaaec:NotoSans-Regular"
-					var FontSize = 32
-					var Text = "Custom Weld Joint"
-					var Align = TextAlign.Center
-					var PixelsPerUnit = 128
-				}
-			}
-		}
-	}
-	Cog 
-	{
-		var Name = "RevoluteRoot"
-		var LinkId = 22
-		Transform 
-		{
-			var Translation = Vec3{5.68319511, 6.67346239, 0}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
-		}
-		Hierarchy 
-		{
-			Cog 
-			{
-				var Name = "Constrained"
-				var LinkId = 23
-				Transform 
-				{
-					var Translation = Vec3{0.5, -0.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
-				}
-				Model 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var Material = "583afb5e7bf75e18:ZeroMaterial"
-					var Mesh = "4de0354322b345ae:Cube"
-				}
-				RigidBody 
-				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Dynamic
-					var AllowSleep = true
-					var Asleep = false
-					var RotationLocked = false
-					var Mode2D = Mode2DStates.InheritFromSpace
-				}
-				BoxCollider 
-				{
-					var Ghost = false
-					var SendsEvents = true
-					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
-				}
-				Orientation 
-				{
-					var GlobalUp = Vec3{0, 1, 0}
-					var UpVector = Vec3{0, 0, 1}
-					var ForwardVector = Vec3{1, 0, 0}
-					var DefaultBases = OrientationBases.ForwardXUpZ
-				}
-			}
-			Cog 
-			{
-				var Name = "Anchor"
-				var LinkId = 24
-				Transform 
-				{
-					var Translation = Vec3{-0.5, 0.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
-				}
-				Model 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var Material = "583afb5e7bf75e18:ZeroMaterial"
-					var Mesh = "4de0354322b345ae:Cube"
-				}
-				RigidBody 
-				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Kinematic
-					var AllowSleep = true
-					var Asleep = false
-					var RotationLocked = false
-					var Mode2D = Mode2DStates.InheritFromSpace
-				}
-				BoxCollider 
-				{
-					var Ghost = false
-					var SendsEvents = true
-					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
-				}
-				Orientation 
-				{
-					var GlobalUp = Vec3{0, 1, 0}
-					var UpVector = Vec3{0, 0, 1}
-					var ForwardVector = Vec3{1, 0, 0}
-					var DefaultBases = OrientationBases.ForwardXUpZ
-				}
-			}
-			Cog 
-			{
-				var Name = "CustomRevoluteJoint"
-				var LinkId = 25
-				ObjectLink 
-				{
-					var ObjectAPath = CogPath
-					{
-						var Path = "../Anchor"
-						var ErrorOnResolveToNull = false
-						var ErrorOnPathCantCompute = false
-						var ErrorOnDirectLinkFail = false
-						var UpdateCogOnPathChange = true
-						var UpdatePathOnCogChange = true
-						var UpdateCogOnInitialize = true
-						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 24
-						var PathPreference0 = CogPathPreference.CogRelative
-						var PathPreference1 = CogPathPreference.SpaceRelative
-						var PathPreference2 = CogPathPreference.Absolute
-					}
-					var ObjectBPath = CogPath
-					{
-						var Path = "../Constrained"
-						var ErrorOnResolveToNull = false
-						var ErrorOnPathCantCompute = false
-						var ErrorOnDirectLinkFail = false
-						var UpdateCogOnPathChange = true
-						var UpdatePathOnCogChange = true
-						var UpdateCogOnInitialize = true
-						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 23
-						var PathPreference0 = CogPathPreference.CogRelative
-						var PathPreference1 = CogPathPreference.SpaceRelative
-						var PathPreference2 = CogPathPreference.Absolute
-					}
-					var LocalPointA = Vec3{0.5, -0.5, 0}
-					var LocalPointB = Vec3{-0.5, 0.5, 0}
-				}
-				CustomJoint 
-				{
-					var Active = true
-					var SendsEvents = false
-					var AutoSnaps = false
-					var CollideConnected = true
-					var MaxForce = 0
-				}
-				CustomRevoluteJoint 
-				{
-					var DebugDrawFrameA = true
-					var PrimaryFrameColor = Vec4{1, 0, 0, 1}
-					var SecondaryFrameColor = Vec4{0, 0, 1, 1}
+					var LocalPointA = Vec3{0, 0, 0}
+					var LocalPointB = Vec3{0, 0, 0}
+					var LocalAngleA = Quat{-0, -0, -0, 1}
+					var LocalAngleB = Quat{-0, -0, -0, 1}
+					var LocalAxisA = Vec3{0, -1, 0}
+					var LocalAxisB = Vec3{0, -1, 0}
 				}
 				JointLimit 
 				{
 					var Active = true
-					var LowerLimit = -0.5
-					var UpperLimit = 1
-					var AtomIds = 255
+					var LowerLimit = 2
+					var UpperLimit = 4
+					var AtomIds = 4
 				}
 			}
+		}
+	}
+	Cog 
+	{
+		var Name = "RootSpring"
+		var LinkId = 18
+		Transform 
+		{
+			var Translation = Vec3{1.02203465, 5, 0}
+			var Scale = Vec3{1, 1, 1}
+			var Rotation = Quat{0, 0, 0, 1}
+		}
+		Hierarchy 
+		{
 			Cog 
 			{
-				var Name = "Text"
-				var LinkId = 26
+				var Name = "SpriteText"
+				var LinkId = 19
 				Transform 
 				{
-					var Translation = Vec3{0, 1.49999952, 0}
+					var Translation = Vec3{0, 1, 0}
 					var Scale = Vec3{1, 1, 1}
 					var Rotation = Quat{0, 0, 0, 1}
 				}
@@ -1058,32 +756,56 @@ Level
 					var GeometryMode = SpriteGeometryMode.ZPlane
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 32
-					var Text = "Custom Revolute Joint"
+					var Text = "Spring"
 					var Align = TextAlign.Center
 					var PixelsPerUnit = 128
 				}
 			}
-		}
-	}
-	Cog 
-	{
-		var Name = "ConeRoot"
-		var LinkId = 27
-		Transform 
-		{
-			var Translation = Vec3{9.55214119, 6.67346239, 0}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0.00425517512, 0.99999094}
-		}
-		Hierarchy 
-		{
+			Cog 
+			{
+				var Name = "Anchor"
+				var LinkId = 20
+				Transform 
+				{
+					var Translation = Vec3{0, 0, 0}
+					var Scale = Vec3{1, 1, 1}
+					var Rotation = Quat{0, 0, 0, 1}
+				}
+				Model 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var Material = "58c60ce585ca4e6a:AnchorMaterial"
+					var Mesh = "4de0354322b345ae:Cube"
+				}
+				RigidBody 
+				{
+					var Velocity = Vec3{0, 0, 0}
+					var AngularVelocity = Vec3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Kinematic
+					var AllowSleep = true
+					var Asleep = false
+					var RotationLocked = false
+					var Mode2D = Mode2DStates.InheritFromSpace
+				}
+				BoxCollider 
+				{
+					var Ghost = false
+					var SendsEvents = true
+					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+					var CollisionGroup = "4e740859314e5515:DefaultGroup"
+					var Offset = Vec3{0, 0, 0}
+					var HalfSize = Vec3{0.5, 0.5, 0.5}
+				}
+			}
 			Cog 
 			{
 				var Name = "Constrained"
-				var LinkId = 28
+				var LinkId = 21
 				Transform 
 				{
-					var Translation = Vec3{1.28992271, 0.561099052, 0}
+					var Translation = Vec3{0, -2, 0}
 					var Scale = Vec3{1, 1, 1}
 					var Rotation = Quat{0, 0, 0, 1}
 				}
@@ -1114,63 +836,11 @@ Level
 					var Offset = Vec3{0, 0, 0}
 					var HalfSize = Vec3{0.5, 0.5, 0.5}
 				}
-				Orientation 
-				{
-					var GlobalUp = Vec3{0, 1, 0}
-					var UpVector = Vec3{0, 0, 1}
-					var ForwardVector = Vec3{1, 0, 0}
-					var DefaultBases = OrientationBases.ForwardXUpZ
-				}
 			}
 			Cog 
 			{
-				var Name = "Anchor"
-				var LinkId = 29
-				Transform 
-				{
-					var Translation = Vec3{-0.5, 0.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
-				}
-				Model 
-				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var Material = "583afb5e7bf75e18:ZeroMaterial"
-					var Mesh = "4de0354322b345ae:Cube"
-				}
-				RigidBody 
-				{
-					var Velocity = Vec3{241.544296, -0.267088383, 0}
-					var AngularVelocity = Vec3{0, 0, 0.531892061}
-					var DynamicState = RigidBodyDynamicState.Kinematic
-					var AllowSleep = true
-					var Asleep = false
-					var RotationLocked = false
-					var Mode2D = Mode2DStates.InheritFromSpace
-				}
-				BoxCollider 
-				{
-					var Ghost = true
-					var SendsEvents = true
-					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
-				}
-				Orientation 
-				{
-					var GlobalUp = Vec3{0, 1, 0}
-					var UpVector = Vec3{0, 0, 1}
-					var ForwardVector = Vec3{1, 0, 0}
-					var DefaultBases = OrientationBases.ForwardXUpZ
-				}
-			}
-			Cog 
-			{
-				var Name = "CustomConeJoint"
-				var LinkId = 30
+				var Name = "PrismaticJoint"
+				var LinkId = 22
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -1183,7 +853,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 29
+						var ResolvedCog = 20
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -1198,39 +868,69 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 28
+						var ResolvedCog = 21
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{1, 0, 0}
-					var LocalPointB = Vec3{-1, 0, 0}
+					var LocalPointA = Vec3{0, 0, 0}
+					var LocalPointB = Vec3{0, 0, 0}
 				}
-				CustomJoint 
+				DebugDrawer 
+				{
+				}
+				PrismaticJoint 
 				{
 					var Active = true
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
 					var MaxForce = 0
+					var LocalPointA = Vec3{0, 0, 0}
+					var LocalPointB = Vec3{0, 0, 0}
+					var LocalAngleA = Quat{-0, -0, -0, 1}
+					var LocalAngleB = Quat{-0, -0, -0, 1}
+					var LocalAxisA = Vec3{0, -1, 0}
+					var LocalAxisB = Vec3{0, -1, 0}
 				}
-				CustomConeJoint 
+				JointLimit 
 				{
-					var ConeAngleLimit = 130
-					var DebugDrawFrameA = true
-					var PrimaryFrameColor = Vec4{1, 0, 0, 1}
-					var SecondaryFrameColor = Vec4{0, 0, 1, 1}
+					var Active = true
+					var LowerLimit = 2
+					var UpperLimit = 4
+					var AtomIds = 4
+				}
+				JointSpring 
+				{
+					var Active = true
+					var FrequencyHz = 2
+					var DampRatio = 0.100000001
+					var AtomIds = 4
 				}
 			}
+		}
+	}
+	Cog 
+	{
+		var Name = "RootMotor"
+		var LinkId = 23
+		Transform 
+		{
+			var Translation = Vec3{4.31485176, 5, 0}
+			var Scale = Vec3{1, 1, 1}
+			var Rotation = Quat{0, 0, 0, 1}
+		}
+		Hierarchy 
+		{
 			Cog 
 			{
-				var Name = "Text"
-				var LinkId = 31
+				var Name = "SpriteText"
+				var LinkId = 24
 				Transform 
 				{
-					var Translation = Vec3{0, 1.5, 0}
-					var Scale = Vec3{1.00000012, 1.00000012, 1}
-					var Rotation = Quat{0, 0, -0.00425517512, 0.99999094}
+					var Translation = Vec3{0, 1, 0}
+					var Scale = Vec3{1, 1, 1}
+					var Rotation = Quat{0, 0, 0, 1}
 				}
 				SpriteText 
 				{
@@ -1242,11 +942,235 @@ Level
 					var GeometryMode = SpriteGeometryMode.ZPlane
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 32
-					var Text = "Custom Cone Joint"
+					var Text = "Motor"
 					var Align = TextAlign.Center
 					var PixelsPerUnit = 128
 				}
 			}
+			Cog 
+			{
+				var Name = "Anchor"
+				var LinkId = 25
+				Transform 
+				{
+					var Translation = Vec3{0, -3.45266008, 0}
+					var Scale = Vec3{1, 1, 1}
+					var Rotation = Quat{0, 0, 0, 1}
+				}
+				Model 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var Material = "58c60ce585ca4e6a:AnchorMaterial"
+					var Mesh = "4de0354322b345ae:Cube"
+				}
+				RigidBody 
+				{
+					var Velocity = Vec3{0, 0, 0}
+					var AngularVelocity = Vec3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Kinematic
+					var AllowSleep = true
+					var Asleep = false
+					var RotationLocked = false
+					var Mode2D = Mode2DStates.InheritFromSpace
+				}
+				BoxCollider 
+				{
+					var Ghost = false
+					var SendsEvents = true
+					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+					var CollisionGroup = "4e740859314e5515:DefaultGroup"
+					var Offset = Vec3{0, 0, 0}
+					var HalfSize = Vec3{0.5, 0.5, 0.5}
+				}
+			}
+			Cog 
+			{
+				var Name = "Constrained"
+				var LinkId = 26
+				Transform 
+				{
+					var Translation = Vec3{0, -2.25068951, 0}
+					var Scale = Vec3{2, 0.5, 2}
+					var Rotation = Quat{0, 0, 0, 1}
+				}
+				Model 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var Material = "583afb5e7bf75e18:ZeroMaterial"
+					var Mesh = "4de0354322b345ae:Cube"
+				}
+				RigidBody 
+				{
+					var Velocity = Vec3{0, 0, 0}
+					var AngularVelocity = Vec3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Dynamic
+					var AllowSleep = true
+					var Asleep = false
+					var RotationLocked = false
+					var Mode2D = Mode2DStates.InheritFromSpace
+				}
+				BoxCollider 
+				{
+					var Ghost = false
+					var SendsEvents = true
+					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+					var CollisionGroup = "4e740859314e5515:DefaultGroup"
+					var Offset = Vec3{0, 0, 0}
+					var HalfSize = Vec3{0.5, 0.5, 0.5}
+				}
+			}
+			Cog 
+			{
+				var Name = "PrismaticJoint"
+				var LinkId = 27
+				ObjectLink 
+				{
+					var ObjectAPath = CogPath
+					{
+						var Path = "../Anchor"
+						var ErrorOnResolveToNull = false
+						var ErrorOnPathCantCompute = false
+						var ErrorOnDirectLinkFail = false
+						var UpdateCogOnPathChange = true
+						var UpdatePathOnCogChange = true
+						var UpdateCogOnInitialize = true
+						var ResolvedNullErrorOccurred = false
+						var ResolvedCog = 25
+						var PathPreference0 = CogPathPreference.CogRelative
+						var PathPreference1 = CogPathPreference.SpaceRelative
+						var PathPreference2 = CogPathPreference.Absolute
+					}
+					var ObjectBPath = CogPath
+					{
+						var Path = "../Constrained"
+						var ErrorOnResolveToNull = false
+						var ErrorOnPathCantCompute = false
+						var ErrorOnDirectLinkFail = false
+						var UpdateCogOnPathChange = true
+						var UpdatePathOnCogChange = true
+						var UpdateCogOnInitialize = true
+						var ResolvedNullErrorOccurred = false
+						var ResolvedCog = 26
+						var PathPreference0 = CogPathPreference.CogRelative
+						var PathPreference1 = CogPathPreference.SpaceRelative
+						var PathPreference2 = CogPathPreference.Absolute
+					}
+					var LocalPointA = Vec3{0, 0, 0}
+					var LocalPointB = Vec3{0, 0, 0}
+				}
+				DebugDrawer 
+				{
+				}
+				PrismaticJoint 
+				{
+					var Active = true
+					var SendsEvents = false
+					var AutoSnaps = false
+					var CollideConnected = true
+					var MaxForce = 0
+					var LocalPointA = Vec3{0, 0, 0}
+					var LocalPointB = Vec3{0, 0, 0}
+					var LocalAngleA = Quat{-0, -0, -0, 1}
+					var LocalAngleB = Quat{-0, -0, -0, 1}
+					var LocalAxisA = Vec3{0, 1, 0}
+					var LocalAxisB = Vec3{0, 2, 0}
+				}
+				JointLimit 
+				{
+					var Active = true
+					var LowerLimit = 1
+					var UpperLimit = 5
+					var AtomIds = 4
+				}
+				JointMotor 
+				{
+					var Active = true
+					var Reverse = false
+					var Speed = 1
+					var MaxForce = 0.699999988
+					var AtomIds = 4
+				}
+			}
+		}
+	}
+	Cog 
+	{
+		var Name = "Cube"
+		var LinkId = 28
+		Transform 
+		{
+			var Translation = Vec3{4.26292849, 3.82707882, 0}
+			var Scale = Vec3{1, 1, 1}
+			var Rotation = Quat{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b345ae:Cube"
+		}
+		RigidBody 
+		{
+			var Velocity = Vec3{0, 0, 0}
+			var AngularVelocity = Vec3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Vec3{0, 0, 0}
+			var HalfSize = Vec3{0.5, 0.5, 0.5}
+		}
+	}
+	Cog 
+	{
+		var Name = "Cube"
+		var LinkId = 29
+		Transform 
+		{
+			var Translation = Vec3{4.26292849, 13.6838942, 0}
+			var Scale = Vec3{1, 1, 1}
+			var Rotation = Quat{0, 0, 0, 1}
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b345ae:Cube"
+		}
+		RigidBody 
+		{
+			var Velocity = Vec3{0, 0, 0}
+			var AngularVelocity = Vec3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Vec3{0, 0, 0}
+			var HalfSize = Vec3{0.5, 0.5, 0.5}
 		}
 	}
 }

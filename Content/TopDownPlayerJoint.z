@@ -40,13 +40,13 @@ class TopDownPlayerJoint : ZilchComponent
     // Build up keyboard input
     var moveVector = Real2();
     if(Zero.Keyboard.KeyIsDown(Keys.Left) || Zero.Keyboard.KeyIsDown(Keys.A))
-        moveVector.X = -1;
+      moveVector.X = -1;
     if(Zero.Keyboard.KeyIsDown(Keys.Right) || Zero.Keyboard.KeyIsDown(Keys.D))
-        moveVector.X = 1;
+      moveVector.X = 1;
     if(Zero.Keyboard.KeyIsDown(Keys.Up) || Zero.Keyboard.KeyIsDown(Keys.W))
-        moveVector.Y = 1;
+      moveVector.Y = 1;
     if(Zero.Keyboard.KeyIsDown(Keys.Down) || Zero.Keyboard.KeyIsDown(Keys.S))
-        moveVector.Y = -1;
+      moveVector.Y = -1;
     
     // Normalize the speed
     var maxMoveSpeed = this.TargetLinearSpeed;
@@ -77,7 +77,7 @@ class TopDownPlayerJoint : ZilchComponent
     // We always rotate at a base fixed speed, but we need to determine the direction
     var rotationalSpeed = Math.ToRadians(this.TargetAngularSpeed);
     if(angle < 0)
-        rotationalSpeed *= -1;
+      rotationalSpeed *= -1;
     
     // To avoid jitter, compute a smoothingFactor to lessen the motor speed when near the target lookAtDir
     var smoothingFactor = Math.SmoothStep(0.0, Math.ToRadians(this.SmoothingAngle), Math.Abs(angle));
