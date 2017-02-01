@@ -43,7 +43,7 @@ class FirstPersonPlayerJoint : ZilchComponent
   function OnMouseMove(event : ViewportMouseEvent)
   {
     // Track the left/right mose movement to rotate about the player's up vector
-    this.RotationDeltaAboutUp = event.Movement.X;
+    this.RotationDeltaAboutUp = Zero.Mouse.RawMovement.X;
   }
   
   function UpdateLinearMovement(playerCog : Cog)
