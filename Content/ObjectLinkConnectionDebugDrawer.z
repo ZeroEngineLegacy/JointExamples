@@ -1,0 +1,20 @@
+[RunInEditor]
+class ObjectLinkConnectionDebugDrawer : ZilchComponent
+{
+  [Dependency] var ObjectLink : ObjectLink;
+  [Property] var Color : Real4 = Real4(1, 0, 0, 1);
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.FrameUpdate, this.OnFrameUpdate);
+  }
+
+  function OnFrameUpdate(event : UpdateEvent)
+  {
+    var line = DebugLine();
+    line.Start = this.ObjectLink.WorldPointA;
+    line.End = this.ObjectLink.WorldPointB;
+    line.Color = this.Color;
+    DebugDraw.Add(line);
+  }
+}

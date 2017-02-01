@@ -20,7 +20,7 @@ Space
 	}
 	PhysicsSpace 
 	{
-		var AllowSleep = false
+		var AllowSleep = true
 		var Mode2D = false
 		var Deterministic = true
 		var SubStepCount = 1

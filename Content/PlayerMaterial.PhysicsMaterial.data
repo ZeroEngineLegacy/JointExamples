@@ -5,5 +5,5 @@ PhysicsMaterial
 	var StaticFriction = 0
 	var DynamicFriction = 0
 	var Density = 1
-	var HighPriority = false
+	var HighPriority = true
 }

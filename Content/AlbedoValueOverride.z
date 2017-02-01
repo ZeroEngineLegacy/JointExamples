@@ -1,0 +1,4 @@
+class AlbedoValueOverride : ZilchComponent
+{
+  [Property][ShaderInput] var AlbedoValue : Real4 = Real4();
+}

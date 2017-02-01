@@ -259,7 +259,7 @@ Level
 		{
 			var Translation = Vec3{0, 1, -0.546644092}
 			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
+			var Rotation = Quat{0, 0, -0.176670983, 0.984269977}
 		}
 		Model 
 		{
@@ -346,6 +346,7 @@ Level
 			var TargetAngularSpeed = 180
 			var MaxAngularImpulse = 1
 			var SmoothingAngle = 20
+			var JumpPower = 5
 		}
 		Hierarchy 
 		{

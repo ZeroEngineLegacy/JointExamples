@@ -888,7 +888,7 @@ Level
 				{
 					var Active = true
 					var FrequencyHz = 2
-					var DampRatio = 0.699999988
+					var DampRatio = 0.100000001
 					var AtomIds = 1
 				}
 			}

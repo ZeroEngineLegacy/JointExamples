@@ -408,11 +408,9 @@ Level
 		TopDownPlayerJoint 
 		{
 			var Active = true
-			var LocalPoint0 = Vec3{0, 0, 0}
-			var LocalPoint1 = Vec3{0, 0, 0}
 			var TargetLinearSpeed = 5
 			var MaxLinearAcceleration = 10.5
-			var TargetAngularSpeed = 180
+			var TargetAngularSpeed = 720
 			var MaxAngularAcceleration = 1.10000002
 			var SmoothingAngle = 20
 		}
