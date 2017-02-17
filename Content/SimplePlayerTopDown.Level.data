@@ -73,8 +73,7 @@ Level
 		Orientation 
 		{
 			var GlobalUp = Vec3{0, 1, 0}
-			var UpVector = Vec3{0, 1, 0}
-			var ForwardVector = Vec3{-0, -0, -1}
+			var LocalOrientationBasis = Quat{0, 0, 0, 1}
 			var DefaultBases = OrientationBases.ForwardNegativeZUpY
 		}
 		CameraViewport 
@@ -134,7 +133,7 @@ Level
 			var Visible = true
 			var ViewCulling = false
 			var VisibilityEvents = true
-			var Material = "580267aabbf7843e:DirectionalLightShadows"
+			var Material = ""
 			var Mesh = ""
 		}
 		DirectionalLight 
@@ -146,6 +145,7 @@ Level
 		}
 		ShadowRenderer 
 		{
+			var ResolutionValue = ShadowResolution.High
 		}
 		Hierarchy 
 		{
@@ -358,8 +358,7 @@ Level
 		Orientation 
 		{
 			var GlobalUp = Vec3{0, 1, 0}
-			var UpVector = Vec3{0, 0, 1}
-			var ForwardVector = Vec3{0, 1, 0}
+			var LocalOrientationBasis = Quat{0, 0, 0, 1}
 			var DefaultBases = OrientationBases.ForwardYUpZ
 		}
 		ObjectLink 

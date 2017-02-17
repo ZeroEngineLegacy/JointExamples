@@ -33,8 +33,8 @@ Level
 			var AlwaysDrawInEditor = true
 			var DrawInGame = false
 			var GridColor = Vec4{0.5, 0.5, 0.5, 0.400000006}
-			var GridHiLight = Vec4{0, 0, 0, 0.400000006}
-			var HilightInterval = 10
+			var GridHighlight = Vec4{0, 0, 0, 0.400000006}
+			var HighlightInterval = 10
 			var FollowEditorCamera = false
 		}
 	}
@@ -88,8 +88,7 @@ Level
 		Orientation 
 		{
 			var GlobalUp = Vec3{0, 1, 0}
-			var UpVector = Vec3{0, 1, 0}
-			var ForwardVector = Vec3{-0, -0, -1}
+			var LocalOrientationBasis = Quat{0, 0, 0, 1}
 			var DefaultBases = OrientationBases.ForwardNegativeZUpY
 		}
 		CameraViewport 
@@ -146,13 +145,14 @@ Level
 		}
 		ShadowRenderer 
 		{
+			var ResolutionValue = ShadowResolution.High
 		}
 		Model 
 		{
 			var Visible = true
 			var ViewCulling = false
 			var VisibilityEvents = true
-			var Material = "580267aabbf7843e:DirectionalLightShadows"
+			var Material = ""
 			var Mesh = ""
 		}
 		DirectionalLight 
@@ -172,9 +172,9 @@ Level
 		var LinkId = 4
 		Transform 
 		{
-			var Translation = Vec3{-7.00213861, 5.54566097, 18.6732769}
+			var Translation = Vec3{-10.801013, 4.11095238, 8.59218216}
 			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{-0.0857783034, -0.176410988, -0.0154339643, 0.980450451}
+			var Rotation = Quat{-0.0554172024, -0.119949706, -0.00670623034, 0.991209388}
 		}
 		CameraViewport 
 		{
@@ -231,10 +231,10 @@ Level
 		EditorCameraController 
 		{
 			var ControlMode = ControlMode.Orbit
-			var LookDistance = 24.5960464
-			var VerticalAngle = 0.17453292
-			var HorizontalAngle = 0.356047362
-			var LookTarget = Vec3{1.44110918, 1.27460229, -4.02991819}
+			var LookDistance = 9.04838848
+			var VerticalAngle = 0.111701049
+			var HorizontalAngle = 0.240855813
+			var LookTarget = Vec3{-8.65611744, 3.10233855, -0.140254885}
 			var MoveSensitivity = 1
 		}
 	}
@@ -355,7 +355,7 @@ Level
 		Transform 
 		{
 			var Translation = Vec3{0, 7.33674192, 0}
-			var Scale = Vec3{1, 1, 1}
+			var Scale = Vec3{1.5, 1.5, 1.5}
 			var Rotation = Quat{0, 0, 0, 1}
 		}
 		SpriteText 
@@ -392,7 +392,7 @@ Level
 				Transform 
 				{
 					var Translation = Vec3{0, 2, 0}
-					var Scale = Vec3{1, 1, 1}
+					var Scale = Vec3{1.5, 1.5, 1.5}
 					var Rotation = Quat{0, 0, 0, 1}
 				}
 				SpriteText 
@@ -732,7 +732,7 @@ Level
 				Transform 
 				{
 					var Translation = Vec3{0, 2, 0}
-					var Scale = Vec3{1, 1, 1}
+					var Scale = Vec3{1.5, 1.5, 1.5}
 					var Rotation = Quat{0, 0, 0, 1}
 				}
 				SpriteText 
@@ -1072,7 +1072,7 @@ Level
 				Transform 
 				{
 					var Translation = Vec3{0, 2, 0}
-					var Scale = Vec3{1, 1, 1}
+					var Scale = Vec3{1.5, 1.5, 1.5}
 					var Rotation = Quat{0, 0, 0, 1}
 				}
 				SpriteText 
@@ -1412,7 +1412,7 @@ Level
 				Transform 
 				{
 					var Translation = Vec3{0, 2, 0}
-					var Scale = Vec3{1, 1, 1}
+					var Scale = Vec3{1.5, 1.5, 1.5}
 					var Rotation = Quat{0, 0, 0, 1}
 				}
 				SpriteText 
