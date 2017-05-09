@@ -75,7 +75,7 @@ class PlayerGrabber : ZilchComponent
     var ray = Ray();
     ray.Start = position;
     ray.Direction = Math.Normalize(forward);
-    var results = this.Space.PhysicsSpace.CastRayResults(ray, 100);
+    var results = this.Space.PhysicsSpace.CastRay(ray, 100);
     foreach(var result in results)
     {
       // If this object was too far away then skip it

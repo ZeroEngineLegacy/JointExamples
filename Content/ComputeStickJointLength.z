@@ -10,23 +10,24 @@ class ComputeStickJointLength : ZilchComponent
   function OnCommandExecute(event : CommandEvent)
   {
     // Find all active stick joints in the active selection
-    foreach(var cog in Zero.Editor.ActiveSelection.AllObjects())
-    {
-      var stickJoint = cog.StickJoint;
-      if(stickJoint == null)
-        continue;
-      
-      // Mark the space as modified
-      Zero.Editor.EditSpace.Modified();
-      // Compute the distance between the points
-      var objectLink = cog.ObjectLink;
-      var distance = Math.Distance(objectLink.WorldPointA, objectLink.WorldPointB);
-      // Set the stick joint's length
-      stickJoint.Length = distance;
-      // If there's a joint limit then set the upper limit for that as well (leave the lower limit alone)
-      var limit = cog.JointLimit;
-      if(limit != null)
-        limit.UpperLimit = distance;
-    }
+    //foreach(var object in Zero.Editor.ActiveSelection.All)
+    //{
+    //  var cog = object as Cog;
+    //  var stickJoint = cog.StickJoint;
+    //  if(stickJoint == null)
+    //    continue;
+    //  
+    //  // Mark the space as modified
+    //  Zero.Editor.EditSpace.Modified();
+    //  // Compute the distance between the points
+    //  var objectLink = cog.ObjectLink;
+    //  var distance = Math.Distance(objectLink.WorldPointA, objectLink.WorldPointB);
+    //  // Set the stick joint's length
+    //  stickJoint.Length = distance;
+    //  // If there's a joint limit then set the upper limit for that as well (leave the lower limit alone)
+    //  var limit = cog.JointLimit;
+    //  if(limit != null)
+    //    limit.UpperLimit = distance;
+    //}
   }
 }

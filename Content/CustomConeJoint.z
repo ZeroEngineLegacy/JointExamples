@@ -153,14 +153,14 @@ class CustomConeJoint : ZilchComponent
     var newCenter = worldPosition + Math.Normalize(primaryForward) * offset;
     var newRadius = Math.Sqrt(coneRadius * coneRadius - offset * offset);
     // Draw the circle that represents the cone's limit
-    var debugCircle = DebugCircle() {Position = newCenter, Radius = newRadius, Axis = primaryForward, Color = this.PrimaryFrameColor};
+    var debugCircle = DebugCircle(newCenter, primaryForward, newRadius) {Color = this.PrimaryFrameColor};
     DebugDraw.Add(debugCircle);
     // Draw vectors from the cone start to the circle edge to help visualize the volume of the cone
-    DebugDraw.Add(DebugLine() {Start = worldPosition, End = newCenter + primaryAxis0 * newRadius, Color = this.PrimaryFrameColor});
-    DebugDraw.Add(DebugLine() {Start = worldPosition, End = newCenter - primaryAxis0 * newRadius, Color = this.PrimaryFrameColor});
-    DebugDraw.Add(DebugLine() {Start = worldPosition, End = newCenter + primaryAxis1 * newRadius, Color = this.PrimaryFrameColor});
-    DebugDraw.Add(DebugLine() {Start = worldPosition, End = newCenter - primaryAxis1 * newRadius, Color = this.PrimaryFrameColor});
+    DebugDraw.Add(DebugLine(worldPosition, newCenter + primaryAxis0 * newRadius) {Color = this.PrimaryFrameColor});
+    DebugDraw.Add(DebugLine(worldPosition, newCenter - primaryAxis0 * newRadius) {Color = this.PrimaryFrameColor});
+    DebugDraw.Add(DebugLine(worldPosition, newCenter + primaryAxis1 * newRadius) {Color = this.PrimaryFrameColor});
+    DebugDraw.Add(DebugLine(worldPosition, newCenter - primaryAxis1 * newRadius) {Color = this.PrimaryFrameColor});
     // Draw the other object's forward so it's easy to see what the error is
-    DebugDraw.Add(DebugLine() {Start = worldPosition, End = worldPosition + secondaryForward * secondaryRadius, Color = this.SecondaryFrameColor});
+    DebugDraw.Add(DebugLine(worldPosition, worldPosition + secondaryForward * secondaryRadius) {Color = this.SecondaryFrameColor});
   }
 }

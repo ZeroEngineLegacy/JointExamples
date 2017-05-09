@@ -11,9 +11,7 @@ class ObjectLinkConnectionDebugDrawer : ZilchComponent
 
   function OnFrameUpdate(event : UpdateEvent)
   {
-    var line = DebugLine();
-    line.Start = this.ObjectLink.WorldPointA;
-    line.End = this.ObjectLink.WorldPointB;
+    var line = DebugLine(this.ObjectLink.WorldPointA, this.ObjectLink.WorldPointB);
     line.Color = this.Color;
     DebugDraw.Add(line);
   }

@@ -11,7 +11,7 @@ class PlayerLogic : ZilchComponent
   
   function Initialize(init : CogInitializer)
   {
-    this.GrabberCogPath.Required = false;
+    //this.GrabberCogPath.Required = false;
     // Auto-trap the mouse
     Zero.Mouse.Trapped = true;
     
@@ -37,7 +37,8 @@ class PlayerLogic : ZilchComponent
     
     // Dispatch an interact event in front of us
     var toSend = InteractEvent();
-    this.Space.PhysicsSpace.DispatchWithinSphere(center, this.InteractionRadius, Events.Interact, toSend);
+    var sphere = Sphere() {Center = center, Radius = this.InteractionRadius};
+    this.Space.PhysicsSpace.DispatchWithinSphere(sphere, Events.Interact, toSend);
     // If someone handled this then return
     if(toSend.Handled)
       return;

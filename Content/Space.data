@@ -8,7 +8,7 @@ Space
 		var MaxDt = 0.300000012
 		var MinDt = 9.99999997e-07
 		var TimeScale = 1
-		var TimeMode = 0
+		var TimeMode = TimeMode.FixedFrametime
 		var StepCount = 1
 	}
 	GraphicsSpace 
@@ -24,13 +24,15 @@ Space
 		var Mode2D = false
 		var Deterministic = true
 		var SubStepCount = 1
-		var CollisionFilter = "4e66a5c0b9dc59b9:DefaultCollisionTable"
+		var CollisionTable = "4e66a5c0b9dc59b9:DefaultCollisionTable"
 		var PhysicsSolverConfig = "5391c496ad3459b8:PostStabilization"
 		var DynamicBroadphaseType = "DynamicAabbTree"
 		var StaticBroadphaseType = "StaticAabbTree"
 	}
 	SoundSpace 
 	{
+		var PauseWithTimeSpace = true
+		var PitchWithTimeSpace = true
 	}
 	ReactiveSpace 
 	{

@@ -96,16 +96,16 @@ class CustomRevoluteJoint : ZilchComponent
     var endVector = Math.Multiply(Math.ToQuaternion(worldAxis, endAngle), arcStartDirection);
     
     // Construct the arc from the 3 points on the circle
-    var arc = DebugArc();
-    arc.Mid = worldPosition + radius * arcStartDirection;
-    arc.Start = worldPosition + radius * startVector;
-    arc.End = worldPosition + radius * endVector;
+    var mid = worldPosition + radius * arcStartDirection;
+    var start = worldPosition + radius * startVector;
+    var end = worldPosition + radius * endVector;
+    var arc = DebugArc(start, mid, end);
     arc.Color = color;
     DebugDraw.Add(arc);
     
     // Close off the arc by drawing vectors from the center to ends of the arc
-    DebugDraw.Add(DebugLine() {Start = worldPosition, End = worldPosition + radius * startVector, Color = color});
-    DebugDraw.Add(DebugLine() {Start = worldPosition, End = worldPosition + radius * endVector, Color = color});
+    DebugDraw.Add(DebugLine(worldPosition, worldPosition + radius * startVector) {Color = color});
+    DebugDraw.Add(DebugLine(worldPosition, worldPosition + radius * endVector) {Color = color});
   }
   
   function DebugDraw()
@@ -138,10 +138,10 @@ class CustomRevoluteJoint : ZilchComponent
     // Otherwise just draw a circle (all angles are valid)
     else
     {
-      var debugCircle = DebugCircle() {Position = worldPosition, Radius = arcRadius, Axis = primaryHingeAxis, Color = this.PrimaryFrameColor};
+      var debugCircle = DebugCircle(worldPosition, primaryHingeAxis, arcRadius) {Color = this.PrimaryFrameColor};
       DebugDraw.Add(debugCircle);
     }
     // Always draw where the secondary frame's world forward is so the user can visualize the arc error better
-    DebugDraw.Add(DebugLine() {Start = worldPosition, End = worldPosition + secondaryForward * secondaryRadius, Color = this.SecondaryFrameColor});
+    DebugDraw.Add(DebugLine(worldPosition, worldPosition + secondaryForward * secondaryRadius) {Color = this.SecondaryFrameColor});
   }
 }

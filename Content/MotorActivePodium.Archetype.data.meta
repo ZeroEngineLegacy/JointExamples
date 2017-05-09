@@ -1,14 +1,6 @@
 [Version:1]
 DataContent 
 {
-	DataBuilder 
-	{
-		var Name = "MotorActivePodium"
-		var ResourceId = 0x58c4ece4dc641b8a
-		var LoaderType = "Cog"
-		var Version = 0
-		var ShowInEditor = true
-	}
 	ContentTags 
 	{
 		var Tags = Array
@@ -16,5 +8,13 @@ DataContent
 			"Archetype"
 			"Cog"
 		}
+	}
+	DataBuilder 
+	{
+		var Name = "MotorActivePodium"
+		var ResourceId = 0x58c4ece4dc641b8a
+		var LoaderType = "Cog"
+		var Version = 0
+		var ShowInEditor = true
 	}
 }

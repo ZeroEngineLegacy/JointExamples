@@ -60,7 +60,7 @@ class CustomStickJoint : ZilchComponent
     var worldPointA = this.ObjectLink.WorldPointA;
     var worldPointB = this.ObjectLink.WorldPointB;
     
-    var line = DebugLine() {Start = worldPointA, End = worldPointB, Color = Real4(1), OnTop = true};
+    var line = DebugLine(worldPointA, worldPointB) {Color = Real4(1), OnTop = true};
     DebugDraw.Add(line);
   }
 }

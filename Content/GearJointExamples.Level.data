@@ -9,14 +9,16 @@ Level
 		{
 			var Active = true
 			var WakeUpOnChange = false
+			var DebugDrawEffect = true
 			var LocalSpaceDirection = true
 			var Strength = 10
-			var Direction = Vec3{0, -1, 0}
+			var Direction = Real3{0, -1, 0}
 		}
 		DragEffect 
 		{
 			var Active = true
 			var WakeUpOnChange = false
+			var DebugDrawEffect = true
 			var LinearDamping = 0.200000003
 			var AngularDamping = 0.100000001
 			var LinearDrag = 0
@@ -24,17 +26,17 @@ Level
 		}
 		GridDraw 
 		{
-			var Active = true
+			var Active = false
 			var HalfCellOffset = false
 			var CellSize = 1
-			var Axis = GridAxis.YAxis
+			var Axis = AxisDirection.Y
 			var Lines = 100
 			var DrawAxisOrigins = true
 			var AlwaysDrawInEditor = true
 			var DrawInGame = false
-			var GridColor = Vec4{0.5, 0.5, 0.5, 0.400000006}
-			var GridHiLight = Vec4{0, 0, 0, 0.400000006}
-			var HilightInterval = 10
+			var GridColor = Real4{0.5, 0.5, 0.5, 0.400000006}
+			var GridHighlight = Real4{0, 0, 0, 0.400000006}
+			var HighlightInterval = 10
 			var FollowEditorCamera = false
 		}
 	}
@@ -49,6 +51,7 @@ Level
 			var ShowDiffuse = true
 			var ShowSpecular = true
 			var Skybox = "5822dec85e380cf1:SimpleSkybox"
+			var ClearColor = Real4{0, 0, 0, 1}
 			var DrawSkybox = true
 			var DirectLighting = true
 			var IndirectLighting = true
@@ -57,7 +60,7 @@ Level
 		}
 		Ssao 
 		{
-			var Enabled = true
+			var Active = true
 			var Radius = 1
 			var Intensity = 2.20000005
 			var BlurDepthThreshold = 0.0500000007
@@ -65,7 +68,7 @@ Level
 		}
 		Bloom 
 		{
-			var Enabled = true
+			var Active = true
 			var Intensity = 0.100000001
 			var Threshold = 1
 			var Bloom1 = true
@@ -73,6 +76,7 @@ Level
 			var Bloom3 = true
 			var Bloom4 = true
 			var Bloom5 = true
+			var DebugBuffer = false
 		}
 	}
 	Cog 
@@ -81,15 +85,14 @@ Level
 		var LinkId = 3
 		Transform 
 		{
-			var Translation = Vec3{0, 50, 50}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{-0.382683456, 0, 0, 0.923879504}
+			var Translation = Real3{0, 50, 50}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{-0.382683456, 0, 0, 0.923879504}
 		}
 		Orientation 
 		{
-			var GlobalUp = Vec3{0, 1, 0}
-			var UpVector = Vec3{0, 1, 0}
-			var ForwardVector = Vec3{-0, -0, -1}
+			var GlobalUp = Real3{0, 1, 0}
+			var LocalOrientationBasis = Quaternion{0, 0, 0, 1}
 			var DefaultBases = OrientationBases.ForwardNegativeZUpY
 		}
 		CameraViewport 
@@ -99,8 +102,8 @@ Level
 			var RenderToViewport = false
 			var ForwardViewportEvents = false
 			var RenderOrder = -1
-			var NormalizedSize = Vec2{1, 1}
-			var NormalizedOffset = Vec2{0, 0}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
 			var Camera = CogPath
 			{
 				var Path = "."
@@ -131,13 +134,12 @@ Level
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Resolution = Vec2{1920, 1080}
+			var Resolution = Real2{1920, 1080}
 			var ViewportScaling = ViewportScaling.Fill
-			var MarginColor = Vec4{0, 0, 0, 1}
+			var MarginColor = Real4{0, 0, 0, 1}
 		}
 		Camera 
 		{
-			var Facing = Facing.NegativeZ
 			var NearPlane = 0.100000001
 			var FarPlane = 100
 			var PerspectiveMode = PerspectiveMode.Orthographic
@@ -146,18 +148,19 @@ Level
 		}
 		ShadowRenderer 
 		{
+			var ResolutionValue = ShadowResolution.High
 		}
 		Model 
 		{
 			var Visible = true
 			var ViewCulling = false
 			var VisibilityEvents = true
-			var Material = "580267aabbf7843e:DirectionalLightShadows"
+			var Material = ""
 			var Mesh = ""
 		}
 		DirectionalLight 
 		{
-			var LightColorValue = Vec3{1, 1, 1}
+			var LightColorValue = Real3{1, 1, 1}
 			var LightIntensityValue = 2
 			var CastShadowsValue = true
 			var NormalOffsetBias = 0.100000001
@@ -172,9 +175,9 @@ Level
 		var LinkId = 4
 		Transform 
 		{
-			var Translation = Vec3{-0.330869913, 5.77155066, 24.963789}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{-0.136575922, -0.00778030558, -0.00107269047, 0.99059844}
+			var Translation = Real3{1.45469427, -2.25713944, 25.8052731}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0.0279100519, 0.0287827216, -0.000803973235, 0.999195635}
 		}
 		CameraViewport 
 		{
@@ -183,8 +186,8 @@ Level
 			var RenderToViewport = true
 			var ForwardViewportEvents = false
 			var RenderOrder = 0
-			var NormalizedSize = Vec2{1, 1}
-			var NormalizedOffset = Vec2{0, 0}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
 			var Camera = CogPath
 			{
 				var Path = "."
@@ -215,13 +218,12 @@ Level
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Resolution = Vec2{1920, 1080}
+			var Resolution = Real2{1920, 1080}
 			var ViewportScaling = ViewportScaling.Fill
-			var MarginColor = Vec4{0, 0, 0, 1}
+			var MarginColor = Real4{0, 0, 0, 1}
 		}
 		Camera 
 		{
-			var Facing = Facing.NegativeZ
 			var NearPlane = 0.100000001
 			var FarPlane = 200
 			var PerspectiveMode = PerspectiveMode.Perspective
@@ -232,9 +234,9 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var LookDistance = 24.5960464
-			var VerticalAngle = 0.274016738
-			var HorizontalAngle = 0.015707925
-			var LookTarget = Vec3{0.0410534739, -0.884151757, 1.2882998}
+			var VerticalAngle = -0.0558505096
+			var HorizontalAngle = -0.0575959049
+			var LookTarget = Real3{0.0410534739, -0.884151757, 1.2882998}
 			var MoveSensitivity = 1
 		}
 	}
@@ -244,9 +246,9 @@ Level
 		var LinkId = 5
 		Transform 
 		{
-			var Translation = Vec3{0, 2, 23.7127724}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
+			var Translation = Real3{0, 2, 23.7127724}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		CameraViewport 
 		{
@@ -255,8 +257,8 @@ Level
 			var RenderToViewport = true
 			var ForwardViewportEvents = false
 			var RenderOrder = 0
-			var NormalizedSize = Vec2{1, 1}
-			var NormalizedOffset = Vec2{0, 0}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
 			var Camera = CogPath
 			{
 				var Path = "."
@@ -287,13 +289,12 @@ Level
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Resolution = Vec2{1920, 1080}
+			var Resolution = Real2{1920, 1080}
 			var ViewportScaling = ViewportScaling.Letterbox
-			var MarginColor = Vec4{0, 0, 0, 1}
+			var MarginColor = Real4{0, 0, 0, 1}
 		}
 		Camera 
 		{
-			var Facing = Facing.NegativeZ
 			var NearPlane = 0.100000001
 			var FarPlane = 200
 			var PerspectiveMode = PerspectiveMode.Perspective
@@ -326,9 +327,9 @@ Level
 		var LinkId = 6
 		Transform 
 		{
-			var Translation = Vec3{0, -14.8990974, 0}
-			var Scale = Vec3{30, 1, 30}
-			var Rotation = Quat{0, 0, 0, 1}
+			var Translation = Real3{0, -14.8990974, 0}
+			var Scale = Real3{30, 1, 30}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Model 
 		{
@@ -344,8 +345,8 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Vec3{0, 0, 0}
-			var HalfSize = Vec3{0.5, 0.5, 0.5}
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
 	Cog 
@@ -354,9 +355,9 @@ Level
 		var LinkId = 7
 		Transform 
 		{
-			var Translation = Vec3{0, 7.33674192, 0}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
+			var Translation = Real3{0, 7.33674192, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		SpriteText 
 		{
@@ -364,7 +365,7 @@ Level
 			var ViewCulling = true
 			var VisibilityEvents = true
 			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Vec4{1, 1, 1, 1}
+			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
 			var Font = "57343753bb4eaaec:NotoSans-Regular"
 			var FontSize = 32
@@ -379,9 +380,9 @@ Level
 		var LinkId = 8
 		Transform 
 		{
-			var Translation = Vec3{-9.78536606, 3.70250225, 0}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
+			var Translation = Real3{-9.78536606, 3.70250225, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Hierarchy 
 		{
@@ -391,9 +392,9 @@ Level
 				var LinkId = 9
 				Transform 
 				{
-					var Translation = Vec3{0, 2, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{0, 2, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				SpriteText 
 				{
@@ -401,7 +402,7 @@ Level
 					var ViewCulling = true
 					var VisibilityEvents = true
 					var Material = "582c575af53d18c9:AlphaSprite"
-					var VertexColor = Vec4{1, 1, 1, 1}
+					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 32
@@ -416,9 +417,9 @@ Level
 				var LinkId = 10
 				Transform 
 				{
-					var Translation = Vec3{-1.5, -2.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{-1.5, -2.5, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -430,9 +431,9 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Static
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
 					var Asleep = false
 					var RotationLocked = false
@@ -444,8 +445,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -454,9 +455,9 @@ Level
 				var LinkId = 11
 				Transform 
 				{
-					var Translation = Vec3{1.5, -2.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{1.5, -2.5, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -468,9 +469,9 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Static
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
 					var Asleep = false
 					var RotationLocked = false
@@ -482,8 +483,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -492,9 +493,9 @@ Level
 				var LinkId = 12
 				Transform 
 				{
-					var Translation = Vec3{1.5, 0.323329449, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{1.5, 0.323329449, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -506,8 +507,8 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
 					var DynamicState = RigidBodyDynamicState.Dynamic
 					var AllowSleep = true
 					var Asleep = false
@@ -520,8 +521,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -530,9 +531,9 @@ Level
 				var LinkId = 13
 				Transform 
 				{
-					var Translation = Vec3{-1.5, 0.323329449, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{-1.5, 0.323329449, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -544,8 +545,8 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
 					var DynamicState = RigidBodyDynamicState.Dynamic
 					var AllowSleep = true
 					var Asleep = false
@@ -558,8 +559,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -598,8 +599,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0, 0, 0}
-					var LocalPointB = Vec3{0, 0, 0}
+					var LocalPointA = Real3{0, 0, 0}
+					var LocalPointB = Real3{0, 0, 0}
 				}
 				DebugDrawer 
 				{
@@ -611,12 +612,12 @@ Level
 					var AutoSnaps = false
 					var CollideConnected = true
 					var MaxForce = 0
-					var LocalPointA = Vec3{0, 0, 0}
-					var LocalPointB = Vec3{0, 0, 0}
-					var LocalAngleA = Quat{-0, -0, -0, 1}
-					var LocalAngleB = Quat{-0, -0, -0, 1}
-					var LocalAxisA = Vec3{0, 1, 0}
-					var LocalAxisB = Vec3{0, 1, 0}
+					var LocalPointA = Real3{0, 0, 0}
+					var LocalPointB = Real3{0, 0, 0}
+					var LocalAngleA = Quaternion{-0, -0, -0, 1}
+					var LocalAngleB = Quaternion{-0, -0, -0, 1}
+					var LocalAxisA = Real3{0, 1, 0}
+					var LocalAxisB = Real3{0, 1, 0}
 				}
 			}
 			Cog 
@@ -655,8 +656,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0, 0, 0}
-					var LocalPointB = Vec3{0, 0, 0}
+					var LocalPointA = Real3{0, 0, 0}
+					var LocalPointB = Real3{0, 0, 0}
 				}
 				DebugDrawer 
 				{
@@ -668,12 +669,12 @@ Level
 					var AutoSnaps = false
 					var CollideConnected = true
 					var MaxForce = 0
-					var LocalPointA = Vec3{0, 0, 0}
-					var LocalPointB = Vec3{0, 0, 0}
-					var LocalAngleA = Quat{-0, -0, -0, 1}
-					var LocalAngleB = Quat{-0, -0, -0, 1}
-					var LocalAxisA = Vec3{0, 1, 0}
-					var LocalAxisB = Vec3{0, 1, 0}
+					var LocalPointA = Real3{0, 0, 0}
+					var LocalPointB = Real3{0, 0, 0}
+					var LocalAngleA = Quaternion{-0, -0, -0, 1}
+					var LocalAngleB = Quaternion{-0, -0, -0, 1}
+					var LocalAxisA = Real3{0, 1, 0}
+					var LocalAxisB = Real3{0, 1, 0}
 				}
 			}
 			Cog 
@@ -712,8 +713,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0.170043945, 0.0553541183, 0.5}
-					var LocalPointB = Vec3{-0.171238422, 0.0516095161, 0.500000954}
+					var LocalPointA = Real3{0.170043945, 0.0553541183, 0.5}
+					var LocalPointB = Real3{-0.171238422, 0.0516095161, 0.500000954}
 				}
 				GearJoint 
 				{
@@ -764,9 +765,9 @@ Level
 		var LinkId = 17
 		Transform 
 		{
-			var Translation = Vec3{-0.890548944, 3.70250225, 0}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
+			var Translation = Real3{-0.890548944, 3.70250225, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Hierarchy 
 		{
@@ -776,9 +777,9 @@ Level
 				var LinkId = 18
 				Transform 
 				{
-					var Translation = Vec3{0, 2, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{0, 2, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				SpriteText 
 				{
@@ -786,7 +787,7 @@ Level
 					var ViewCulling = true
 					var VisibilityEvents = true
 					var Material = "582c575af53d18c9:AlphaSprite"
-					var VertexColor = Vec4{1, 1, 1, 1}
+					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 32
@@ -801,9 +802,9 @@ Level
 				var LinkId = 19
 				Transform 
 				{
-					var Translation = Vec3{-1.5, -2.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{-1.5, -2.5, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -815,9 +816,9 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Static
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
 					var Asleep = false
 					var RotationLocked = false
@@ -829,8 +830,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -839,9 +840,9 @@ Level
 				var LinkId = 20
 				Transform 
 				{
-					var Translation = Vec3{2.31092191, -2.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{2.31092191, -2.5, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -853,9 +854,9 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Static
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
 					var Asleep = false
 					var RotationLocked = false
@@ -867,8 +868,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -877,9 +878,9 @@ Level
 				var LinkId = 21
 				Transform 
 				{
-					var Translation = Vec3{2.31092191, 0.323329449, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{2.31092191, 0.323329449, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -891,8 +892,8 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
 					var DynamicState = RigidBodyDynamicState.Dynamic
 					var AllowSleep = true
 					var Asleep = false
@@ -905,8 +906,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -915,9 +916,9 @@ Level
 				var LinkId = 22
 				Transform 
 				{
-					var Translation = Vec3{-1.5, 0.323329449, 0}
-					var Scale = Vec3{4, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{-1.5, 0.323329449, 0}
+					var Scale = Real3{4, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -929,8 +930,8 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
 					var DynamicState = RigidBodyDynamicState.Dynamic
 					var AllowSleep = true
 					var Asleep = false
@@ -943,8 +944,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -983,8 +984,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0, 2, 0}
-					var LocalPointB = Vec3{0, 0, 0}
+					var LocalPointA = Real3{0, 2, 0}
+					var LocalPointB = Real3{0, 0, 0}
 				}
 				DebugDrawer 
 				{
@@ -997,10 +998,10 @@ Level
 					var CollideConnected = true
 					var MaxForce = 0
 					var UseFrameA = true
-					var LocalPointA = Vec3{0, 2, 0}
-					var LocalPointB = Vec3{0, 0, 0}
-					var LocalAngleA = Quat{-0.707106829, 0, -0, 0.707106829}
-					var LocalAngleB = Quat{-0.707106829, 0, -0, 0.707106829}
+					var LocalPointA = Real3{0, 2, 0}
+					var LocalPointB = Real3{0, 0, 0}
+					var LocalAngleA = Quaternion{-0.707106829, 0, -0, 0.707106829}
+					var LocalAngleB = Quaternion{-0.707106829, 0, -0, 0.707106829}
 				}
 			}
 			Cog 
@@ -1039,8 +1040,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0, 0, 0}
-					var LocalPointB = Vec3{0, 0, 0}
+					var LocalPointA = Real3{0, 0, 0}
+					var LocalPointB = Real3{0, 0, 0}
 				}
 				DebugDrawer 
 				{
@@ -1052,12 +1053,12 @@ Level
 					var AutoSnaps = false
 					var CollideConnected = true
 					var MaxForce = 0
-					var LocalPointA = Vec3{0, 0, 0}
-					var LocalPointB = Vec3{0, 0, 0}
-					var LocalAngleA = Quat{-0, -0, -0, 1}
-					var LocalAngleB = Quat{-0, -0, -0, 1}
-					var LocalAxisA = Vec3{0, 1, 0}
-					var LocalAxisB = Vec3{0, 1, 0}
+					var LocalPointA = Real3{0, 0, 0}
+					var LocalPointB = Real3{0, 0, 0}
+					var LocalAngleA = Quaternion{-0, -0, -0, 1}
+					var LocalAngleB = Quaternion{-0, -0, -0, 1}
+					var LocalAxisA = Real3{0, 1, 0}
+					var LocalAxisB = Real3{0, 1, 0}
 				}
 			}
 			Cog 
@@ -1096,8 +1097,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0.170043945, 0.0553541183, 0.5}
-					var LocalPointB = Vec3{-0.171238422, 0.0516095161, 0.500000954}
+					var LocalPointA = Real3{0.170043945, 0.0553541183, 0.5}
+					var LocalPointB = Real3{-0.171238422, 0.0516095161, 0.500000954}
 				}
 				GearJoint 
 				{
@@ -1148,9 +1149,9 @@ Level
 		var LinkId = 26
 		Transform 
 		{
-			var Translation = Vec3{7.09191895, 3.70250225, 0}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
+			var Translation = Real3{7.09191895, 3.70250225, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Hierarchy 
 		{
@@ -1160,9 +1161,9 @@ Level
 				var LinkId = 27
 				Transform 
 				{
-					var Translation = Vec3{0, 2, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{0, 2, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				SpriteText 
 				{
@@ -1170,7 +1171,7 @@ Level
 					var ViewCulling = true
 					var VisibilityEvents = true
 					var Material = "582c575af53d18c9:AlphaSprite"
-					var VertexColor = Vec4{1, 1, 1, 1}
+					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 32
@@ -1185,9 +1186,9 @@ Level
 				var LinkId = 28
 				Transform 
 				{
-					var Translation = Vec3{-1.5, -2.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{-1.5, -2.5, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -1199,9 +1200,9 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Static
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
 					var Asleep = false
 					var RotationLocked = false
@@ -1213,8 +1214,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -1223,9 +1224,9 @@ Level
 				var LinkId = 29
 				Transform 
 				{
-					var Translation = Vec3{2.96688008, -2.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{2.96688008, -2.5, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -1237,9 +1238,9 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Static
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
 					var Asleep = false
 					var RotationLocked = false
@@ -1251,8 +1252,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -1261,9 +1262,9 @@ Level
 				var LinkId = 30
 				Transform 
 				{
-					var Translation = Vec3{2.96688008, 0.323329449, 0}
-					var Scale = Vec3{4, 2, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{2.96688008, 0.323329449, 0}
+					var Scale = Real3{4, 2, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -1275,8 +1276,8 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
 					var DynamicState = RigidBodyDynamicState.Dynamic
 					var AllowSleep = true
 					var Asleep = false
@@ -1289,8 +1290,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -1299,9 +1300,9 @@ Level
 				var LinkId = 31
 				Transform 
 				{
-					var Translation = Vec3{-1.5, 0.323329449, 0}
-					var Scale = Vec3{4, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{-1.5, 0.323329449, 0}
+					var Scale = Real3{4, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -1313,8 +1314,8 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
 					var DynamicState = RigidBodyDynamicState.Dynamic
 					var AllowSleep = true
 					var Asleep = false
@@ -1327,8 +1328,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -1367,8 +1368,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0, 2, 0}
-					var LocalPointB = Vec3{0, 0, 0}
+					var LocalPointA = Real3{0, 2, 0}
+					var LocalPointB = Real3{0, 0, 0}
 				}
 				DebugDrawer 
 				{
@@ -1381,10 +1382,10 @@ Level
 					var CollideConnected = true
 					var MaxForce = 0
 					var UseFrameA = true
-					var LocalPointA = Vec3{0, 2, 0}
-					var LocalPointB = Vec3{0, 0, 0}
-					var LocalAngleA = Quat{-0.707106829, 0, -0, 0.707106829}
-					var LocalAngleB = Quat{-0.707106829, 0, -0, 0.707106829}
+					var LocalPointA = Real3{0, 2, 0}
+					var LocalPointB = Real3{0, 0, 0}
+					var LocalAngleA = Quaternion{-0.707106829, 0, -0, 0.707106829}
+					var LocalAngleB = Quaternion{-0.707106829, 0, -0, 0.707106829}
 				}
 			}
 			Cog 
@@ -1423,8 +1424,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0, 2, 0}
-					var LocalPointB = Vec3{0, 0, 0}
+					var LocalPointA = Real3{0, 2, 0}
+					var LocalPointB = Real3{0, 0, 0}
 				}
 				DebugDrawer 
 				{
@@ -1437,10 +1438,10 @@ Level
 					var CollideConnected = true
 					var MaxForce = 0
 					var UseFrameA = true
-					var LocalPointA = Vec3{0, 2, 0}
-					var LocalPointB = Vec3{0, 0, 0}
-					var LocalAngleA = Quat{-0.5, 0.5, -0.5, 0.5}
-					var LocalAngleB = Quat{-0.5, 0.5, -0.5, 0.5}
+					var LocalPointA = Real3{0, 2, 0}
+					var LocalPointB = Real3{0, 0, 0}
+					var LocalAngleA = Quaternion{-0.5, 0.5, -0.5, 0.5}
+					var LocalAngleB = Quaternion{-0.5, 0.5, -0.5, 0.5}
 				}
 			}
 			Cog 
@@ -1479,8 +1480,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0.170043945, 0.0553541183, 0.5}
-					var LocalPointB = Vec3{-0.171238422, 0.0516095161, 0.500000954}
+					var LocalPointA = Real3{0.170043945, 0.0553541183, 0.5}
+					var LocalPointB = Real3{-0.171238422, 0.0516095161, 0.500000954}
 				}
 				GearJoint 
 				{
@@ -1531,9 +1532,9 @@ Level
 		var LinkId = 35
 		Transform 
 		{
-			var Translation = Vec3{-3.67152214, -6.5796423, 0}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
+			var Translation = Real3{-3.67152214, -6.5796423, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Hierarchy 
 		{
@@ -1543,9 +1544,9 @@ Level
 				var LinkId = 36
 				Transform 
 				{
-					var Translation = Vec3{0, 2.54655361, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{0, 2.54655361, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				SpriteText 
 				{
@@ -1553,7 +1554,7 @@ Level
 					var ViewCulling = true
 					var VisibilityEvents = true
 					var Material = "582c575af53d18c9:AlphaSprite"
-					var VertexColor = Vec4{1, 1, 1, 1}
+					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 32
@@ -1568,9 +1569,9 @@ Level
 				var LinkId = 37
 				Transform 
 				{
-					var Translation = Vec3{-1.5, -2.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{-1.5, -2.5, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -1582,9 +1583,9 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Static
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
 					var Asleep = false
 					var RotationLocked = false
@@ -1596,8 +1597,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -1606,9 +1607,9 @@ Level
 				var LinkId = 38
 				Transform 
 				{
-					var Translation = Vec3{1.5, -2.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{1.5, -2.5, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -1620,9 +1621,9 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Static
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
 					var Asleep = false
 					var RotationLocked = false
@@ -1634,8 +1635,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -1644,9 +1645,9 @@ Level
 				var LinkId = 39
 				Transform 
 				{
-					var Translation = Vec3{1.5, 0.323329449, 0}
-					var Scale = Vec3{2, 2, 2}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{1.5, 0.323329449, 0}
+					var Scale = Real3{2, 2, 2}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -1658,8 +1659,8 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
 					var DynamicState = RigidBodyDynamicState.Dynamic
 					var AllowSleep = true
 					var Asleep = false
@@ -1672,8 +1673,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -1682,9 +1683,9 @@ Level
 				var LinkId = 40
 				Transform 
 				{
-					var Translation = Vec3{-1.5, 0.323329449, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{-1.5, 0.323329449, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -1696,8 +1697,8 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
 					var DynamicState = RigidBodyDynamicState.Dynamic
 					var AllowSleep = true
 					var Asleep = false
@@ -1710,8 +1711,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -1750,8 +1751,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0, 0, 0}
-					var LocalPointB = Vec3{0, 0, 0}
+					var LocalPointA = Real3{0, 0, 0}
+					var LocalPointB = Real3{0, 0, 0}
 				}
 				DebugDrawer 
 				{
@@ -1763,12 +1764,12 @@ Level
 					var AutoSnaps = false
 					var CollideConnected = true
 					var MaxForce = 0
-					var LocalPointA = Vec3{0, 0, 0}
-					var LocalPointB = Vec3{0, 0, 0}
-					var LocalAngleA = Quat{-0, -0, -0, 1}
-					var LocalAngleB = Quat{-0, -0, -0, 1}
-					var LocalAxisA = Vec3{0, 1, 0}
-					var LocalAxisB = Vec3{0, 1, 0}
+					var LocalPointA = Real3{0, 0, 0}
+					var LocalPointB = Real3{0, 0, 0}
+					var LocalAngleA = Quaternion{-0, -0, -0, 1}
+					var LocalAngleB = Quaternion{-0, -0, -0, 1}
+					var LocalAxisA = Real3{0, 1, 0}
+					var LocalAxisB = Real3{0, 1, 0}
 				}
 			}
 			Cog 
@@ -1807,8 +1808,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0, 0, 0}
-					var LocalPointB = Vec3{0, 0, 0}
+					var LocalPointA = Real3{0, 0, 0}
+					var LocalPointB = Real3{0, 0, 0}
 				}
 				DebugDrawer 
 				{
@@ -1820,12 +1821,12 @@ Level
 					var AutoSnaps = false
 					var CollideConnected = true
 					var MaxForce = 0
-					var LocalPointA = Vec3{0, 0, 0}
-					var LocalPointB = Vec3{0, 0, 0}
-					var LocalAngleA = Quat{-0, -0, -0, 1}
-					var LocalAngleB = Quat{-0, -0, -0, 1}
-					var LocalAxisA = Vec3{0, 1, 0}
-					var LocalAxisB = Vec3{0, 1, 0}
+					var LocalPointA = Real3{0, 0, 0}
+					var LocalPointB = Real3{0, 0, 0}
+					var LocalAngleA = Quaternion{-0, -0, -0, 1}
+					var LocalAngleB = Quaternion{-0, -0, -0, 1}
+					var LocalAxisA = Real3{0, 1, 0}
+					var LocalAxisB = Real3{0, 1, 0}
 				}
 			}
 			Cog 
@@ -1864,8 +1865,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0.170043945, 0.0553541183, 0.5}
-					var LocalPointB = Vec3{-0.171238422, 0.0516095161, 0.500000954}
+					var LocalPointA = Real3{0.170043945, 0.0553541183, 0.5}
+					var LocalPointB = Real3{-0.171238422, 0.0516095161, 0.500000954}
 				}
 				GearJoint 
 				{
@@ -1914,9 +1915,9 @@ Level
 				var LinkId = 44
 				Transform 
 				{
-					var Translation = Vec3{-1.5, 1.82038188, 0}
-					var Scale = Vec3{0.699999988, 1.70000005, 1.70000005}
-					var Rotation = Quat{0, 0, 0.707106829, 0.707106829}
+					var Translation = Real3{-1.5, 1.82038188, 0}
+					var Scale = Real3{0.699999988, 1.70000005, 1.70000005}
+					var Rotation = Quaternion{0, 0, 0.707106829, 0.707106829}
 				}
 				Model 
 				{
@@ -1928,8 +1929,8 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
 					var DynamicState = RigidBodyDynamicState.Dynamic
 					var AllowSleep = true
 					var Asleep = false
@@ -1942,8 +1943,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 		}
@@ -1954,9 +1955,9 @@ Level
 		var LinkId = 45
 		Transform 
 		{
-			var Translation = Vec3{5.71297836, -6.5796423, 0}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
+			var Translation = Real3{5.71297836, -6.5796423, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Hierarchy 
 		{
@@ -1966,9 +1967,9 @@ Level
 				var LinkId = 46
 				Transform 
 				{
-					var Translation = Vec3{0, 2.54655361, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{0, 2.54655361, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				SpriteText 
 				{
@@ -1976,7 +1977,7 @@ Level
 					var ViewCulling = true
 					var VisibilityEvents = true
 					var Material = "582c575af53d18c9:AlphaSprite"
-					var VertexColor = Vec4{1, 1, 1, 1}
+					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 32
@@ -1991,9 +1992,9 @@ Level
 				var LinkId = 47
 				Transform 
 				{
-					var Translation = Vec3{-1.5, -2.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{-1.5, -2.5, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -2005,9 +2006,9 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Static
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
 					var Asleep = false
 					var RotationLocked = false
@@ -2019,8 +2020,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -2029,9 +2030,9 @@ Level
 				var LinkId = 48
 				Transform 
 				{
-					var Translation = Vec3{2.1800766, -2.5, 0}
-					var Scale = Vec3{1, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{2.1800766, -2.5, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -2043,9 +2044,9 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
-					var DynamicState = RigidBodyDynamicState.Static
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
 					var Asleep = false
 					var RotationLocked = false
@@ -2057,8 +2058,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -2067,9 +2068,9 @@ Level
 				var LinkId = 49
 				Transform 
 				{
-					var Translation = Vec3{2.1800766, 0.323329449, 0}
-					var Scale = Vec3{2, 2, 2}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{2.1800766, 0.323329449, 0}
+					var Scale = Real3{2, 2, 2}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -2081,8 +2082,8 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
 					var DynamicState = RigidBodyDynamicState.Dynamic
 					var AllowSleep = true
 					var Asleep = false
@@ -2095,8 +2096,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -2105,9 +2106,9 @@ Level
 				var LinkId = 50
 				Transform 
 				{
-					var Translation = Vec3{-1.5, 0.323329449, 0}
-					var Scale = Vec3{4, 1, 1}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{-1.5, 0.323329449, 0}
+					var Scale = Real3{4, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
@@ -2119,8 +2120,8 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Vec3{0, 0, 0}
-					var AngularVelocity = Vec3{0, 0, 0}
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
 					var DynamicState = RigidBodyDynamicState.Dynamic
 					var AllowSleep = true
 					var Asleep = false
@@ -2133,8 +2134,8 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Vec3{0, 0, 0}
-					var HalfSize = Vec3{0.5, 0.5, 0.5}
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 			Cog 
@@ -2173,8 +2174,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0, 2, 0}
-					var LocalPointB = Vec3{0, 0, 0}
+					var LocalPointA = Real3{0, 2, 0}
+					var LocalPointB = Real3{0, 0, 0}
 				}
 				DebugDrawer 
 				{
@@ -2187,10 +2188,10 @@ Level
 					var CollideConnected = true
 					var MaxForce = 0
 					var UseFrameA = true
-					var LocalPointA = Vec3{0, 2, 0}
-					var LocalPointB = Vec3{0, 0, 0}
-					var LocalAngleA = Quat{-0.707106829, 0, -0, 0.707106829}
-					var LocalAngleB = Quat{-0.707106829, 0, -0, 0.707106829}
+					var LocalPointA = Real3{0, 2, 0}
+					var LocalPointB = Real3{0, 0, 0}
+					var LocalAngleA = Quaternion{-0.707106829, 0, -0, 0.707106829}
+					var LocalAngleB = Quaternion{-0.707106829, 0, -0, 0.707106829}
 				}
 			}
 			Cog 
@@ -2229,8 +2230,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0, 0, 0}
-					var LocalPointB = Vec3{0, 0, 0}
+					var LocalPointA = Real3{0, 0, 0}
+					var LocalPointB = Real3{0, 0, 0}
 				}
 				DebugDrawer 
 				{
@@ -2242,12 +2243,12 @@ Level
 					var AutoSnaps = false
 					var CollideConnected = true
 					var MaxForce = 0
-					var LocalPointA = Vec3{0, 0, 0}
-					var LocalPointB = Vec3{0, 0, 0}
-					var LocalAngleA = Quat{-0, -0, -0, 1}
-					var LocalAngleB = Quat{-0, -0, -0, 1}
-					var LocalAxisA = Vec3{0, 1, 0}
-					var LocalAxisB = Vec3{0, 1, 0}
+					var LocalPointA = Real3{0, 0, 0}
+					var LocalPointB = Real3{0, 0, 0}
+					var LocalAngleA = Quaternion{-0, -0, -0, 1}
+					var LocalAngleB = Quaternion{-0, -0, -0, 1}
+					var LocalAxisA = Real3{0, 1, 0}
+					var LocalAxisB = Real3{0, 1, 0}
 				}
 			}
 			Cog 
@@ -2286,8 +2287,8 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var LocalPointA = Vec3{0.170043945, 0.0553541183, 0.5}
-					var LocalPointB = Vec3{-0.171238422, 0.0516095161, 0.500000954}
+					var LocalPointA = Real3{0.170043945, 0.0553541183, 0.5}
+					var LocalPointB = Real3{-0.171238422, 0.0516095161, 0.500000954}
 				}
 				GearJoint 
 				{

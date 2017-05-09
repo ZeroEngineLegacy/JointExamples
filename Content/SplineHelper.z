@@ -27,11 +27,11 @@ class SplineHelper : ZilchComponent
   {
     var spline = this.FindSpline();
     if(spline == null)
-      return null;
+      return SplineSampleData();
     
     var sampleDelta = 0.5;
     var closestDist = Real.PositiveMax;
-    var sampleData : SplineSampleData = null;
+    var sampleData = SplineSampleData();
     // Sample points at a fixed interval along the spline and keep the closest one (reasonable approximation)
     for(var currT = 0.0; currT <= spline.TotalDistance; currT += sampleDelta)
     {
@@ -50,8 +50,6 @@ class SplineHelper : ZilchComponent
   function FindClosestPoint(queryPoint : Real3) : SplineSampleInformation
   {
     var sampleInfo = this.FindClosestPointInternal(queryPoint);
-    if(sampleInfo == null)
-      return null;
     
     var result = SplineSampleInformation();
     result.SamplePoint = sampleInfo.WorldPoint;
