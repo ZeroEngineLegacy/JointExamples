@@ -46,7 +46,7 @@ class CustomStickJoint : ZilchComponent
       var motorSpeed = jointMotor.Speed;
       if(jointMotor.Reverse)
         motorSpeed = -motorSpeed;
-      this.MotorConstraint.ComputeMotor(motorSpeed, -jointMotor.MaxForce, jointMotor.MaxForce);
+      this.MotorConstraint.ComputeMotor(motorSpeed, -jointMotor.MaxImpulse, jointMotor.MaxImpulse);
     }
   }
   

@@ -46,13 +46,14 @@ Level
 		var LinkId = 2
 		DeferredRenderer 
 		{
-			var DrawDebug = true
 			var GeometryDebug = GeometryValue.None
-			var ShowDiffuse = true
-			var ShowSpecular = true
+			var EditorDebugDraw = true
+			var GameDebugDraw = false
+			var RenderDiffuse = true
+			var RenderSpecular = true
+			var RenderSkybox = true
 			var Skybox = "5822dec85e380cf1:SimpleSkybox"
 			var ClearColor = Real4{0, 0, 0, 1}
-			var DrawSkybox = true
 			var DirectLighting = true
 			var IndirectLighting = true
 			var IndirectIntensity = 1
@@ -104,7 +105,7 @@ Level
 			var RenderOrder = -1
 			var NormalizedSize = Real2{1, 1}
 			var NormalizedOffset = Real2{0, 0}
-			var Camera = CogPath
+			var CameraPath = CogPath
 			{
 				var Path = "."
 				var ErrorOnResolveToNull = false
@@ -119,7 +120,7 @@ Level
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Renderer = CogPath
+			var RendererPath = CogPath
 			{
 				var Path = "."
 				var ErrorOnResolveToNull = false
@@ -155,6 +156,10 @@ Level
 			var Visible = true
 			var ViewCulling = false
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = ""
 			var Mesh = ""
 		}
@@ -175,9 +180,9 @@ Level
 		var LinkId = 4
 		Transform 
 		{
-			var Translation = Real3{-55.6220932, 9.35820007, -4.77196789}
+			var Translation = Real3{84.7034149, 8.0096283, -27.2252884}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0.0054706661, 0.989502728, 0.139065564, -0.0389259569}
+			var Rotation = Quaternion{-0.0292579792, 0.934855759, 0.0793239325, 0.344813645}
 		}
 		CameraViewport 
 		{
@@ -188,7 +193,7 @@ Level
 			var RenderOrder = 0
 			var NormalizedSize = Real2{1, 1}
 			var NormalizedOffset = Real2{0, 0}
-			var Camera = CogPath
+			var CameraPath = CogPath
 			{
 				var Path = "."
 				var ErrorOnResolveToNull = false
@@ -203,7 +208,7 @@ Level
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Renderer = CogPath
+			var RendererPath = CogPath
 			{
 				var Path = ":/Renderer"
 				var ErrorOnResolveToNull = false
@@ -233,10 +238,11 @@ Level
 		EditorCameraController 
 		{
 			var ControlMode = ControlMode.Orbit
-			var LookDistance = 4.92748785
-			var VerticalAngle = 0.279252738
-			var HorizontalAngle = -59.768898
-			var LookTarget = Real3{-55.25, 8, -0.0500001907}
+			var Previous3DMode = ControlMode.Orbit
+			var LookDistance = 36.4094582
+			var VerticalAngle = 0.169297531
+			var HorizontalAngle = -58.9835396
+			var LookTarget = Real3{61.3991776, 1.875, 0.0680685043}
 			var MoveSensitivity = 1
 		}
 	}
@@ -259,7 +265,7 @@ Level
 			var RenderOrder = 0
 			var NormalizedSize = Real2{1, 1}
 			var NormalizedOffset = Real2{0, 0}
-			var Camera = CogPath
+			var CameraPath = CogPath
 			{
 				var Path = "."
 				var ErrorOnResolveToNull = false
@@ -274,7 +280,7 @@ Level
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Renderer = CogPath
+			var RendererPath = CogPath
 			{
 				var Path = ":/Renderer"
 				var ErrorOnResolveToNull = false
@@ -321,6 +327,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -330,7 +340,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -340,7 +350,7 @@ Level
 		var LinkId = 7
 		Transform 
 		{
-			var Translation = Real3{69, 1.5, 0.0680685043}
+			var Translation = Real3{68.1292877, 1.5, 0.0680685043}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0.707106829, 0, 0.707106829}
 		}
@@ -349,6 +359,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "583afb5e7bf75e18:ZeroMaterial"
 			var Mesh = "4de0354322b376ae:Sphere"
 		}
@@ -409,7 +423,7 @@ Level
 			var SendsEvents = false
 			var AutoSnaps = false
 			var CollideConnected = true
-			var MaxForce = 0
+			var MaxImpulse = 0
 		}
 		FirstPersonPlayerJoint 
 		{
@@ -427,7 +441,7 @@ Level
 			var SendsEvents = true
 			var Material = "58d943e7a654c3cc:PlayerMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var Radius = 0.5
 			var Height = 0.5
 			var Direction = AxisDirection.Y
@@ -474,7 +488,7 @@ Level
 					var RenderOrder = 0
 					var NormalizedSize = Real2{1, 1}
 					var NormalizedOffset = Real2{0, 0}
-					var Camera = CogPath
+					var CameraPath = CogPath
 					{
 						var Path = "."
 						var ErrorOnResolveToNull = false
@@ -489,7 +503,7 @@ Level
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var Renderer = CogPath
+					var RendererPath = CogPath
 					{
 						var Path = ":/Renderer"
 						var ErrorOnResolveToNull = false
@@ -572,7 +586,7 @@ Level
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
-					var MaxForce = 0
+					var MaxImpulse = 0
 				}
 				PlayerGrabber 
 				{
@@ -596,7 +610,7 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Real3{0, 0, 0}
+					var Velocity = Real3{-54.4195137, 0, 0}
 					var AngularVelocity = Real3{0, 0, 0}
 					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
@@ -610,7 +624,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -646,6 +660,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c60ce585ca4e6a:AnchorMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -665,7 +683,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -684,6 +702,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c60ce585ca4e6a:AnchorMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -703,7 +725,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -722,6 +744,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -741,7 +767,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -760,6 +786,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c098d55839d8:Door"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -779,7 +809,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -828,7 +858,7 @@ Level
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
-					var MaxForce = 0
+					var MaxImpulse = 0
 					var LocalPointA = Real3{0, 0, 0}
 					var LocalPointB = Real3{0, 0, 0}
 					var LocalAngleA = Quaternion{-0, -0, -0, 1}
@@ -838,10 +868,6 @@ Level
 				}
 				SelectionIcon 
 				{
-					var Visible = true
-					var ViewCulling = true
-					var VisibilityEvents = true
-					var Material = "56581e2bb81777be:DebugDrawOnTop"
 					var Visible = true
 					var VisibilityEvents = true
 					var Material = "56581e2bb81777be:DebugDrawOnTop"
@@ -895,7 +921,7 @@ Level
 					var SendsEvents = false
 					var AutoSnaps = true
 					var CollideConnected = true
-					var MaxForce = 5
+					var MaxImpulse = 5
 					var LocalPointA = Real3{0, 0, 0}
 					var LocalPointB = Real3{0, 0, 0}
 					var LocalAngleA = Quaternion{-0, -0, -0, 1}
@@ -949,7 +975,7 @@ Level
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
-					var MaxForce = 0
+					var MaxImpulse = 0
 					var Ratio = 1
 					var Constant = 1
 					var JointAPath = CogPath
@@ -1013,6 +1039,10 @@ Level
 					var Visible = false
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "583afb5e7bf75e18:ZeroMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -1032,7 +1062,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -1051,6 +1081,10 @@ Level
 					var Visible = false
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "583afb5e7bf75e18:ZeroMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -1070,7 +1104,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -1111,14 +1145,18 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "582c575af53d18c9:AlphaSprite"
 							var VertexColor = Real4{1, 1, 1, 1}
 							var GeometryMode = SpriteGeometryMode.ZPlane
+							var Text = "This drawbridge is made up of a two joints. A revolute is connected to the base to act as a hinge. Additionally, a stick joint with a limit and a motor is used to pull the bridge closed. To let the bridge down, the motor is simply turned off."
 							var Font = "57343753bb4eaaec:NotoSans-Regular"
 							var FontSize = 24
-							var Text = "This drawbridge is made up of a two joints. A revolute is connected to the base to act as a hinge. Additionally, a stick joint with a limit and a motor is used to pull the bridge closed. To let the bridge down, the motor is simply turned off."
-							var Align = TextAlign.Center
 							var PixelsPerUnit = 256
+							var TextAlign = TextAlign.Center
 						}
 						SpriteTextBlock 
 						{
@@ -1145,6 +1183,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c025ffda83a0:SimpleFloor"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -1154,7 +1196,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						Hierarchy 
@@ -1207,13 +1249,20 @@ Level
 					var Active = true
 					var SendsEvents = false
 					var AutoSnaps = false
-					var CollideConnected = false
-					var MaxForce = 0
+					var CollideConnected = true
+					var MaxImpulse = 0
 					var UseFrameA = true
 					var LocalPointA = Real3{0, 0.5, 0.5}
 					var LocalPointB = Real3{0, 0.5, -0.5}
 					var LocalAngleA = Quaternion{-0.707106829, 3.09086232e-08, -0.707106829, -3.09086232e-08}
 					var LocalAngleB = Quaternion{-0.707106829, 3.09086232e-08, -0.707106829, -3.09086232e-08}
+				}
+				JointLimit 
+				{
+					var Active = true
+					var LowerLimit = -1.5
+					var UpperLimit = 0
+					var AtomIds = 32
 				}
 			}
 			Cog 
@@ -1257,11 +1306,11 @@ Level
 				}
 				StickJoint 
 				{
-					var Active = true
+					var Active = false
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
-					var MaxForce = 0
+					var MaxImpulse = 0
 					var Length = 13.4536238
 					var LocalPointA = Real3{0, -0.5, 0.5}
 					var LocalPointB = Real3{0, 0.5, 0.5}
@@ -1271,7 +1320,7 @@ Level
 					var Active = true
 					var Reverse = true
 					var Speed = 5
-					var MaxForce = 20
+					var MaxImpulse = 20
 					var AtomIds = 1
 				}
 				JointLimit 
@@ -1309,6 +1358,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -1328,7 +1381,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						JointMotorActiveInteraction 
@@ -1368,6 +1421,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -1387,7 +1444,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -1406,14 +1463,18 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "582c575af53d18c9:AlphaSprite"
 							var VertexColor = Real4{1, 1, 1, 1}
 							var GeometryMode = SpriteGeometryMode.ZPlane
+							var Text = "E"
 							var Font = "57343753bb4eaaec:NotoSans-Regular"
 							var FontSize = 24
-							var Text = "E"
-							var Align = TextAlign.Center
 							var PixelsPerUnit = 256
+							var TextAlign = TextAlign.Center
 						}
 					}
 				}
@@ -1457,6 +1518,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -1476,7 +1541,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -1495,6 +1560,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -1514,7 +1583,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -1533,6 +1602,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -1552,7 +1625,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -1571,6 +1644,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -1590,7 +1667,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -1609,6 +1686,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -1628,7 +1709,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -1647,6 +1728,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
@@ -1666,7 +1751,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
@@ -1685,6 +1770,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
@@ -1704,7 +1793,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
@@ -1723,6 +1812,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
@@ -1742,7 +1835,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
@@ -1761,6 +1854,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
@@ -1780,7 +1877,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
@@ -1799,6 +1896,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
@@ -1818,7 +1919,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
@@ -1837,6 +1938,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
@@ -1856,7 +1961,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
@@ -1875,6 +1980,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
@@ -1894,7 +2003,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
@@ -1913,6 +2022,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
@@ -1932,7 +2045,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
@@ -1951,6 +2064,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
@@ -1970,7 +2087,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
@@ -1989,6 +2106,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
@@ -2008,7 +2129,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
@@ -2027,6 +2148,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
@@ -2046,7 +2171,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
@@ -2065,6 +2190,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
@@ -2084,7 +2213,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
@@ -2105,6 +2234,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -2114,7 +2247,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -2133,6 +2266,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -2142,7 +2279,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -2185,6 +2322,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "583afb5e7bf75e18:ZeroMaterial"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -2204,7 +2345,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -2223,6 +2364,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c159c193b298:DynamicObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -2242,7 +2387,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						Hierarchy 
@@ -2262,14 +2407,18 @@ Level
 									var Visible = true
 									var ViewCulling = true
 									var VisibilityEvents = true
+									var OverrideBoundingBox = false
+									var LocalAabbCenter = Real3{0, 0, 0}
+									var LocalAabbHalfExtents = Real3{1, 1, 1}
+									var GroupSortValue = 0
 									var Material = "582c575af53d18c9:AlphaSprite"
 									var VertexColor = Real4{1, 1, 1, 1}
 									var GeometryMode = SpriteGeometryMode.ZPlane
+									var Text = "Push"
 									var Font = "57343753bb4eaaec:NotoSans-Regular"
 									var FontSize = 50
-									var Text = "Push"
-									var Align = TextAlign.Center
 									var PixelsPerUnit = 256
+									var TextAlign = TextAlign.Center
 								}
 							}
 						}
@@ -2319,7 +2468,7 @@ Level
 							var SendsEvents = false
 							var AutoSnaps = false
 							var CollideConnected = true
-							var MaxForce = 0
+							var MaxImpulse = 0
 							var LocalPointA = Real3{0, 2, 0}
 							var LocalPointB = Real3{0, 0, 0}
 							var LocalAngleA = Quaternion{-0, -1, -0, -4.37113883e-08}
@@ -2357,6 +2506,10 @@ Level
 							var Visible = false
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "583afb5e7bf75e18:ZeroMaterial"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -2376,7 +2529,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -2395,6 +2548,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "583afb5e7bf75e18:ZeroMaterial"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -2414,7 +2571,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -2463,7 +2620,7 @@ Level
 							var SendsEvents = false
 							var AutoSnaps = false
 							var CollideConnected = true
-							var MaxForce = 0
+							var MaxImpulse = 0
 							var LocalPointA = Real3{0, 0, 0}
 							var LocalPointB = Real3{0, 0, 0}
 							var LocalAngleA = Quaternion{-0, -1, -0, -4.37113883e-08}
@@ -2483,7 +2640,7 @@ Level
 							var Active = true
 							var Reverse = false
 							var Speed = 0.5
-							var MaxForce = 6
+							var MaxImpulse = 6
 							var AtomIds = 4
 						}
 					}
@@ -2534,7 +2691,7 @@ Level
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
-					var MaxForce = 0
+					var MaxImpulse = 0
 					var Ratio = -0.100000001
 					var Constant = 1
 					var JointAPath = CogPath
@@ -2628,7 +2785,7 @@ Level
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
-					var MaxForce = 0
+					var MaxImpulse = 0
 					var Ratio = 0.5
 					var Constant = 1
 					var JointAPath = CogPath
@@ -2690,6 +2847,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "583afb5e7bf75e18:ZeroMaterial"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -2709,7 +2870,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -2728,6 +2889,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c159c193b298:DynamicObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -2747,7 +2912,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						Hierarchy 
@@ -2767,14 +2932,18 @@ Level
 									var Visible = true
 									var ViewCulling = true
 									var VisibilityEvents = true
+									var OverrideBoundingBox = false
+									var LocalAabbCenter = Real3{0, 0, 0}
+									var LocalAabbHalfExtents = Real3{1, 1, 1}
+									var GroupSortValue = 0
 									var Material = "582c575af53d18c9:AlphaSprite"
 									var VertexColor = Real4{1, 1, 1, 1}
 									var GeometryMode = SpriteGeometryMode.ZPlane
+									var Text = "Push"
 									var Font = "57343753bb4eaaec:NotoSans-Regular"
 									var FontSize = 50
-									var Text = "Push"
-									var Align = TextAlign.Center
 									var PixelsPerUnit = 256
+									var TextAlign = TextAlign.Center
 								}
 							}
 							Cog 
@@ -2792,14 +2961,18 @@ Level
 									var Visible = true
 									var ViewCulling = true
 									var VisibilityEvents = true
+									var OverrideBoundingBox = false
+									var LocalAabbCenter = Real3{0, 0, 0}
+									var LocalAabbHalfExtents = Real3{1, 1, 1}
+									var GroupSortValue = 0
 									var Material = "582c575af53d18c9:AlphaSprite"
 									var VertexColor = Real4{1, 1, 1, 1}
 									var GeometryMode = SpriteGeometryMode.ZPlane
+									var Text = "Push"
 									var Font = "57343753bb4eaaec:NotoSans-Regular"
 									var FontSize = 50
-									var Text = "Push"
-									var Align = TextAlign.Center
 									var PixelsPerUnit = 256
+									var TextAlign = TextAlign.Center
 								}
 							}
 						}
@@ -2849,7 +3022,7 @@ Level
 							var SendsEvents = false
 							var AutoSnaps = false
 							var CollideConnected = false
-							var MaxForce = 0
+							var MaxImpulse = 0
 							var UseFrameA = true
 							var LocalPointA = Real3{0, 2, 0}
 							var LocalPointB = Real3{0, 0, 0}
@@ -2872,6 +3045,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b3572e:Cylinder"
 						}
@@ -2903,6 +3080,10 @@ Level
 									var Visible = true
 									var ViewCulling = true
 									var VisibilityEvents = true
+									var OverrideBoundingBox = false
+									var LocalAabbCenter = Real3{0, 0, 0}
+									var LocalAabbHalfExtents = Real3{1, 1, 1}
+									var GroupSortValue = 0
 									var Material = "58c4c179c8e95033:StaticObject"
 									var Mesh = "4de0354322b345ae:Cube"
 								}
@@ -2925,14 +3106,18 @@ Level
 									var Visible = true
 									var ViewCulling = true
 									var VisibilityEvents = true
+									var OverrideBoundingBox = false
+									var LocalAabbCenter = Real3{0, 0, 0}
+									var LocalAabbHalfExtents = Real3{1, 1, 1}
+									var GroupSortValue = 0
 									var Material = "582c575af53d18c9:AlphaSprite"
 									var VertexColor = Real4{1, 1, 1, 1}
 									var GeometryMode = SpriteGeometryMode.ZPlane
+									var Text = "Similar to before, a prismatic is hooked up to a revolute joint using a gear ratio. By rotating the lever the door will slide open."
 									var Font = "57343753bb4eaaec:NotoSans-Regular"
 									var FontSize = 24
-									var Text = "Similar to before, a prismatic is hooked up to a revolute joint using a gear ratio. By rotating the lever the door will slide open."
-									var Align = TextAlign.Center
 									var PixelsPerUnit = 256
+									var TextAlign = TextAlign.Center
 								}
 								SpriteTextBlock 
 								{
@@ -2975,6 +3160,10 @@ Level
 							var Visible = false
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "583afb5e7bf75e18:ZeroMaterial"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -2994,7 +3183,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -3013,6 +3202,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c098d55839d8:Door"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -3032,7 +3225,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -3081,7 +3274,7 @@ Level
 							var SendsEvents = false
 							var AutoSnaps = false
 							var CollideConnected = true
-							var MaxForce = 0
+							var MaxImpulse = 0
 							var LocalPointA = Real3{0, 0, 0}
 							var LocalPointB = Real3{0, 0, 0}
 							var LocalAngleA = Quaternion{-0, -1, -0, -4.37113883e-08}
@@ -3101,7 +3294,7 @@ Level
 							var Active = true
 							var Reverse = true
 							var Speed = 0.5
-							var MaxForce = 10
+							var MaxImpulse = 10
 							var AtomIds = 4
 						}
 					}
@@ -3124,6 +3317,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -3133,7 +3330,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -3152,6 +3349,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -3161,7 +3362,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -3234,7 +3435,7 @@ Level
 							var SendsEvents = false
 							var AutoSnaps = false
 							var CollideConnected = true
-							var MaxForce = 0
+							var MaxImpulse = 0
 							var LocalPointA = Real3{0, 0, 0.5}
 							var LocalPointB = Real3{0, 0, -0.5}
 							var LocalAngleA = Quaternion{-0, -0, -0, 1}
@@ -3247,7 +3448,7 @@ Level
 							var Active = true
 							var Reverse = true
 							var Speed = 50
-							var MaxForce = 200
+							var MaxImpulse = 200
 							var AtomIds = 4
 						}
 						JointLimit 
@@ -3273,6 +3474,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -3292,7 +3497,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -3311,6 +3516,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -3330,7 +3539,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -3349,6 +3558,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -3368,7 +3581,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -3387,6 +3600,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "583afb5e7bf75e18:ZeroMaterial"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -3406,7 +3623,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -3425,6 +3642,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -3444,7 +3665,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -3463,6 +3684,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c159c193b298:DynamicObject"
 							var Mesh = "4de0354322b376ae:Sphere"
 						}
@@ -3482,7 +3707,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var Radius = 0.5
 						}
 					}
@@ -3515,6 +3740,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -3534,7 +3763,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						JointMotorReverseInteraction 
@@ -3574,6 +3803,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -3593,7 +3826,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -3612,14 +3845,18 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "582c575af53d18c9:AlphaSprite"
 							var VertexColor = Real4{1, 1, 1, 1}
 							var GeometryMode = SpriteGeometryMode.ZPlane
+							var Text = "E"
 							var Font = "57343753bb4eaaec:NotoSans-Regular"
 							var FontSize = 24
-							var Text = "E"
-							var Align = TextAlign.Center
 							var PixelsPerUnit = 256
+							var TextAlign = TextAlign.Center
 						}
 					}
 				}
@@ -3641,6 +3878,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c0efe9bf4e5b:SimpleCeiling"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -3650,7 +3891,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -3669,6 +3910,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -3678,7 +3923,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -3697,6 +3942,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -3706,7 +3955,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -3725,6 +3974,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -3734,7 +3987,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -3753,6 +4006,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -3762,7 +4019,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -3781,6 +4038,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -3790,7 +4051,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -3809,6 +4070,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -3818,7 +4083,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -3837,6 +4102,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -3846,7 +4115,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -3865,6 +4134,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c0efe9bf4e5b:SimpleCeiling"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -3874,7 +4147,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -3905,6 +4178,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -3924,7 +4201,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -3943,6 +4220,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c098d55839d8:Door"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -3962,7 +4243,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -3994,6 +4275,10 @@ Level
 									var Visible = true
 									var ViewCulling = true
 									var VisibilityEvents = true
+									var OverrideBoundingBox = false
+									var LocalAabbCenter = Real3{0, 0, 0}
+									var LocalAabbHalfExtents = Real3{1, 1, 1}
+									var GroupSortValue = 0
 									var Material = "58c4c179c8e95033:StaticObject"
 									var Mesh = "4de0354322b345ae:Cube"
 								}
@@ -4013,7 +4298,7 @@ Level
 									var SendsEvents = true
 									var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 									var CollisionGroup = "4e740859314e5515:DefaultGroup"
-									var Offset = Real3{0, 0, 0}
+									var TranslationOffset = Real3{0, 0, 0}
 									var HalfSize = Real3{0.5, 0.5, 0.5}
 								}
 								JointMotorReverseInteraction 
@@ -4053,6 +4338,10 @@ Level
 									var Visible = true
 									var ViewCulling = true
 									var VisibilityEvents = true
+									var OverrideBoundingBox = false
+									var LocalAabbCenter = Real3{0, 0, 0}
+									var LocalAabbHalfExtents = Real3{1, 1, 1}
+									var GroupSortValue = 0
 									var Material = "58c4c179c8e95033:StaticObject"
 									var Mesh = "4de0354322b345ae:Cube"
 								}
@@ -4072,7 +4361,7 @@ Level
 									var SendsEvents = true
 									var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 									var CollisionGroup = "4e740859314e5515:DefaultGroup"
-									var Offset = Real3{0, 0, 0}
+									var TranslationOffset = Real3{0, 0, 0}
 									var HalfSize = Real3{0.5, 0.5, 0.5}
 								}
 							}
@@ -4091,14 +4380,18 @@ Level
 									var Visible = true
 									var ViewCulling = true
 									var VisibilityEvents = true
+									var OverrideBoundingBox = false
+									var LocalAabbCenter = Real3{0, 0, 0}
+									var LocalAabbHalfExtents = Real3{1, 1, 1}
+									var GroupSortValue = 0
 									var Material = "582c575af53d18c9:AlphaSprite"
 									var VertexColor = Real4{1, 1, 1, 1}
 									var GeometryMode = SpriteGeometryMode.ZPlane
+									var Text = "E"
 									var Font = "57343753bb4eaaec:NotoSans-Regular"
 									var FontSize = 24
-									var Text = "E"
-									var Align = TextAlign.Center
 									var PixelsPerUnit = 256
+									var TextAlign = TextAlign.Center
 								}
 							}
 						}
@@ -4150,7 +4443,7 @@ Level
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
-					var MaxForce = 0
+					var MaxImpulse = 0
 					var LocalPointA = Real3{0, 0, 0}
 					var LocalPointB = Real3{0, 0, 0}
 					var LocalAngleA = Quaternion{-0, -0.702425122, -0, 0.71175772}
@@ -4170,7 +4463,7 @@ Level
 					var Active = true
 					var Reverse = false
 					var Speed = 1
-					var MaxForce = 20
+					var MaxImpulse = 200
 					var AtomIds = 4
 				}
 			}
@@ -4201,6 +4494,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -4220,7 +4517,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						JointMotorReverseInteraction 
@@ -4260,6 +4557,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -4279,7 +4580,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -4298,14 +4599,18 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "582c575af53d18c9:AlphaSprite"
 							var VertexColor = Real4{1, 1, 1, 1}
 							var GeometryMode = SpriteGeometryMode.ZPlane
+							var Text = "E"
 							var Font = "57343753bb4eaaec:NotoSans-Regular"
 							var FontSize = 24
-							var Text = "E"
-							var Align = TextAlign.Center
 							var PixelsPerUnit = 256
+							var TextAlign = TextAlign.Center
 						}
 					}
 				}
@@ -4337,6 +4642,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -4356,7 +4665,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						JointMotorReverseInteraction 
@@ -4396,6 +4705,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -4415,7 +4728,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -4434,14 +4747,18 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "582c575af53d18c9:AlphaSprite"
 							var VertexColor = Real4{1, 1, 1, 1}
 							var GeometryMode = SpriteGeometryMode.ZPlane
+							var Text = "E"
 							var Font = "57343753bb4eaaec:NotoSans-Regular"
 							var FontSize = 24
-							var Text = "E"
-							var Align = TextAlign.Center
 							var PixelsPerUnit = 256
+							var TextAlign = TextAlign.Center
 						}
 					}
 				}
@@ -4463,6 +4780,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -4472,7 +4793,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -4491,6 +4812,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -4500,7 +4825,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -4519,6 +4844,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -4528,7 +4857,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -4547,6 +4876,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -4556,7 +4889,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -4575,6 +4908,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -4584,7 +4921,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -4603,6 +4940,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -4612,7 +4953,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -4631,6 +4972,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -4640,7 +4985,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -4659,6 +5004,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -4668,7 +5017,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -4687,6 +5036,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -4696,7 +5049,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -4715,6 +5068,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c0efe9bf4e5b:SimpleCeiling"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -4724,7 +5081,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -4755,6 +5112,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -4774,7 +5135,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -4793,6 +5154,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -4812,7 +5177,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -4831,6 +5196,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -4850,7 +5219,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -4869,6 +5238,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -4888,7 +5261,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -4907,6 +5280,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -4926,7 +5303,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -4945,6 +5322,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -4964,7 +5345,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -4983,6 +5364,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5002,7 +5387,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5021,6 +5406,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5040,7 +5429,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5059,6 +5448,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5078,7 +5471,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5097,6 +5490,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5116,7 +5513,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5135,6 +5532,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5154,7 +5555,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5173,6 +5574,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5192,7 +5597,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5211,6 +5616,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5230,7 +5639,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5249,6 +5658,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5268,7 +5681,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5287,6 +5700,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5306,7 +5723,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5325,6 +5742,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5344,7 +5765,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5363,6 +5784,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5382,7 +5807,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5401,6 +5826,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5420,7 +5849,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5439,6 +5868,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5458,7 +5891,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5477,6 +5910,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5496,7 +5933,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5515,6 +5952,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5534,7 +5975,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5553,6 +5994,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5572,7 +6017,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5591,6 +6036,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5610,7 +6059,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5629,6 +6078,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5648,7 +6101,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5667,6 +6120,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5686,7 +6143,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5705,6 +6162,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5724,7 +6185,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5743,6 +6204,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5762,7 +6227,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5781,6 +6246,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5800,7 +6269,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5819,6 +6288,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5838,7 +6311,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5857,6 +6330,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5876,7 +6353,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5895,6 +6372,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5914,7 +6395,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5933,6 +6414,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5952,7 +6437,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -5971,6 +6456,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -5990,7 +6479,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -6009,6 +6498,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -6028,7 +6521,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -6047,6 +6540,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -6066,7 +6563,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -6085,6 +6582,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -6104,7 +6605,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -6123,6 +6624,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -6142,7 +6647,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -6161,6 +6666,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -6180,7 +6689,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -6199,6 +6708,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -6218,7 +6731,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -6237,6 +6750,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c159c193b298:DynamicObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -6256,7 +6773,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -6289,6 +6806,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -6308,7 +6829,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
@@ -6339,6 +6860,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -6358,7 +6883,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -6378,7 +6903,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.25, 0.25, 0.25}
 						}
 						RigidBody 
@@ -6408,6 +6933,10 @@ Level
 									var Visible = true
 									var ViewCulling = true
 									var VisibilityEvents = true
+									var OverrideBoundingBox = false
+									var LocalAabbCenter = Real3{0, 0, 0}
+									var LocalAabbHalfExtents = Real3{1, 1, 1}
+									var GroupSortValue = 0
 									var Material = "58c4c159c193b298:DynamicObject"
 									var Mesh = "4de0354322b345ae:Cube"
 								}
@@ -6417,7 +6946,7 @@ Level
 									var SendsEvents = true
 									var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 									var CollisionGroup = "4e740859314e5515:DefaultGroup"
-									var Offset = Real3{0, 0, 0}
+									var TranslationOffset = Real3{0, 0, 0}
 									var HalfSize = Real3{0.5, 0.5, 0.5}
 								}
 							}
@@ -6436,6 +6965,10 @@ Level
 									var Visible = true
 									var ViewCulling = true
 									var VisibilityEvents = true
+									var OverrideBoundingBox = false
+									var LocalAabbCenter = Real3{0, 0, 0}
+									var LocalAabbHalfExtents = Real3{1, 1, 1}
+									var GroupSortValue = 0
 									var Material = "58c4c159c193b298:DynamicObject"
 									var Mesh = "4de0354322b345ae:Cube"
 								}
@@ -6445,7 +6978,7 @@ Level
 									var SendsEvents = true
 									var Material = "58c4d1c9fa2319a7:Heavy"
 									var CollisionGroup = "4e740859314e5515:DefaultGroup"
-									var Offset = Real3{0, 0, 0}
+									var TranslationOffset = Real3{0, 0, 0}
 									var HalfSize = Real3{0.5, 0.5, 0.5}
 								}
 							}
@@ -6496,7 +7029,7 @@ Level
 							var SendsEvents = false
 							var AutoSnaps = false
 							var CollideConnected = false
-							var MaxForce = 0
+							var MaxImpulse = 0
 							var UseFrameA = true
 							var LocalPointA = Real3{0, 0, 0}
 							var LocalPointB = Real3{0, 0, 0}
@@ -6519,6 +7052,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b3572e:Cylinder"
 						}
@@ -6570,7 +7107,7 @@ Level
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
-					var MaxForce = 0
+					var MaxImpulse = 0
 					var Length = 6.56220245
 					var LocalPointA = Real3{0, -0.5, 0}
 					var LocalPointB = Real3{0, 0, 0.5}
@@ -6587,7 +7124,7 @@ Level
 					var Active = false
 					var Reverse = true
 					var Speed = 5
-					var MaxForce = 2
+					var MaxImpulse = 2
 					var AtomIds = 1
 				}
 			}
@@ -6618,6 +7155,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -6637,7 +7178,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						JointMotorActiveInteraction 
@@ -6677,6 +7218,10 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "58c4c179c8e95033:StaticObject"
 							var Mesh = "4de0354322b345ae:Cube"
 						}
@@ -6696,7 +7241,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var Offset = Real3{0, 0, 0}
+							var TranslationOffset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
@@ -6715,14 +7260,18 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "582c575af53d18c9:AlphaSprite"
 							var VertexColor = Real4{1, 1, 1, 1}
 							var GeometryMode = SpriteGeometryMode.ZPlane
+							var Text = "E"
 							var Font = "57343753bb4eaaec:NotoSans-Regular"
 							var FontSize = 24
-							var Text = "E"
-							var Align = TextAlign.Center
 							var PixelsPerUnit = 256
+							var TextAlign = TextAlign.Center
 						}
 					}
 				}
@@ -6744,6 +7293,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -6753,7 +7306,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -6772,6 +7325,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -6781,7 +7338,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -6800,6 +7357,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -6809,7 +7370,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -6828,6 +7389,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -6837,7 +7402,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -6856,6 +7421,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -6865,7 +7434,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -6884,6 +7453,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -6893,7 +7466,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -6912,6 +7485,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -6921,7 +7498,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -6940,6 +7517,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -6949,7 +7530,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -6968,6 +7549,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -6977,7 +7562,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -6996,6 +7581,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c0efe9bf4e5b:SimpleCeiling"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -7005,7 +7594,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -7024,6 +7613,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -7033,7 +7626,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -7052,6 +7645,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -7061,7 +7658,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -7080,6 +7677,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -7089,7 +7690,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -7108,6 +7709,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -7117,7 +7722,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -7136,6 +7741,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -7145,7 +7754,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -7164,6 +7773,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -7173,7 +7786,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -7192,6 +7805,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -7201,7 +7818,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -7220,6 +7837,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c0efe9bf4e5b:SimpleCeiling"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -7229,7 +7850,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -7248,6 +7869,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -7257,7 +7882,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -7276,14 +7901,18 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
+			var Text = "Two prismatic joints are connected with a gear joint. The gear joint uses a gear ratio to make it easier for a light object to push a heavy one. Additionally, a motor is used on the door to slow it down and require less force"
 			var Font = "57343753bb4eaaec:NotoSans-Regular"
 			var FontSize = 24
-			var Text = "Two prismatic joints are connected with a gear joint. The gear joint uses a gear ratio to make it easier for a light object to push a heavy one. Additionally, a motor is used on the door to slow it down and require less force"
-			var Align = TextAlign.Center
 			var PixelsPerUnit = 256
+			var TextAlign = TextAlign.Center
 		}
 		SpriteTextBlock 
 		{
@@ -7310,14 +7939,18 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
+			var Text = "This lift operates by using a prismatic joint with a very slow but strong motor."
 			var Font = "57343753bb4eaaec:NotoSans-Regular"
 			var FontSize = 24
-			var Text = "This lift operates by using a prismatic joint with a very slow but strong motor."
-			var Align = TextAlign.Center
 			var PixelsPerUnit = 256
+			var TextAlign = TextAlign.Center
 		}
 		SpriteTextBlock 
 		{
@@ -7344,14 +7977,18 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
+			var Text = "The sledge hammer is connected to the ceiling by a revolute joint. There is also a stick joint with a motor connected to the end of the sledge hammer. By toggling on/off the motor we can lift and drop the sledge hammer."
 			var Font = "57343753bb4eaaec:NotoSans-Regular"
 			var FontSize = 24
-			var Text = "The sledge hammer is connected to the ceiling by a revolute joint. There is also a stick joint with a motor connected to the end of the sledge hammer. By toggling on/off the motor we can lift and drop the sledge hammer."
-			var Align = TextAlign.Center
 			var PixelsPerUnit = 256
+			var TextAlign = TextAlign.Center
 		}
 		SpriteTextBlock 
 		{
@@ -7378,14 +8015,18 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
+			var Text = "This door is propped up by a gear connecting two prismatic joints. The other prismatic is connected to the cube to the right."
 			var Font = "57343753bb4eaaec:NotoSans-Regular"
 			var FontSize = 100
-			var Text = "This door is propped up by a gear connecting two prismatic joints. The other prismatic is connected to the cube to the right."
-			var Align = TextAlign.Center
 			var PixelsPerUnit = 256
+			var TextAlign = TextAlign.Center
 		}
 		SpriteTextBlock 
 		{
@@ -7412,14 +8053,18 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
+			var Text = "This prismatic has a max force that when exceeded will break. When the joint is broken the door will fall open."
 			var Font = "57343753bb4eaaec:NotoSans-Regular"
 			var FontSize = 100
-			var Text = "This prismatic has a max force that when exceeded will break. When the joint is broken the door will fall open."
-			var Align = TextAlign.Center
 			var PixelsPerUnit = 256
+			var TextAlign = TextAlign.Center
 		}
 		SpriteTextBlock 
 		{
@@ -7458,14 +8103,18 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Text = "To break the pristmatic, we can shoot a ball from this \"ballista\". The ballista is a prismatic joint with a max limit and a very powerful motor."
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 24
-					var Text = "To break the pristmatic, we can shoot a ball from this ""ballista"". The ballista is a prismatic joint with a max limit and a very powerful motor."
-					var Align = TextAlign.Center
 					var PixelsPerUnit = 256
+					var TextAlign = TextAlign.Center
 				}
 				SpriteTextBlock 
 				{
@@ -7492,6 +8141,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -7501,7 +8154,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -7523,6 +8176,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -7532,7 +8189,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -7568,6 +8225,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b3572e:Cylinder"
 				}
@@ -7587,6 +8248,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b3572e:Cylinder"
 				}
@@ -7606,6 +8271,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b3572e:Cylinder"
 				}
@@ -7730,14 +8399,18 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Text = "Any object with 'E' on it can be interacted with. All of these interactions do nothing more then turn toggle a joint motor's active or reverse property."
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 24
-					var Text = "Any object with 'E' on it can be interacted with. All of these interactions do nothing more then turn toggle a joint motor's active or reverse property."
-					var Align = TextAlign.Center
 					var PixelsPerUnit = 256
+					var TextAlign = TextAlign.Center
 				}
 				SpriteTextBlock 
 				{
@@ -7764,6 +8437,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -7773,7 +8450,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -7795,6 +8472,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -7804,7 +8485,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -7828,6 +8509,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "583afb5e7bf75e18:ZeroMaterial"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -7847,7 +8532,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -7878,14 +8563,18 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Text = "By holding 'E', dynamic objects can be picked up. This is implented as a custom joint in script (PlayerGrabber) that is basically a weld joint."
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 24
-					var Text = "By holding 'E', dynamic objects can be picked up. This is implented as a custom joint in script (PlayerGrabber) that is basically a weld joint."
-					var Align = TextAlign.Center
 					var PixelsPerUnit = 256
+					var TextAlign = TextAlign.Center
 				}
 				SpriteTextBlock 
 				{
@@ -7912,6 +8601,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -7921,7 +8614,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -7943,6 +8636,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -7952,7 +8649,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -7988,14 +8685,18 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Text = "This level shows off several gameplay examples of joints. Apart from simple player interactions and the player itself, everything in this level uses pre-existing joints and joint effects (motors, limits, etc...)."
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 24
-					var Text = "This level shows off several gameplay examples of joints. Apart from simple player interactions and the player itself, everything in this level uses pre-existing joints and joint effects (motors, limits, etc...)."
-					var Align = TextAlign.Center
 					var PixelsPerUnit = 256
+					var TextAlign = TextAlign.Center
 				}
 				SpriteTextBlock 
 				{
@@ -8022,6 +8723,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -8031,7 +8736,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -8053,6 +8758,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -8062,7 +8771,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -8098,14 +8807,18 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Text = "The player is composed of a very basic set of constraints defined in \"FirstPersonPlayerJoint\". To move use \"wasd\" or the arrow keys, the mouse to look around, and \"space\" to jump. For simplicity,  no \"on-ground\" logic or max walkable slopes are implemented."
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 24
-					var Text = "The player is composed of a very basic set of constraints defined in ""FirstPersonPlayerJoint"". To move use ""wasd"" or the arrow keys, the mouse to look around, and ""space"" to jump. For simplicity,  no ""on-ground"" logic or max walkable slopes are implemented."
-					var Align = TextAlign.Center
 					var PixelsPerUnit = 256
+					var TextAlign = TextAlign.Center
 				}
 				SpriteTextBlock 
 				{
@@ -8132,6 +8845,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -8141,7 +8858,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -8163,6 +8880,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -8172,7 +8893,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -8196,6 +8917,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c025ffda83a0:SimpleFloor"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -8205,7 +8930,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -8224,6 +8949,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c159c193b298:DynamicObject"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -8247,6 +8976,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -8256,7 +8989,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -8275,6 +9008,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "58c4c7e414d50510:SimpleWall"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -8284,7 +9021,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
+			var TranslationOffset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
@@ -8315,14 +9052,18 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Text = "This is the end of the demo"
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 24
-					var Text = "This is the end of the demo"
-					var Align = TextAlign.Center
 					var PixelsPerUnit = 256
+					var TextAlign = TextAlign.Center
 				}
 				Area 
 				{
@@ -8345,6 +9086,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -8354,7 +9099,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -8376,6 +9121,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c4c179c8e95033:StaticObject"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -8385,7 +9134,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var Offset = Real3{0, 0, 0}
+					var TranslationOffset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
