@@ -1,3 +1,10 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright 2017 DigiPen USA Corporation, All Rights Reserved
+// Author: Joshua Davis
+// Last updated by: Joshua Davis
+// Last update: 7/31/2017
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // Simple helper class that rotates an object with a rigid body (forced to be kinematic) about an axis.
 // Just used to help visualize that certain constraints are working correctly
 class SimpleRotator : ZilchComponent

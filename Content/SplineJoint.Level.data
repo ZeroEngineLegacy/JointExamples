@@ -1,22 +1,23 @@
 [Version:1]
 Level 
 {
-	Cog 
+	Cog [ContextId:1]
 	{
 		var Name = "LevelSettings"
-		var LinkId = 1
 		GravityEffect 
 		{
 			var Active = true
 			var WakeUpOnChange = false
+			var DebugDrawEffect = true
 			var LocalSpaceDirection = true
 			var Strength = 10
-			var Direction = Vec3{0, -1, 0}
+			var Direction = Real3{0, -1, 0}
 		}
 		DragEffect 
 		{
 			var Active = true
 			var WakeUpOnChange = false
+			var DebugDrawEffect = true
 			var LinearDamping = 0.200000003
 			var AngularDamping = 0.100000001
 			var LinearDrag = 0
@@ -27,29 +28,30 @@ Level
 			var Active = true
 			var HalfCellOffset = false
 			var CellSize = 1
-			var Axis = GridAxis.YAxis
+			var Axis = AxisDirection.X
 			var Lines = 100
 			var DrawAxisOrigins = true
 			var AlwaysDrawInEditor = true
 			var DrawInGame = false
-			var GridColor = Vec4{0.5, 0.5, 0.5, 0.400000006}
-			var GridHighlight = Vec4{0, 0, 0, 0.400000006}
+			var GridColor = Real4{0.5, 0.5, 0.5, 0.400000006}
+			var GridHighlight = Real4{0, 0, 0, 0.400000006}
 			var HighlightInterval = 10
 			var FollowEditorCamera = false
 		}
 	}
-	Cog 
+	Cog [ContextId:2]
 	{
 		var Name = "Renderer"
-		var LinkId = 2
 		DeferredRenderer 
 		{
-			var DrawDebug = true
 			var GeometryDebug = GeometryValue.None
-			var ShowDiffuse = true
-			var ShowSpecular = true
+			var EditorDebugDraw = true
+			var GameDebugDraw = true
+			var RenderDiffuse = true
+			var RenderSpecular = true
+			var RenderSkybox = true
 			var Skybox = "5822dec85e380cf1:SimpleSkybox"
-			var DrawSkybox = true
+			var ClearColor = Real4{0, 0, 0, 1}
 			var DirectLighting = true
 			var IndirectLighting = true
 			var IndirectIntensity = 1
@@ -57,7 +59,7 @@ Level
 		}
 		Ssao 
 		{
-			var Enabled = true
+			var Active = true
 			var Radius = 1
 			var Intensity = 2.20000005
 			var BlurDepthThreshold = 0.0500000007
@@ -65,7 +67,7 @@ Level
 		}
 		Bloom 
 		{
-			var Enabled = true
+			var Active = true
 			var Intensity = 0.100000001
 			var Threshold = 1
 			var Bloom1 = true
@@ -73,119 +75,24 @@ Level
 			var Bloom3 = true
 			var Bloom4 = true
 			var Bloom5 = true
+			var DebugBuffer = false
 		}
 	}
-	Cog 
-	{
-		var Name = "DirectionalLight"
-		var LinkId = 3
-		Transform 
-		{
-			var Translation = Vec3{0, 50, 50}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{-0.382683456, 0, 0, 0.923879504}
-		}
-		Orientation 
-		{
-			var GlobalUp = Vec3{0, 1, 0}
-			var LocalOrientationBasis = Quat{0, 0, 0, 1}
-			var DefaultBases = OrientationBases.ForwardNegativeZUpY
-		}
-		CameraViewport 
-		{
-			var RenderInEditor = true
-			var RenderInGame = true
-			var RenderToViewport = false
-			var ForwardViewportEvents = false
-			var RenderOrder = -1
-			var NormalizedSize = Vec2{1, 1}
-			var NormalizedOffset = Vec2{0, 0}
-			var Camera = CogPath
-			{
-				var Path = "."
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 3
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-			var Renderer = CogPath
-			{
-				var Path = "."
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 3
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-			var Resolution = Vec2{1920, 1080}
-			var ViewportScaling = ViewportScaling.Fill
-			var MarginColor = Vec4{0, 0, 0, 1}
-		}
-		Camera 
-		{
-			var Facing = Facing.NegativeZ
-			var NearPlane = 0.100000001
-			var FarPlane = 100
-			var PerspectiveMode = PerspectiveMode.Orthographic
-			var FieldOfView = 45
-			var Size = 64
-		}
-		ShadowRenderer 
-		{
-			var ResolutionValue = ShadowResolution.High
-		}
-		Model 
-		{
-			var Visible = true
-			var ViewCulling = false
-			var VisibilityEvents = true
-			var Material = ""
-			var Mesh = ""
-		}
-		DirectionalLight 
-		{
-			var LightColorValue = Vec3{1, 1, 1}
-			var LightIntensityValue = 2
-			var CastShadowsValue = true
-			var NormalOffsetBias = 0.100000001
-		}
-		Hierarchy 
-		{
-		}
-	}
-	Cog 
+	Cog [ContextId:3]
 	{
 		var Name = "EditorCamera"
-		var LinkId = 4
 		Transform 
 		{
-			var Translation = Vec3{3.11318398, 6.25432301, -10.7862501}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{-0.0134395612, 0.977069855, 0.0648969188, 0.202342272}
+			var Translation = Real3{3.11318398, 6.25432301, -10.7862501}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{-0.0134395612, 0.977069855, 0.0648969188, 0.202342272}
 		}
 		CameraViewport 
 		{
 			var RenderInEditor = true
 			var RenderInGame = false
-			var RenderToViewport = true
-			var ForwardViewportEvents = false
 			var RenderOrder = 0
-			var NormalizedSize = Vec2{1, 1}
-			var NormalizedOffset = Vec2{0, 0}
-			var Camera = CogPath
+			var CameraPath = CogPath
 			{
 				var Path = "."
 				var ErrorOnResolveToNull = false
@@ -195,12 +102,12 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 4
+				var Cog = 3
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Renderer = CogPath
+			var RendererPath = CogPath
 			{
 				var Path = ":/Renderer"
 				var ErrorOnResolveToNull = false
@@ -210,18 +117,21 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 2
+				var Cog = 2
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Resolution = Vec2{1920, 1080}
+			var ResolutionOrAspect = Integer2{1920, 1080}
+			var RenderToViewport = true
+			var ForwardViewportEvents = false
 			var ViewportScaling = ViewportScaling.Fill
-			var MarginColor = Vec4{0, 0, 0, 1}
+			var MarginColor = Real4{0, 0, 0, 1}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
 		}
 		Camera 
 		{
-			var Facing = Facing.NegativeZ
 			var NearPlane = 0.100000001
 			var FarPlane = 200
 			var PerspectiveMode = PerspectiveMode.Perspective
@@ -231,33 +141,29 @@ Level
 		EditorCameraController 
 		{
 			var ControlMode = ControlMode.Orbit
+			var Previous3DMode = ControlMode.Orbit
 			var LookDistance = 12.2140255
 			var VerticalAngle = 0.132645041
 			var HorizontalAngle = 3.55000138
-			var LookTarget = Vec3{-1.69499779, 4.63893986, 0.324749857}
+			var LookTarget = Real3{-1.69499779, 4.63893986, 0.324749857}
 			var MoveSensitivity = 1
 		}
 	}
-	Cog 
+	Cog [ContextId:4]
 	{
 		var Name = "GameCamera"
-		var LinkId = 5
 		Transform 
 		{
-			var Translation = Vec3{0, 2, 10}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
+			var Translation = Real3{0, 2, 10}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		CameraViewport 
 		{
 			var RenderInEditor = false
 			var RenderInGame = true
-			var RenderToViewport = true
-			var ForwardViewportEvents = false
 			var RenderOrder = 0
-			var NormalizedSize = Vec2{1, 1}
-			var NormalizedOffset = Vec2{0, 0}
-			var Camera = CogPath
+			var CameraPath = CogPath
 			{
 				var Path = "."
 				var ErrorOnResolveToNull = false
@@ -267,12 +173,12 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 5
+				var Cog = 4
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Renderer = CogPath
+			var RendererPath = CogPath
 			{
 				var Path = ":/Renderer"
 				var ErrorOnResolveToNull = false
@@ -282,18 +188,21 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 2
+				var Cog = 2
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Resolution = Vec2{1920, 1080}
+			var ResolutionOrAspect = Integer2{1920, 1080}
+			var RenderToViewport = true
+			var ForwardViewportEvents = false
 			var ViewportScaling = ViewportScaling.Letterbox
-			var MarginColor = Vec4{0, 0, 0, 1}
+			var MarginColor = Real4{0, 0, 0, 1}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
 		}
 		Camera 
 		{
-			var Facing = Facing.NegativeZ
 			var NearPlane = 0.100000001
 			var FarPlane = 200
 			var PerspectiveMode = PerspectiveMode.Perspective
@@ -320,21 +229,24 @@ Level
 			var MaxDistance = 100
 		}
 	}
-	Cog 
+	Cog [ContextId:5]
 	{
 		var Name = "Cube"
-		var LinkId = 6
 		Transform 
 		{
-			var Translation = Vec3{0, 0, 0}
-			var Scale = Vec3{20, 1, 20}
-			var Rotation = Quat{0, 0, 0, 1}
+			var Translation = Real3{0, 0, 0}
+			var Scale = Real3{20, 1, 20}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Model 
 		{
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "583afb5e7bf75e18:ZeroMaterial"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -344,32 +256,35 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Vec3{0, 0, 0}
-			var HalfSize = Vec3{0.5, 0.5, 0.5}
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:6]
 	{
 		var Name = "SplineFollower"
-		var LinkId = 7
 		Transform 
 		{
-			var Translation = Vec3{-0.576276898, 5.3638339, 0}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
+			var Translation = Real3{-0.576276898, 5.3638339, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Model 
 		{
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "583afb5e7bf75e18:ZeroMaterial"
 			var Mesh = "4de0354322b376ae:Sphere"
 		}
 		RigidBody 
 		{
-			var Velocity = Vec3{0, 0, 0}
-			var AngularVelocity = Vec3{0, 0, 0}
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
 			var DynamicState = RigidBodyDynamicState.Dynamic
 			var AllowSleep = true
 			var Asleep = false
@@ -382,7 +297,7 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Vec3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var Radius = 0.5
 		}
 		ObjectLink 
@@ -397,7 +312,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 6
+				var Cog = 5
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -412,13 +327,13 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 7
+				var Cog = 6
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var LocalPointA = Vec3{0, 0, 0}
-			var LocalPointB = Vec3{0, 0, 0}
+			var LocalPointA = Real3{0, 0, 0}
+			var LocalPointB = Real3{0, 0, 0}
 		}
 		SplineHelper 
 		{
@@ -432,7 +347,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 8
+				var Cog = 7
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -444,170 +359,285 @@ Level
 			var SendsEvents = false
 			var AutoSnaps = false
 			var CollideConnected = true
-			var MaxForce = 0
+			var MaxImpulse = 0
 		}
 		SplineJoint 
 		{
 			var Active = true
-			var LocalPoint = Vec3{0, 0.5, 0}
+			var LocalPoint = Real3{0, 0.5, 0}
 			var MotorActive = false
 			var TargetMotorSpeed = 1
 			var MotorDirection = 1
 		}
 	}
-	Cog 
+	Cog [ContextId:7]
 	{
 		var Name = "Spline"
-		var LinkId = 8
 		Transform 
 		{
-			var Translation = Vec3{0, 2, 0}
-			var Scale = Vec3{1, 1, 1}
-			var Rotation = Quat{0, 0, 0, 1}
+			var Translation = Real3{0, 2, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		HierarchySpline 
 		{
 			var Closed = false
-			var SplineType = SplineType.CatmulRom
+			var SplineType = SplineType.CatmullRom
 			var Error = 0.00999999978
 			var DebugDrawSpline = true
-			var SplineColor = Vec4{0, 0, 0, 1}
+			var SplineColor = Real4{0, 0, 0, 1}
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:8]
 			{
 				var Name = "ControlPoint"
-				var LinkId = 9
 				Transform 
 				{
-					var Translation = Vec3{-4.15713406, 3.22889614, 0}
-					var Scale = Vec3{0.100000001, 0.100000001, 0.100000001}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{-4.15713406, 3.22889614, 0}
+					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "583afb5e7bf75e18:ZeroMaterial"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
 			}
-			Cog 
+			Cog [ContextId:9]
 			{
 				var Name = "ControlPoint"
-				var LinkId = 10
 				Transform 
 				{
-					var Translation = Vec3{-2.68036795, 2.42455292, 0}
-					var Scale = Vec3{0.100000001, 0.100000001, 0.100000001}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{-2.68036795, 2.42455292, 0}
+					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "583afb5e7bf75e18:ZeroMaterial"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
 			}
-			Cog 
+			Cog [ContextId:10]
 			{
 				var Name = "ControlPoint"
-				var LinkId = 11
 				Transform 
 				{
-					var Translation = Vec3{-1.01934075, 2.42455292, 0}
-					var Scale = Vec3{0.100000001, 0.100000001, 0.100000001}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{-1.01934075, 2.42455292, 0}
+					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "583afb5e7bf75e18:ZeroMaterial"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
 			}
-			Cog 
+			Cog [ContextId:11]
 			{
 				var Name = "ControlPoint"
-				var LinkId = 12
 				Transform 
 				{
-					var Translation = Vec3{0, 4.46769285, 0}
-					var Scale = Vec3{0.100000001, 0.100000001, 0.100000001}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{0, 4.46769285, 0}
+					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "583afb5e7bf75e18:ZeroMaterial"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
 			}
-			Cog 
+			Cog [ContextId:12]
 			{
 				var Name = "ControlPoint"
-				var LinkId = 13
 				Transform 
 				{
-					var Translation = Vec3{1.92016912, 2.86778927, 0}
-					var Scale = Vec3{0.100000001, 0.100000001, 0.100000001}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{1.92016912, 2.86778927, 0}
+					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "583afb5e7bf75e18:ZeroMaterial"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
 			}
-			Cog 
+			Cog [ContextId:13]
 			{
 				var Name = "ControlPoint"
-				var LinkId = 14
 				Transform 
 				{
-					var Translation = Vec3{4.24651241, 2.42157555, 0}
-					var Scale = Vec3{0.100000001, 0.100000001, 0.100000001}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{4.24651241, 2.42157555, 0}
+					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "583afb5e7bf75e18:ZeroMaterial"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
 			}
-			Cog 
+			Cog [ContextId:14]
 			{
 				var Name = "ControlPoint"
-				var LinkId = 15
 				Transform 
 				{
-					var Translation = Vec3{5.13291883, 0.168345928, 0}
-					var Scale = Vec3{0.100000001, 0.100000001, 0.100000001}
-					var Rotation = Quat{0, 0, 0, 1}
+					var Translation = Real3{5.13291883, 0.168345928, 0}
+					var Scale = Real3{0.100000001, 0.100000001, 0.100000001}
+					var Rotation = Quaternion{0, 0, 0, 1}
 				}
 				Model 
 				{
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "583afb5e7bf75e18:ZeroMaterial"
 					var Mesh = "4de0354322b376ae:Sphere"
 				}
 			}
+		}
+	}
+	Cog [ContextId:15]
+	{
+		var Name = "DirectionalLightShadows"
+		Transform 
+		{
+			var Translation = Real3{0.0410534739, 36.6916313, 43.6226959}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{-0.45920378, 0, 0, 0.888330936}
+		}
+		SelectionIcon 
+		{
+			var Visible = true
+			var VisibilityEvents = true
+			var Material = "56581e2bb81777be:DebugDrawOnTop"
+			var SpriteSource = "58f8e4be736f5ea2:LightIcon"
+			var ViewScale = 1
+			var OverrideSelections = true
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = false
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "580267aabbf7843e:DirectionalLightShadows"
+			var Mesh = "59040f1e835d03e1:Triangle"
+		}
+		DirectionalLight 
+		{
+			var LightColor = Real4{1, 1, 1, 1}
+			var LightIntensity = 1
+		}
+		CameraViewport 
+		{
+			var RenderInEditor = true
+			var RenderInGame = true
+			var RenderOrder = -1
+			var CameraPath = CogPath
+			{
+				var Path = "."
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 15
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var RendererPath = CogPath
+			{
+				var Path = "."
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 15
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var ResolutionOrAspect = Integer2{1920, 1080}
+			var RenderToViewport = false
+			var ForwardViewportEvents = false
+			var ViewportScaling = ViewportScaling.Fill
+			var MarginColor = Real4{0, 0, 0, 1}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
+		}
+		Camera 
+		{
+			var NearPlane = 0.100000001
+			var FarPlane = 100
+			var PerspectiveMode = PerspectiveMode.Orthographic
+			var FieldOfView = 45
+			var Size = 64
+		}
+		ShadowRenderer 
+		{
+			var ResolutionValue = ShadowResolution.High
+			var NormalOffsetBias = 0.100000001
+		}
+		Hierarchy 
+		{
 		}
 	}
 }

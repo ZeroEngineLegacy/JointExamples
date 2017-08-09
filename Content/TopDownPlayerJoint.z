@@ -1,3 +1,10 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright 2017 DigiPen USA Corporation, All Rights Reserved
+// Author: Joshua Davis
+// Last updated by: Joshua Davis
+// Last update: 7/31/2017
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // A simple example of using joints to control a player. The player moves along the world X and Y axes with keyboard input.
 // A rotational motor is used to make the player look towards the mouse.
 class TopDownPlayerJoint : ZilchComponent

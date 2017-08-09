@@ -1,10 +1,9 @@
 [Version:1]
 Level 
 {
-	Cog 
+	Cog [ContextId:1]
 	{
 		var Name = "LevelSettings"
-		var LinkId = 1
 		GravityEffect 
 		{
 			var Active = true
@@ -40,19 +39,19 @@ Level
 			var FollowEditorCamera = false
 		}
 	}
-	Cog 
+	Cog [ContextId:2]
 	{
 		var Name = "Renderer"
-		var LinkId = 2
 		DeferredRenderer 
 		{
-			var DrawDebug = true
 			var GeometryDebug = GeometryValue.None
-			var ShowDiffuse = true
-			var ShowSpecular = true
+			var EditorDebugDraw = true
+			var GameDebugDraw = true
+			var RenderDiffuse = true
+			var RenderSpecular = true
+			var RenderSkybox = true
 			var Skybox = "5822dec85e380cf1:SimpleSkybox"
 			var ClearColor = Real4{0, 0, 0, 1}
-			var DrawSkybox = true
 			var DirectLighting = true
 			var IndirectLighting = true
 			var IndirectIntensity = 1
@@ -79,116 +78,21 @@ Level
 			var DebugBuffer = false
 		}
 	}
-	Cog 
-	{
-		var Name = "DirectionalLight"
-		var LinkId = 3
-		Transform 
-		{
-			var Translation = Real3{0, 50, 50}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.382683456, 0, 0, 0.923879504}
-		}
-		Orientation 
-		{
-			var GlobalUp = Real3{0, 1, 0}
-			var LocalOrientationBasis = Quaternion{0, 0, 0, 1}
-			var DefaultBases = OrientationBases.ForwardNegativeZUpY
-		}
-		CameraViewport 
-		{
-			var RenderInEditor = true
-			var RenderInGame = true
-			var RenderToViewport = false
-			var ForwardViewportEvents = false
-			var RenderOrder = -1
-			var NormalizedSize = Real2{1, 1}
-			var NormalizedOffset = Real2{0, 0}
-			var Camera = CogPath
-			{
-				var Path = "."
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 3
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-			var Renderer = CogPath
-			{
-				var Path = "."
-				var ErrorOnResolveToNull = false
-				var ErrorOnPathCantCompute = false
-				var ErrorOnDirectLinkFail = false
-				var UpdateCogOnPathChange = true
-				var UpdatePathOnCogChange = true
-				var UpdateCogOnInitialize = true
-				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 3
-				var PathPreference0 = CogPathPreference.CogRelative
-				var PathPreference1 = CogPathPreference.SpaceRelative
-				var PathPreference2 = CogPathPreference.Absolute
-			}
-			var Resolution = Real2{1920, 1080}
-			var ViewportScaling = ViewportScaling.Fill
-			var MarginColor = Real4{0, 0, 0, 1}
-		}
-		Camera 
-		{
-			var NearPlane = 0.100000001
-			var FarPlane = 100
-			var PerspectiveMode = PerspectiveMode.Orthographic
-			var FieldOfView = 45
-			var Size = 64
-		}
-		ShadowRenderer 
-		{
-			var ResolutionValue = ShadowResolution.High
-		}
-		Model 
-		{
-			var Visible = true
-			var ViewCulling = false
-			var VisibilityEvents = true
-			var Material = ""
-			var Mesh = ""
-		}
-		DirectionalLight 
-		{
-			var LightColorValue = Real3{1, 1, 1}
-			var LightIntensityValue = 2
-			var CastShadowsValue = true
-			var NormalOffsetBias = 0.100000001
-		}
-		Hierarchy 
-		{
-		}
-	}
-	Cog 
+	Cog [ContextId:3]
 	{
 		var Name = "EditorCamera"
-		var LinkId = 4
 		Transform 
 		{
 			var Translation = Real3{0.752923548, 6.04443693, 15.9657116}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.123567209, 0.0233790968, 0.00291202124, 0.992056489}
+			var Rotation = Quaternion{-0.123567216, 0.0233790968, 0.00291202124, 0.992056549}
 		}
 		CameraViewport 
 		{
 			var RenderInEditor = true
 			var RenderInGame = false
-			var RenderToViewport = true
-			var ForwardViewportEvents = false
 			var RenderOrder = 0
-			var NormalizedSize = Real2{1, 1}
-			var NormalizedOffset = Real2{0, 0}
-			var Camera = CogPath
+			var CameraPath = CogPath
 			{
 				var Path = "."
 				var ErrorOnResolveToNull = false
@@ -198,12 +102,12 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 4
+				var Cog = 3
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Renderer = CogPath
+			var RendererPath = CogPath
 			{
 				var Path = ":/Renderer"
 				var ErrorOnResolveToNull = false
@@ -213,14 +117,18 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 2
+				var Cog = 2
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Resolution = Real2{1920, 1080}
+			var ResolutionOrAspect = Integer2{1920, 1080}
+			var RenderToViewport = true
+			var ForwardViewportEvents = false
 			var ViewportScaling = ViewportScaling.Fill
 			var MarginColor = Real4{0, 0, 0, 1}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
 		}
 		Camera 
 		{
@@ -233,6 +141,7 @@ Level
 		EditorCameraController 
 		{
 			var ControlMode = ControlMode.Orbit
+			var Previous3DMode = ControlMode.Orbit
 			var LookDistance = 16.4872169
 			var VerticalAngle = 0.247836813
 			var HorizontalAngle = -0.047123868
@@ -240,10 +149,9 @@ Level
 			var MoveSensitivity = 1
 		}
 	}
-	Cog 
+	Cog [ContextId:4]
 	{
 		var Name = "GameCamera"
-		var LinkId = 5
 		Transform 
 		{
 			var Translation = Real3{0, 2, 10}
@@ -254,12 +162,8 @@ Level
 		{
 			var RenderInEditor = false
 			var RenderInGame = true
-			var RenderToViewport = true
-			var ForwardViewportEvents = false
 			var RenderOrder = 0
-			var NormalizedSize = Real2{1, 1}
-			var NormalizedOffset = Real2{0, 0}
-			var Camera = CogPath
+			var CameraPath = CogPath
 			{
 				var Path = "."
 				var ErrorOnResolveToNull = false
@@ -269,12 +173,12 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 5
+				var Cog = 4
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Renderer = CogPath
+			var RendererPath = CogPath
 			{
 				var Path = ":/Renderer"
 				var ErrorOnResolveToNull = false
@@ -284,14 +188,18 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 2
+				var Cog = 2
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Resolution = Real2{1920, 1080}
+			var ResolutionOrAspect = Integer2{1920, 1080}
+			var RenderToViewport = true
+			var ForwardViewportEvents = false
 			var ViewportScaling = ViewportScaling.Letterbox
 			var MarginColor = Real4{0, 0, 0, 1}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
 		}
 		Camera 
 		{
@@ -321,10 +229,9 @@ Level
 			var MaxDistance = 100
 		}
 	}
-	Cog 
+	Cog [ContextId:5]
 	{
 		var Name = "Cube"
-		var LinkId = 6
 		Transform 
 		{
 			var Translation = Real3{0, -1, 0}
@@ -336,6 +243,10 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "583afb5e7bf75e18:ZeroMaterial"
 			var Mesh = "4de0354322b345ae:Cube"
 		}
@@ -349,10 +260,9 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:6]
 	{
 		var Name = "SpriteText"
-		var LinkId = 7
 		Transform 
 		{
 			var Translation = Real3{0, 7.33674192, 0}
@@ -364,20 +274,23 @@ Level
 			var Visible = true
 			var ViewCulling = true
 			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
+			var Text = "Revolute Joint"
 			var Font = "57343753bb4eaaec:NotoSans-Regular"
 			var FontSize = 32
-			var Text = "Revolute Joint"
-			var Align = TextAlign.Center
 			var PixelsPerUnit = 128
+			var TextAlign = TextAlign.Center
 		}
 	}
-	Cog 
+	Cog [ContextId:7]
 	{
 		var Name = "RootRegular"
-		var LinkId = 8
 		Transform 
 		{
 			var Translation = Real3{-6, 4, 0}
@@ -386,10 +299,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:8]
 			{
 				var Name = "SpriteText"
-				var LinkId = 9
 				Transform 
 				{
 					var Translation = Real3{0, 2, 0}
@@ -401,20 +313,23 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Text = "Regular"
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 32
-					var Text = "Regular"
-					var Align = TextAlign.Center
 					var PixelsPerUnit = 128
+					var TextAlign = TextAlign.Center
 				}
 			}
-			Cog 
+			Cog [ContextId:9]
 			{
 				var Name = "Anchor"
-				var LinkId = 10
 				Transform 
 				{
 					var Translation = Real3{-1.05972147, 0, 0}
@@ -426,6 +341,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c60ce585ca4e6a:AnchorMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -449,10 +368,9 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:10]
 			{
 				var Name = "Constrained"
-				var LinkId = 11
 				Transform 
 				{
 					var Translation = Real3{0.94027853, 0, 0}
@@ -464,6 +382,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "583afb5e7bf75e18:ZeroMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -487,10 +409,9 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:11]
 			{
 				var Name = "RevoluteJoint"
-				var LinkId = 12
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -503,7 +424,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 10
+						var Cog = 9
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -518,7 +439,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 11
+						var Cog = 10
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -535,7 +456,7 @@ Level
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
-					var MaxForce = 0
+					var MaxImpulse = 0
 					var UseFrameA = true
 					var LocalPointA = Real3{1, 0, 0}
 					var LocalPointB = Real3{-1, 0, 0}
@@ -545,10 +466,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:12]
 	{
 		var Name = "RootLimit"
-		var LinkId = 13
 		Transform 
 		{
 			var Translation = Real3{-1.35612965, 4, 0}
@@ -557,10 +477,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:13]
 			{
 				var Name = "SpriteText"
-				var LinkId = 14
 				Transform 
 				{
 					var Translation = Real3{0, 2, 0}
@@ -572,20 +491,23 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Text = "Limit"
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 32
-					var Text = "Limit"
-					var Align = TextAlign.Center
 					var PixelsPerUnit = 128
+					var TextAlign = TextAlign.Center
 				}
 			}
-			Cog 
+			Cog [ContextId:14]
 			{
 				var Name = "Anchor"
-				var LinkId = 15
 				Transform 
 				{
 					var Translation = Real3{-1.05972147, 0, 0}
@@ -597,6 +519,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c60ce585ca4e6a:AnchorMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -620,10 +546,9 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:15]
 			{
 				var Name = "Constrained"
-				var LinkId = 16
 				Transform 
 				{
 					var Translation = Real3{0.94027853, 0, 0}
@@ -635,6 +560,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "583afb5e7bf75e18:ZeroMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -658,10 +587,9 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:16]
 			{
 				var Name = "RevoluteJoint"
-				var LinkId = 17
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -674,7 +602,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 15
+						var Cog = 14
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -689,7 +617,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 16
+						var Cog = 15
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -706,7 +634,7 @@ Level
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
-					var MaxForce = 0
+					var MaxImpulse = 0
 					var UseFrameA = true
 					var LocalPointA = Real3{1, 0, 0}
 					var LocalPointB = Real3{-1, 0, 0}
@@ -723,10 +651,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:17]
 	{
 		var Name = "RootSpring"
-		var LinkId = 18
 		Transform 
 		{
 			var Translation = Real3{2.87188721, 4, 0}
@@ -735,10 +662,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:18]
 			{
 				var Name = "SpriteText"
-				var LinkId = 19
 				Transform 
 				{
 					var Translation = Real3{0, 2, 0}
@@ -750,20 +676,23 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Text = "Spring"
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 32
-					var Text = "Spring"
-					var Align = TextAlign.Center
 					var PixelsPerUnit = 128
+					var TextAlign = TextAlign.Center
 				}
 			}
-			Cog 
+			Cog [ContextId:19]
 			{
 				var Name = "Anchor"
-				var LinkId = 20
 				Transform 
 				{
 					var Translation = Real3{-1.05972147, 0, 0}
@@ -775,6 +704,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c60ce585ca4e6a:AnchorMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -798,10 +731,9 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:20]
 			{
 				var Name = "Constrained"
-				var LinkId = 21
 				Transform 
 				{
 					var Translation = Real3{0.94027853, 0, 0}
@@ -813,6 +745,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "583afb5e7bf75e18:ZeroMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -836,10 +772,9 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:21]
 			{
 				var Name = "RevoluteJoint"
-				var LinkId = 22
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -852,7 +787,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 20
+						var Cog = 19
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -867,7 +802,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 21
+						var Cog = 20
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -884,7 +819,7 @@ Level
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
-					var MaxForce = 0
+					var MaxImpulse = 0
 					var UseFrameA = true
 					var LocalPointA = Real3{1, 0, 0}
 					var LocalPointB = Real3{-1, 0, 0}
@@ -901,17 +836,16 @@ Level
 				JointSpring 
 				{
 					var Active = true
-					var FrequencyHz = 2
-					var DampRatio = 0.100000001
+					var FrequencyHz = 3
+					var DampingRatio = 0.100000001
 					var AtomIds = 32
 				}
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:22]
 	{
 		var Name = "RootMotor"
-		var LinkId = 23
 		Transform 
 		{
 			var Translation = Real3{6.60091829, 4, 0}
@@ -920,10 +854,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:23]
 			{
 				var Name = "SpriteText"
-				var LinkId = 24
 				Transform 
 				{
 					var Translation = Real3{0, 2, 0}
@@ -935,20 +868,23 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Text = "Motor"
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 32
-					var Text = "Motor"
-					var Align = TextAlign.Center
 					var PixelsPerUnit = 128
+					var TextAlign = TextAlign.Center
 				}
 			}
-			Cog 
+			Cog [ContextId:24]
 			{
 				var Name = "Anchor"
-				var LinkId = 25
 				Transform 
 				{
 					var Translation = Real3{-1.05972147, 0, 0}
@@ -960,6 +896,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "58c60ce585ca4e6a:AnchorMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -983,10 +923,9 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:25]
 			{
 				var Name = "Constrained"
-				var LinkId = 26
 				Transform 
 				{
 					var Translation = Real3{0.94027853, 0, 0}
@@ -998,6 +937,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "583afb5e7bf75e18:ZeroMaterial"
 					var Mesh = "4de0354322b345ae:Cube"
 				}
@@ -1021,10 +964,9 @@ Level
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:26]
 			{
 				var Name = "RevoluteJoint"
-				var LinkId = 27
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -1037,7 +979,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 25
+						var Cog = 24
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -1052,7 +994,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 26
+						var Cog = 25
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -1069,7 +1011,7 @@ Level
 					var SendsEvents = false
 					var AutoSnaps = false
 					var CollideConnected = true
-					var MaxForce = 0
+					var MaxImpulse = 0
 					var UseFrameA = true
 					var LocalPointA = Real3{1, 0, 0}
 					var LocalPointB = Real3{-1, 0, 0}
@@ -1081,10 +1023,105 @@ Level
 					var Active = true
 					var Reverse = false
 					var Speed = 1
-					var MaxForce = 2
+					var MaxImpulse = 2
 					var AtomIds = 32
 				}
 			}
+		}
+	}
+	Cog [ContextId:27]
+	{
+		var Name = "DirectionalLightShadows"
+		Transform 
+		{
+			var Translation = Real3{0.0410534739, 36.6916313, 43.6226959}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{-0.45920378, 0, 0, 0.888330936}
+		}
+		SelectionIcon 
+		{
+			var Visible = true
+			var VisibilityEvents = true
+			var Material = "56581e2bb81777be:DebugDrawOnTop"
+			var SpriteSource = "58f8e4be736f5ea2:LightIcon"
+			var ViewScale = 1
+			var OverrideSelections = true
+		}
+		Model 
+		{
+			var Visible = true
+			var ViewCulling = false
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "580267aabbf7843e:DirectionalLightShadows"
+			var Mesh = "59040f1e835d03e1:Triangle"
+		}
+		DirectionalLight 
+		{
+			var LightColor = Real4{1, 1, 1, 1}
+			var LightIntensity = 1
+		}
+		CameraViewport 
+		{
+			var RenderInEditor = true
+			var RenderInGame = true
+			var RenderOrder = -1
+			var CameraPath = CogPath
+			{
+				var Path = "."
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 27
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var RendererPath = CogPath
+			{
+				var Path = "."
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var Cog = 27
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var ResolutionOrAspect = Integer2{1920, 1080}
+			var RenderToViewport = false
+			var ForwardViewportEvents = false
+			var ViewportScaling = ViewportScaling.Fill
+			var MarginColor = Real4{0, 0, 0, 1}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
+		}
+		Camera 
+		{
+			var NearPlane = 0.100000001
+			var FarPlane = 100
+			var PerspectiveMode = PerspectiveMode.Orthographic
+			var FieldOfView = 45
+			var Size = 64
+		}
+		ShadowRenderer 
+		{
+			var ResolutionValue = ShadowResolution.High
+			var NormalOffsetBias = 0.100000001
+		}
+		Hierarchy 
+		{
 		}
 	}
 }

@@ -1,10 +1,9 @@
 [Version:1]
 Level 
 {
-	Cog 
+	Cog [ContextId:1]
 	{
 		var Name = "LevelSettings"
-		var LinkId = 1
 		GravityEffect 
 		{
 			var Active = true
@@ -40,10 +39,9 @@ Level
 			var FollowEditorCamera = false
 		}
 	}
-	Cog 
+	Cog [ContextId:2]
 	{
 		var Name = "Renderer"
-		var LinkId = 2
 		DeferredRenderer 
 		{
 			var GeometryDebug = GeometryValue.None
@@ -80,10 +78,9 @@ Level
 			var DebugBuffer = false
 		}
 	}
-	Cog 
+	Cog [ContextId:3]
 	{
 		var Name = "DirectionalLight"
-		var LinkId = 3
 		Transform 
 		{
 			var Translation = Real3{0, 50, 15.5336533}
@@ -100,11 +97,7 @@ Level
 		{
 			var RenderInEditor = true
 			var RenderInGame = true
-			var RenderToViewport = false
-			var ForwardViewportEvents = false
 			var RenderOrder = -1
-			var NormalizedSize = Real2{1, 1}
-			var NormalizedOffset = Real2{0, 0}
 			var CameraPath = CogPath
 			{
 				var Path = "."
@@ -115,7 +108,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 3
+				var Cog = 3
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -130,14 +123,18 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 3
+				var Cog = 3
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Resolution = Real2{1920, 1080}
+			var ResolutionOrAspect = Integer2{1920, 1080}
+			var RenderToViewport = false
+			var ForwardViewportEvents = false
 			var ViewportScaling = ViewportScaling.Fill
 			var MarginColor = Real4{0, 0, 0, 1}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
 		}
 		Camera 
 		{
@@ -150,6 +147,7 @@ Level
 		ShadowRenderer 
 		{
 			var ResolutionValue = ShadowResolution.High
+			var NormalOffsetBias = 0.100000001
 		}
 		Model 
 		{
@@ -160,24 +158,21 @@ Level
 			var LocalAabbCenter = Real3{0, 0, 0}
 			var LocalAabbHalfExtents = Real3{1, 1, 1}
 			var GroupSortValue = 0
-			var Material = ""
-			var Mesh = ""
+			var Material = "583afb5e7bf75e18:ZeroMaterial"
+			var Mesh = "4de0354322b345ae:Cube"
 		}
 		DirectionalLight 
 		{
-			var LightColorValue = Real3{1, 1, 1}
-			var LightIntensityValue = 2
-			var CastShadowsValue = true
-			var NormalOffsetBias = 0.100000001
+			var LightColor = Real4{1, 1, 1, 1}
+			var LightIntensity = 1
 		}
 		Hierarchy 
 		{
 		}
 	}
-	Cog 
+	Cog [ContextId:4]
 	{
 		var Name = "EditorCamera"
-		var LinkId = 4
 		Transform 
 		{
 			var Translation = Real3{84.7034149, 8.0096283, -27.2252884}
@@ -188,11 +183,7 @@ Level
 		{
 			var RenderInEditor = true
 			var RenderInGame = false
-			var RenderToViewport = true
-			var ForwardViewportEvents = false
 			var RenderOrder = 0
-			var NormalizedSize = Real2{1, 1}
-			var NormalizedOffset = Real2{0, 0}
 			var CameraPath = CogPath
 			{
 				var Path = "."
@@ -203,7 +194,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 4
+				var Cog = 4
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -218,14 +209,18 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 2
+				var Cog = 2
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Resolution = Real2{1920, 1080}
+			var ResolutionOrAspect = Integer2{1920, 1080}
+			var RenderToViewport = true
+			var ForwardViewportEvents = false
 			var ViewportScaling = ViewportScaling.Fill
 			var MarginColor = Real4{0, 0, 0, 1}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
 		}
 		Camera 
 		{
@@ -246,10 +241,9 @@ Level
 			var MoveSensitivity = 1
 		}
 	}
-	Cog 
+	Cog [ContextId:5]
 	{
 		var Name = "GameCamera"
-		var LinkId = 5
 		Transform 
 		{
 			var Translation = Real3{0, 2, 10}
@@ -260,11 +254,7 @@ Level
 		{
 			var RenderInEditor = false
 			var RenderInGame = true
-			var RenderToViewport = true
-			var ForwardViewportEvents = false
 			var RenderOrder = 0
-			var NormalizedSize = Real2{1, 1}
-			var NormalizedOffset = Real2{0, 0}
 			var CameraPath = CogPath
 			{
 				var Path = "."
@@ -275,7 +265,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 5
+				var Cog = 5
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -290,14 +280,18 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 2
+				var Cog = 2
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Resolution = Real2{1920, 1080}
+			var ResolutionOrAspect = Integer2{1920, 1080}
+			var RenderToViewport = true
+			var ForwardViewportEvents = false
 			var ViewportScaling = ViewportScaling.Letterbox
 			var MarginColor = Real4{0, 0, 0, 1}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
 		}
 		Camera 
 		{
@@ -312,10 +306,9 @@ Level
 			var Active = true
 		}
 	}
-	Cog 
+	Cog [ContextId:6]
 	{
 		var Name = "Floor"
-		var LinkId = 6
 		Transform 
 		{
 			var Translation = Real3{40.2088394, 0, 0}
@@ -340,14 +333,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:7]
 	{
 		var Name = "Player"
-		var LinkId = 7
 		Transform 
 		{
 			var Translation = Real3{68.1292877, 1.5, 0.0680685043}
@@ -394,7 +386,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 6
+				var Cog = 6
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -409,7 +401,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 7
+				var Cog = 7
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -441,7 +433,7 @@ Level
 			var SendsEvents = true
 			var Material = "58d943e7a654c3cc:PlayerMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var Radius = 0.5
 			var Height = 0.5
 			var Direction = AxisDirection.Y
@@ -459,7 +451,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 8
+				var Cog = 8
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -469,10 +461,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:8]
 			{
 				var Name = "GameCamera"
-				var LinkId = 8
 				Transform 
 				{
 					var Translation = Real3{0, 1, 0}
@@ -483,11 +474,7 @@ Level
 				{
 					var RenderInEditor = false
 					var RenderInGame = true
-					var RenderToViewport = true
-					var ForwardViewportEvents = false
 					var RenderOrder = 0
-					var NormalizedSize = Real2{1, 1}
-					var NormalizedOffset = Real2{0, 0}
 					var CameraPath = CogPath
 					{
 						var Path = "."
@@ -498,7 +485,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 8
+						var Cog = 8
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -513,14 +500,18 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 2
+						var Cog = 2
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
-					var Resolution = Real2{1920, 1080}
+					var ResolutionOrAspect = Integer2{1920, 1080}
+					var RenderToViewport = true
+					var ForwardViewportEvents = false
 					var ViewportScaling = ViewportScaling.Letterbox
 					var MarginColor = Real4{0, 0, 0, 1}
+					var NormalizedSize = Real2{1, 1}
+					var NormalizedOffset = Real2{0, 0}
 				}
 				Camera 
 				{
@@ -557,7 +548,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 8
+						var Cog = 8
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -572,7 +563,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 4294967293
+						var Cog = 4294967293
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -600,7 +591,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 8
+						var Cog = 8
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -610,7 +601,7 @@ Level
 				}
 				RigidBody 
 				{
-					var Velocity = Real3{-54.4195137, 0, 0}
+					var Velocity = Real3{0, 0, 0}
 					var AngularVelocity = Real3{0, 0, 0}
 					var DynamicState = RigidBodyDynamicState.Kinematic
 					var AllowSleep = true
@@ -624,7 +615,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -633,10 +624,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:9]
 	{
 		var Name = "RootPrismaticVsPrismatic"
-		var LinkId = 9
 		Transform 
 		{
 			var Translation = Real3{-51.9333382, 5.99959183, -4.26666641}
@@ -645,10 +635,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:10]
 			{
 				var Name = "Anchor0"
-				var LinkId = 10
 				Transform 
 				{
 					var Translation = Real3{-4.21877861, -1.98800898, -3.31665993}
@@ -683,14 +672,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:11]
 			{
 				var Name = "Anchor1"
-				var LinkId = 11
 				Transform 
 				{
 					var Translation = Real3{41.4612961, 6.91113424, 6.33333874}
@@ -725,14 +713,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:12]
 			{
 				var Name = "Target"
-				var LinkId = 12
 				Transform 
 				{
 					var Translation = Real3{41.4833298, 8.40040874, 6.33333874}
@@ -767,14 +754,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:13]
 			{
 				var Name = "Door"
-				var LinkId = 13
 				Transform 
 				{
 					var Translation = Real3{-4.21455193, 5.9888258, -3.31666183}
@@ -809,14 +795,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:14]
 			{
 				var Name = "Prismatic0"
-				var LinkId = 14
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -829,7 +814,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 10
+						var Cog = 10
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -844,7 +829,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 13
+						var Cog = 13
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -876,10 +861,9 @@ Level
 					var OverrideSelections = true
 				}
 			}
-			Cog 
+			Cog [ContextId:15]
 			{
 				var Name = "Prismatic1"
-				var LinkId = 15
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -892,7 +876,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 11
+						var Cog = 11
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -907,7 +891,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 12
+						var Cog = 12
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -930,10 +914,9 @@ Level
 					var LocalAxisB = Real3{0, 1, 0}
 				}
 			}
-			Cog 
+			Cog [ContextId:16]
 			{
 				var Name = "GearJoint"
-				var LinkId = 16
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -946,7 +929,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 13
+						var Cog = 13
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -961,7 +944,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 12
+						var Cog = 12
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -988,7 +971,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 14
+						var Cog = 14
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -1003,7 +986,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 15
+						var Cog = 15
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -1012,10 +995,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:17]
 	{
 		var Name = "DrawBridgeRoot"
-		var LinkId = 17
 		Transform 
 		{
 			var Translation = Real3{19.5698586, 0, 0}
@@ -1024,10 +1006,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:18]
 			{
 				var Name = "Top"
-				var LinkId = 18
 				Transform 
 				{
 					var Translation = Real3{0, 10, 0}
@@ -1062,14 +1043,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:19]
 			{
 				var Name = "Base"
-				var LinkId = 19
 				Transform 
 				{
 					var Translation = Real3{0, 0, 0}
@@ -1104,14 +1084,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:20]
 			{
 				var Name = "PlankBase"
-				var LinkId = 20
 				Transform 
 				{
 					var Translation = Real3{0, 0, 5.5}
@@ -1130,10 +1109,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog 
+					Cog [ContextId:21]
 					{
 						var Name = "SpriteText"
-						var LinkId = 21
 						Transform 
 						{
 							var Translation = Real3{-6.55667861e-07, -0.519999981, 0.000141143784}
@@ -1168,10 +1146,9 @@ Level
 							var Origin = Location.Center
 						}
 					}
-					Cog 
+					Cog [ContextId:22]
 					{
 						var Name = "Plank"
-						var LinkId = 22
 						Transform 
 						{
 							var Translation = Real3{2.27373675e-13, 0, -1.90734863e-06}
@@ -1196,7 +1173,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						Hierarchy 
@@ -1205,10 +1182,9 @@ Level
 					}
 				}
 			}
-			Cog 
+			Cog [ContextId:23]
 			{
 				var Name = "Hinge"
-				var LinkId = 23
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -1221,7 +1197,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 19
+						var Cog = 19
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -1236,7 +1212,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 22
+						var Cog = 22
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -1265,10 +1241,9 @@ Level
 					var AtomIds = 32
 				}
 			}
-			Cog 
+			Cog [ContextId:24]
 			{
 				var Name = "Rope"
-				var LinkId = 24
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -1281,7 +1256,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 18
+						var Cog = 18
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -1296,7 +1271,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 22
+						var Cog = 22
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -1331,10 +1306,9 @@ Level
 					var AtomIds = 1
 				}
 			}
-			Cog [Id:0x58c4ee816f1050e4]
+			Cog [Id:0x58c4ee816f1050e4][ContextId:25]
 			{
 				var Name = "InteractionPodium"
-				var LinkId = 25
 				Transform 
 				{
 					var Translation = Real3{5.59118938, 1.26257169, 11.1587925}
@@ -1343,10 +1317,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog [Id:0x58c4ec3ad435adef]
+					Cog [Id:0x58c4ec3ad435adef][ContextId:26]
 					{
 						var Name = "Panel"
-						var LinkId = 26
 						Transform 
 						{
 							var Translation = Real3{0, 0.273171782, 0}
@@ -1381,7 +1354,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						JointMotorActiveInteraction 
@@ -1396,7 +1369,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 24
+								var Cog = 24
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -1406,10 +1379,9 @@ Level
 						{
 						}
 					}
-					Cog [Id:0x58c4ec3ad435adf7]
+					Cog [Id:0x58c4ec3ad435adf7][ContextId:27]
 					{
 						var Name = "Stand"
-						var LinkId = 27
 						Transform 
 						{
 							var Translation = Real3{0, -0.273171782, 0}
@@ -1444,14 +1416,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog [Id:0x58c4ec3ad435adf9]
+					Cog [Id:0x58c4ec3ad435adf9][ContextId:28]
 					{
 						var Name = "SpriteText"
-						var LinkId = 28
 						Transform 
 						{
 							var Translation = Real3{-0.0352497287, 0.313413501, -0.00327730295}
@@ -1481,10 +1452,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:29]
 	{
 		var Name = "AmmoBoxRoot"
-		var LinkId = 29
 		Transform 
 		{
 			var Translation = Real3{-43.8500023, 6.80000019, -6.45000029}
@@ -1503,10 +1473,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:30]
 			{
 				var Name = "Sides"
-				var LinkId = 30
 				Transform 
 				{
 					var Translation = Real3{-0.5, 0.5, 0}
@@ -1541,14 +1510,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:31]
 			{
 				var Name = "Sides"
-				var LinkId = 31
 				Transform 
 				{
 					var Translation = Real3{0.5, 0.5, 0}
@@ -1583,14 +1551,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:32]
 			{
 				var Name = "Sides"
-				var LinkId = 32
 				Transform 
 				{
 					var Translation = Real3{0, 0, 0}
@@ -1625,14 +1592,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:33]
 			{
 				var Name = "Sides"
-				var LinkId = 33
 				Transform 
 				{
 					var Translation = Real3{0, 0.5, 0.5}
@@ -1667,14 +1633,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:34]
 			{
 				var Name = "Sides"
-				var LinkId = 34
 				Transform 
 				{
 					var Translation = Real3{0, 0.5, -0.5}
@@ -1709,14 +1674,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:35]
 			{
 				var Name = "AmmoSphere"
-				var LinkId = 35
 				Transform 
 				{
 					var Translation = Real3{-0.179761186, 0.559235096, 0.0232666582}
@@ -1751,14 +1715,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
-			Cog 
+			Cog [ContextId:36]
 			{
 				var Name = "AmmoSphere"
-				var LinkId = 36
 				Transform 
 				{
 					var Translation = Real3{0.304308414, 0.4167445, -0.247800514}
@@ -1793,14 +1756,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
-			Cog 
+			Cog [ContextId:37]
 			{
 				var Name = "AmmoSphere"
-				var LinkId = 37
 				Transform 
 				{
 					var Translation = Real3{0.237014055, 0.4167445, 0.272139877}
@@ -1835,14 +1797,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
-			Cog 
+			Cog [ContextId:38]
 			{
 				var Name = "AmmoSphere"
-				var LinkId = 38
 				Transform 
 				{
 					var Translation = Real3{-0.00968334824, 0.497889549, -0.288439423}
@@ -1877,14 +1838,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
-			Cog 
+			Cog [ContextId:39]
 			{
 				var Name = "AmmoSphere"
-				var LinkId = 39
 				Transform 
 				{
 					var Translation = Real3{-0.179761186, 0.77556932, -0.253889322}
@@ -1919,14 +1879,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
-			Cog 
+			Cog [ContextId:40]
 			{
 				var Name = "AmmoSphere"
-				var LinkId = 40
 				Transform 
 				{
 					var Translation = Real3{0.266772389, 0.924715221, 0.169565499}
@@ -1961,14 +1920,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
-			Cog 
+			Cog [ContextId:41]
 			{
 				var Name = "AmmoSphere"
-				var LinkId = 41
 				Transform 
 				{
 					var Translation = Real3{0.194722742, 0.746728599, -0.0470513105}
@@ -2003,14 +1961,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
-			Cog 
+			Cog [ContextId:42]
 			{
 				var Name = "AmmoSphere"
-				var LinkId = 42
 				Transform 
 				{
 					var Translation = Real3{-0.179761186, 1.18146706, 0.309626997}
@@ -2045,14 +2002,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
-			Cog 
+			Cog [ContextId:43]
 			{
 				var Name = "AmmoSphere"
-				var LinkId = 43
 				Transform 
 				{
 					var Translation = Real3{-0.179761186, 0.514069438, 0.309626997}
@@ -2087,14 +2043,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
-			Cog 
+			Cog [ContextId:44]
 			{
 				var Name = "AmmoSphere"
-				var LinkId = 44
 				Transform 
 				{
 					var Translation = Real3{-0.179761186, 1.1374774, -0.253889322}
@@ -2129,14 +2084,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
-			Cog 
+			Cog [ContextId:45]
 			{
 				var Name = "AmmoSphere"
-				var LinkId = 45
 				Transform 
 				{
 					var Translation = Real3{0.0742027909, 1.1374774, -0.253889322}
@@ -2171,14 +2125,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
-			Cog 
+			Cog [ContextId:46]
 			{
 				var Name = "AmmoSphere"
-				var LinkId = 46
 				Transform 
 				{
 					var Translation = Real3{-0.0933217108, 1.1374774, 0.0904961228}
@@ -2213,16 +2166,15 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var Radius = 0.5
 				}
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:47]
 	{
 		var Name = "Floor"
-		var LinkId = 47
 		Transform 
 		{
 			var Translation = Real3{10, 0, 0}
@@ -2247,14 +2199,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:48]
 	{
 		var Name = "Ground"
-		var LinkId = 48
 		Transform 
 		{
 			var Translation = Real3{18.9899998, 4.52999973, -11.0500002}
@@ -2279,14 +2230,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:49]
 	{
 		var Name = "SlidingDoorGearRoot1"
-		var LinkId = 49
 		Transform 
 		{
 			var Translation = Real3{-1, 0, -0.25}
@@ -2295,10 +2245,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:50]
 			{
 				var Name = "PistonRoot"
-				var LinkId = 50
 				Transform 
 				{
 					var Translation = Real3{3.92584753, 1.5, -0.500000417}
@@ -2307,10 +2256,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog 
+					Cog [ContextId:51]
 					{
 						var Name = "Base"
-						var LinkId = 51
 						Transform 
 						{
 							var Translation = Real3{0, 0, 0}
@@ -2345,14 +2293,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog 
+					Cog [ContextId:52]
 					{
 						var Name = "Piston"
-						var LinkId = 52
 						Transform 
 						{
 							var Translation = Real3{-8.9406953e-08, -0.749999881, 8.9406953e-08}
@@ -2387,15 +2334,14 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						Hierarchy 
 						{
-							Cog 
+							Cog [ContextId:53]
 							{
 								var Name = "SpriteText"
-								var LinkId = 53
 								Transform 
 								{
 									var Translation = Real3{-6.03050978e-08, -0.505875826, 6.03050907e-08}
@@ -2423,10 +2369,9 @@ Level
 							}
 						}
 					}
-					Cog 
+					Cog [ContextId:54]
 					{
 						var Name = "Prismatic"
-						var LinkId = 54
 						ObjectLink 
 						{
 							var ObjectAPath = CogPath
@@ -2439,7 +2384,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 51
+								var Cog = 51
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -2454,7 +2399,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 52
+								var Cog = 52
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -2479,10 +2424,9 @@ Level
 					}
 				}
 			}
-			Cog 
+			Cog [ContextId:55]
 			{
 				var Name = "DoorRoot"
-				var LinkId = 55
 				Transform 
 				{
 					var Translation = Real3{0, 0, 0}
@@ -2491,10 +2435,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog 
+					Cog [ContextId:56]
 					{
 						var Name = "Base"
-						var LinkId = 56
 						Transform 
 						{
 							var Translation = Real3{0, 0, 0}
@@ -2529,14 +2472,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog 
+					Cog [ContextId:57]
 					{
 						var Name = "Door"
-						var LinkId = 57
 						Transform 
 						{
 							var Translation = Real3{0, 10, 0}
@@ -2571,14 +2513,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog 
+					Cog [ContextId:58]
 					{
 						var Name = "Prismatic"
-						var LinkId = 58
 						ObjectLink 
 						{
 							var ObjectAPath = CogPath
@@ -2591,7 +2532,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 56
+								var Cog = 56
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -2606,7 +2547,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 57
+								var Cog = 57
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -2646,10 +2587,9 @@ Level
 					}
 				}
 			}
-			Cog 
+			Cog [ContextId:59]
 			{
 				var Name = "Gear"
-				var LinkId = 59
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -2662,7 +2602,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 52
+						var Cog = 52
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -2677,7 +2617,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 57
+						var Cog = 57
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -2704,7 +2644,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 54
+						var Cog = 54
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -2719,7 +2659,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 58
+						var Cog = 58
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -2728,10 +2668,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:60]
 	{
 		var Name = "SlidingDoorGearRoot"
-		var LinkId = 60
 		Transform 
 		{
 			var Translation = Real3{-15.8000002, 0, -0.25}
@@ -2740,10 +2679,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:61]
 			{
 				var Name = "Gear"
-				var LinkId = 61
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -2756,7 +2694,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 62
+						var Cog = 62
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -2771,7 +2709,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 63
+						var Cog = 63
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -2798,7 +2736,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 64
+						var Cog = 64
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -2813,17 +2751,16 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 65
+						var Cog = 65
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
 					}
 				}
 			}
-			Cog 
+			Cog [ContextId:66]
 			{
 				var Name = "LeverRoot"
-				var LinkId = 66
 				Transform 
 				{
 					var Translation = Real3{-7.1525568e-07, 1, 6}
@@ -2832,10 +2769,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog 
+					Cog [ContextId:67]
 					{
 						var Name = "Base"
-						var LinkId = 67
 						Transform 
 						{
 							var Translation = Real3{0, -1, 0}
@@ -2870,14 +2806,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog 
+					Cog [ContextId:62]
 					{
 						var Name = "Lever"
-						var LinkId = 62
 						Transform 
 						{
 							var Translation = Real3{0, 0, 0}
@@ -2912,15 +2847,14 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						Hierarchy 
 						{
-							Cog 
+							Cog [ContextId:68]
 							{
 								var Name = "SpriteText"
-								var LinkId = 68
 								Transform 
 								{
 									var Translation = Real3{-0.449999988, 0, 0.50999999}
@@ -2946,10 +2880,9 @@ Level
 									var TextAlign = TextAlign.Center
 								}
 							}
-							Cog 
+							Cog [ContextId:69]
 							{
 								var Name = "SpriteText"
-								var LinkId = 69
 								Transform 
 								{
 									var Translation = Real3{0.449999988, 0, -0.50999999}
@@ -2977,10 +2910,9 @@ Level
 							}
 						}
 					}
-					Cog 
+					Cog [ContextId:64]
 					{
 						var Name = "Hinge"
-						var LinkId = 64
 						ObjectLink 
 						{
 							var ObjectAPath = CogPath
@@ -2993,7 +2925,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 67
+								var Cog = 67
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -3008,7 +2940,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 62
+								var Cog = 62
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -3030,10 +2962,9 @@ Level
 							var LocalAngleB = Quaternion{-0.707106829, 0, 0, 0.707106829}
 						}
 					}
-					Cog 
+					Cog [ContextId:70]
 					{
 						var Name = "Pole"
-						var LinkId = 70
 						Transform 
 						{
 							var Translation = Real3{0, 0, 0}
@@ -3053,10 +2984,9 @@ Level
 							var Mesh = "4de0354322b3572e:Cylinder"
 						}
 					}
-					Cog 
+					Cog [ContextId:71]
 					{
 						var Name = "SignRoot"
-						var LinkId = 71
 						Transform 
 						{
 							var Translation = Real3{0, 0.99724555, 0}
@@ -3065,10 +2995,9 @@ Level
 						}
 						Hierarchy 
 						{
-							Cog 
+							Cog [ContextId:72]
 							{
 								var Name = "Sign"
-								var LinkId = 72
 								Transform 
 								{
 									var Translation = Real3{0, 0, 0}
@@ -3091,10 +3020,9 @@ Level
 								{
 								}
 							}
-							Cog 
+							Cog [ContextId:73]
 							{
 								var Name = "SpriteText"
-								var LinkId = 73
 								Transform 
 								{
 									var Translation = Real3{5.24174055e-08, -0.0539801121, 0.0526112765}
@@ -3133,10 +3061,9 @@ Level
 					}
 				}
 			}
-			Cog 
+			Cog [ContextId:74]
 			{
 				var Name = "DoorRoot"
-				var LinkId = 74
 				Transform 
 				{
 					var Translation = Real3{0, 0, 0}
@@ -3145,10 +3072,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog 
+					Cog [ContextId:75]
 					{
 						var Name = "Base"
-						var LinkId = 75
 						Transform 
 						{
 							var Translation = Real3{0, 0, 0}
@@ -3183,14 +3109,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog 
+					Cog [ContextId:63]
 					{
 						var Name = "Wall"
-						var LinkId = 63
 						Transform 
 						{
 							var Translation = Real3{0, 4.5, 0}
@@ -3225,14 +3150,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog 
+					Cog [ContextId:65]
 					{
 						var Name = "Prismatic"
-						var LinkId = 65
 						ObjectLink 
 						{
 							var ObjectAPath = CogPath
@@ -3245,7 +3169,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 75
+								var Cog = 75
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -3260,7 +3184,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 63
+								var Cog = 63
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -3302,10 +3226,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:76]
 	{
 		var Name = "Wall"
-		var LinkId = 76
 		Transform 
 		{
 			var Translation = Real3{9.5, 4.5, 5.5}
@@ -3330,14 +3253,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:77]
 	{
 		var Name = "Wall"
-		var LinkId = 77
 		Transform 
 		{
 			var Translation = Real3{9.5, 4.5, -5.5}
@@ -3362,14 +3284,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:78]
 	{
 		var Name = "BallistaRoot"
-		var LinkId = 78
 		Transform 
 		{
 			var Translation = Real3{-45.9000015, 9.30976009, -5.63946867}
@@ -3378,10 +3299,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:79]
 			{
 				var Name = "BallistaDeviceRoot"
-				var LinkId = 79
 				Transform 
 				{
 					var Translation = Real3{0, -0.209759906, -0.810531795}
@@ -3390,10 +3310,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog 
+					Cog [ContextId:80]
 					{
 						var Name = "Prismatic"
-						var LinkId = 80
 						ObjectLink 
 						{
 							var ObjectAPath = CogPath
@@ -3406,7 +3325,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 81
+								var Cog = 81
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -3421,7 +3340,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 82
+								var Cog = 82
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -3459,10 +3378,9 @@ Level
 							var AtomIds = 4
 						}
 					}
-					Cog 
+					Cog [ContextId:83]
 					{
 						var Name = "Sides"
-						var LinkId = 83
 						Transform 
 						{
 							var Translation = Real3{0.549999237, 0.0500011444, 0.649999619}
@@ -3497,14 +3415,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog 
+					Cog [ContextId:81]
 					{
 						var Name = "Base"
-						var LinkId = 81
 						Transform 
 						{
 							var Translation = Real3{0, 0.0500011444, -1.30000019}
@@ -3539,14 +3456,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog 
+					Cog [ContextId:84]
 					{
 						var Name = "Sides"
-						var LinkId = 84
 						Transform 
 						{
 							var Translation = Real3{0, -0.399998665, 0.699999809}
@@ -3581,14 +3497,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog 
+					Cog [ContextId:82]
 					{
 						var Name = "Piston"
-						var LinkId = 82
 						Transform 
 						{
 							var Translation = Real3{0, 0.20000124, -0.622144699}
@@ -3623,14 +3538,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog 
+					Cog [ContextId:85]
 					{
 						var Name = "Sides"
-						var LinkId = 85
 						Transform 
 						{
 							var Translation = Real3{-0.549999237, 0.0500001907, 0.649999619}
@@ -3665,14 +3579,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog 
+					Cog [ContextId:86]
 					{
 						var Name = "AmmoSphere"
-						var LinkId = 86
 						Transform 
 						{
 							var Translation = Real3{-5.23038821e-08, 0.520803034, 1.30048609}
@@ -3707,16 +3620,15 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var Radius = 0.5
 						}
 					}
 				}
 			}
-			Cog [Id:0x58c4e8481213d015]
+			Cog [Id:0x58c4e8481213d015][ContextId:87]
 			{
 				var Name = "InteractionPodium"
-				var LinkId = 87
 				Transform 
 				{
 					var Translation = Real3{2.1233604, 0.940240026, 1.48947001}
@@ -3725,10 +3637,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog [Id:0x58c4ec3ad435adef]
+					Cog [Id:0x58c4ec3ad435adef][ContextId:88]
 					{
 						var Name = "Panel"
-						var LinkId = 88
 						Transform 
 						{
 							var Translation = Real3{0, 0.273171782, 0}
@@ -3763,7 +3674,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						JointMotorReverseInteraction 
@@ -3778,7 +3689,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 80
+								var Cog = 80
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -3788,10 +3699,9 @@ Level
 						{
 						}
 					}
-					Cog [Id:0x58c4ec3ad435adf7]
+					Cog [Id:0x58c4ec3ad435adf7][ContextId:89]
 					{
 						var Name = "Stand"
-						var LinkId = 89
 						Transform 
 						{
 							var Translation = Real3{0, -0.273171782, 0}
@@ -3826,14 +3736,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog [Id:0x58c4ec3ad435adf9]
+					Cog [Id:0x58c4ec3ad435adf9][ContextId:90]
 					{
 						var Name = "SpriteText"
-						var LinkId = 90
 						Transform 
 						{
 							var Translation = Real3{-0.0352497287, 0.313413501, -0.00327730295}
@@ -3863,10 +3772,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:91]
 	{
 		var Name = "Ceiling"
-		var LinkId = 91
 		Transform 
 		{
 			var Translation = Real3{9.5, 9, 0}
@@ -3891,14 +3799,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:92]
 	{
 		var Name = "Floor"
-		var LinkId = 92
 		Transform 
 		{
 			var Translation = Real3{-7.5, 0, 0}
@@ -3923,14 +3830,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:93]
 	{
 		var Name = "Wall"
-		var LinkId = 93
 		Transform 
 		{
 			var Translation = Real3{-1, 4.5, -4.5}
@@ -3955,14 +3861,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:94]
 	{
 		var Name = "Wall"
-		var LinkId = 94
 		Transform 
 		{
 			var Translation = Real3{-1, 4.5, 4}
@@ -3987,14 +3892,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:95]
 	{
 		var Name = "Wall"
-		var LinkId = 95
 		Transform 
 		{
 			var Translation = Real3{-8.25, 4.5, -5.5}
@@ -4019,14 +3923,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:96]
 	{
 		var Name = "Wall"
-		var LinkId = 96
 		Transform 
 		{
 			var Translation = Real3{-8.25, 4.5, 5.25}
@@ -4051,14 +3954,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:97]
 	{
 		var Name = "Wall"
-		var LinkId = 97
 		Transform 
 		{
 			var Translation = Real3{-15.75, 9.5, 4}
@@ -4083,14 +3985,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:98]
 	{
 		var Name = "Wall"
-		var LinkId = 98
 		Transform 
 		{
 			var Translation = Real3{-15.75, 9.5, -4.5}
@@ -4115,14 +4016,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:99]
 	{
 		var Name = "Ceiling"
-		var LinkId = 99
 		Transform 
 		{
 			var Translation = Real3{-8.40000057, 9, 0}
@@ -4147,14 +4047,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:100]
 	{
 		var Name = "LiftRoot"
-		var LinkId = 100
 		Transform 
 		{
 			var Translation = Real3{-22.5, 0.25, -0.25}
@@ -4163,10 +4062,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:101]
 			{
 				var Name = "Base"
-				var LinkId = 101
 				Transform 
 				{
 					var Translation = Real3{0, -1, 0}
@@ -4201,14 +4099,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:102]
 			{
 				var Name = "Floor"
-				var LinkId = 102
 				Transform 
 				{
 					var Translation = Real3{0, 0, 0}
@@ -4243,15 +4140,14 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
 				{
-					Cog 
+					Cog [ContextId:103]
 					{
 						var Name = "InteractionPodium"
-						var LinkId = 103
 						Transform 
 						{
 							var Translation = Real3{0, 2, 0.449999988}
@@ -4260,10 +4156,9 @@ Level
 						}
 						Hierarchy 
 						{
-							Cog [Id:0x58c4ec3ad435adef]
+							Cog [Id:0x58c4ec3ad435adef][ContextId:104]
 							{
 								var Name = "Panel"
-								var LinkId = 104
 								Transform 
 								{
 									var Translation = Real3{0, 0.273171782, 0}
@@ -4298,7 +4193,7 @@ Level
 									var SendsEvents = true
 									var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 									var CollisionGroup = "4e740859314e5515:DefaultGroup"
-									var TranslationOffset = Real3{0, 0, 0}
+									var Offset = Real3{0, 0, 0}
 									var HalfSize = Real3{0.5, 0.5, 0.5}
 								}
 								JointMotorReverseInteraction 
@@ -4313,7 +4208,7 @@ Level
 										var UpdatePathOnCogChange = true
 										var UpdateCogOnInitialize = true
 										var ResolvedNullErrorOccurred = false
-										var ResolvedCog = 105
+										var Cog = 105
 										var PathPreference0 = CogPathPreference.CogRelative
 										var PathPreference1 = CogPathPreference.SpaceRelative
 										var PathPreference2 = CogPathPreference.Absolute
@@ -4323,10 +4218,9 @@ Level
 								{
 								}
 							}
-							Cog [Id:0x58c4ec3ad435adf7]
+							Cog [Id:0x58c4ec3ad435adf7][ContextId:106]
 							{
 								var Name = "Stand"
-								var LinkId = 106
 								Transform 
 								{
 									var Translation = Real3{0, -0.273171782, 0}
@@ -4361,14 +4255,13 @@ Level
 									var SendsEvents = true
 									var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 									var CollisionGroup = "4e740859314e5515:DefaultGroup"
-									var TranslationOffset = Real3{0, 0, 0}
+									var Offset = Real3{0, 0, 0}
 									var HalfSize = Real3{0.5, 0.5, 0.5}
 								}
 							}
-							Cog [Id:0x58c4ec3ad435adf9]
+							Cog [Id:0x58c4ec3ad435adf9][ContextId:107]
 							{
 								var Name = "SpriteText"
-								var LinkId = 107
 								Transform 
 								{
 									var Translation = Real3{-0.0352497287, 0.313413501, -0.00327730295}
@@ -4398,10 +4291,9 @@ Level
 					}
 				}
 			}
-			Cog 
+			Cog [ContextId:105]
 			{
 				var Name = "Piston"
-				var LinkId = 105
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -4414,7 +4306,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 101
+						var Cog = 101
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -4429,7 +4321,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 102
+						var Cog = 102
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -4467,10 +4359,9 @@ Level
 					var AtomIds = 4
 				}
 			}
-			Cog [Id:0x58c4ef675dd8a4b5]
+			Cog [Id:0x58c4ef675dd8a4b5][ContextId:108]
 			{
 				var Name = "InteractionPodium"
-				var LinkId = 108
 				Transform 
 				{
 					var Translation = Real3{-4, 2, -6.5}
@@ -4479,10 +4370,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog [Id:0x58c4ec3ad435adef]
+					Cog [Id:0x58c4ec3ad435adef][ContextId:109]
 					{
 						var Name = "Panel"
-						var LinkId = 109
 						Transform 
 						{
 							var Translation = Real3{0, 0.273171782, 0}
@@ -4517,7 +4407,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						JointMotorReverseInteraction 
@@ -4532,7 +4422,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 105
+								var Cog = 105
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -4542,10 +4432,9 @@ Level
 						{
 						}
 					}
-					Cog [Id:0x58c4ec3ad435adf7]
+					Cog [Id:0x58c4ec3ad435adf7][ContextId:110]
 					{
 						var Name = "Stand"
-						var LinkId = 110
 						Transform 
 						{
 							var Translation = Real3{0, -0.273171782, 0}
@@ -4580,14 +4469,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog [Id:0x58c4ec3ad435adf9]
+					Cog [Id:0x58c4ec3ad435adf9][ContextId:111]
 					{
 						var Name = "SpriteText"
-						var LinkId = 111
 						Transform 
 						{
 							var Translation = Real3{-0.0352497287, 0.313413501, -0.00327730295}
@@ -4615,10 +4503,9 @@ Level
 					}
 				}
 			}
-			Cog 
+			Cog [ContextId:112]
 			{
 				var Name = "InteractionPodium"
-				var LinkId = 112
 				Transform 
 				{
 					var Translation = Real3{7.5, 20, 7.5}
@@ -4627,10 +4514,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog [Id:0x58c4ec3ad435adef]
+					Cog [Id:0x58c4ec3ad435adef][ContextId:113]
 					{
 						var Name = "Panel"
-						var LinkId = 113
 						Transform 
 						{
 							var Translation = Real3{0, 0.273171782, 0}
@@ -4665,7 +4551,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						JointMotorReverseInteraction 
@@ -4680,7 +4566,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 105
+								var Cog = 105
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -4690,10 +4576,9 @@ Level
 						{
 						}
 					}
-					Cog [Id:0x58c4ec3ad435adf7]
+					Cog [Id:0x58c4ec3ad435adf7][ContextId:114]
 					{
 						var Name = "Stand"
-						var LinkId = 114
 						Transform 
 						{
 							var Translation = Real3{0, -0.273171782, 0}
@@ -4728,14 +4613,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog [Id:0x58c4ec3ad435adf9]
+					Cog [Id:0x58c4ec3ad435adf9][ContextId:115]
 					{
 						var Name = "SpriteText"
-						var LinkId = 115
 						Transform 
 						{
 							var Translation = Real3{-0.0352497287, 0.313413501, -0.00327730295}
@@ -4765,10 +4649,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:116]
 	{
 		var Name = "Floor"
-		var LinkId = 116
 		Transform 
 		{
 			var Translation = Real3{-17.5, 0, 0}
@@ -4793,14 +4676,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:117]
 	{
 		var Name = "Wall"
-		var LinkId = 117
 		Transform 
 		{
 			var Translation = Real3{-21.25, 9.5, 5.25}
@@ -4825,14 +4707,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:118]
 	{
 		var Name = "Wall"
-		var LinkId = 118
 		Transform 
 		{
 			var Translation = Real3{-21.25, 9.5, -5.5}
@@ -4857,14 +4738,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:119]
 	{
 		var Name = "Wall"
-		var LinkId = 119
 		Transform 
 		{
 			var Translation = Real3{-25.5, 4.5, 0}
@@ -4889,14 +4769,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:120]
 	{
 		var Name = "Floor"
-		var LinkId = 120
 		Transform 
 		{
 			var Translation = Real3{-30, 9, 0}
@@ -4921,14 +4800,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:121]
 	{
 		var Name = "Wall"
-		var LinkId = 121
 		Transform 
 		{
 			var Translation = Real3{-31.25, 14.5, -5.5}
@@ -4953,14 +4831,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:122]
 	{
 		var Name = "Floor"
-		var LinkId = 122
 		Transform 
 		{
 			var Translation = Real3{-22.5, 0, 3.75}
@@ -4985,14 +4862,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:123]
 	{
 		var Name = "Floor"
-		var LinkId = 123
 		Transform 
 		{
 			var Translation = Real3{-22.5, 0, -4.25}
@@ -5017,14 +4893,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:124]
 	{
 		var Name = "Wall"
-		var LinkId = 124
 		Transform 
 		{
 			var Translation = Real3{-14.75, 14.5, -0.25}
@@ -5049,14 +4924,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:125]
 	{
 		var Name = "Ceiling"
-		var LinkId = 125
 		Transform 
 		{
 			var Translation = Real3{-25.25, 20, 0}
@@ -5081,14 +4955,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:126]
 	{
 		var Name = "WallRoot"
-		var LinkId = 126
 		Transform 
 		{
 			var Translation = Real3{-35.8710747, 9.55000019, 1.35000002}
@@ -5097,10 +4970,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:127]
 			{
 				var Name = "Cube"
-				var LinkId = 127
 				Transform 
 				{
 					var Translation = Real3{-1.04999876, 0.5, 0.0499992371}
@@ -5135,14 +5007,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:128]
 			{
 				var Name = "Cube"
-				var LinkId = 128
 				Transform 
 				{
 					var Translation = Real3{1.05000186, 0.5, 0.0499992371}
@@ -5177,14 +5048,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:129]
 			{
 				var Name = "Cube"
-				var LinkId = 129
 				Transform 
 				{
 					var Translation = Real3{0, 1.5, 0.0499992371}
@@ -5219,14 +5089,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:130]
 			{
 				var Name = "Cube"
-				var LinkId = 130
 				Transform 
 				{
 					var Translation = Real3{-2.10000038, 1.5, 0.0499992371}
@@ -5261,14 +5130,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:131]
 			{
 				var Name = "Cube"
-				var LinkId = 131
 				Transform 
 				{
 					var Translation = Real3{5.22500134, 0.5, 0.0499992371}
@@ -5303,14 +5171,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:132]
 			{
 				var Name = "Cube"
-				var LinkId = 132
 				Transform 
 				{
 					var Translation = Real3{4.17499924, 1.5, 0.0499992371}
@@ -5345,14 +5212,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:133]
 			{
 				var Name = "Cube"
-				var LinkId = 133
 				Transform 
 				{
 					var Translation = Real3{3.12500048, 0.5, 0.0499992371}
@@ -5387,14 +5253,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:134]
 			{
 				var Name = "Cube"
-				var LinkId = 134
 				Transform 
 				{
 					var Translation = Real3{2.07499886, 1.5, 0.0499992371}
@@ -5429,14 +5294,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:135]
 			{
 				var Name = "Cube"
-				var LinkId = 135
 				Transform 
 				{
 					var Translation = Real3{5.21250248, 2.5, 0.0499973297}
@@ -5471,14 +5335,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:136]
 			{
 				var Name = "Cube"
-				var LinkId = 136
 				Transform 
 				{
 					var Translation = Real3{2.0625, 3.5, 0.0499973297}
@@ -5513,14 +5376,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:137]
 			{
 				var Name = "Cube"
-				var LinkId = 137
 				Transform 
 				{
 					var Translation = Real3{-0.0124988556, 3.5, 0.0499973297}
@@ -5555,14 +5417,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:138]
 			{
 				var Name = "Cube"
-				var LinkId = 138
 				Transform 
 				{
 					var Translation = Real3{-1.06249762, 2.5, 0.0499973297}
@@ -5597,14 +5458,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:139]
 			{
 				var Name = "Cube"
-				var LinkId = 139
 				Transform 
 				{
 					var Translation = Real3{1.037503, 2.5, 0.0499973297}
@@ -5639,14 +5499,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:140]
 			{
 				var Name = "Cube"
-				var LinkId = 140
 				Transform 
 				{
 					var Translation = Real3{4.16250038, 3.5, 0.0499973297}
@@ -5681,14 +5540,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:141]
 			{
 				var Name = "Cube"
-				var LinkId = 141
 				Transform 
 				{
 					var Translation = Real3{-2.11249924, 3.5, 0.0499973297}
@@ -5723,14 +5581,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:142]
 			{
 				var Name = "Cube"
-				var LinkId = 142
 				Transform 
 				{
 					var Translation = Real3{3.11250162, 2.5, 0.0499973297}
@@ -5765,14 +5622,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:143]
 			{
 				var Name = "Cube"
-				var LinkId = 143
 				Transform 
 				{
 					var Translation = Real3{5.21250248, 4.50000191, 0.0499973297}
@@ -5807,14 +5663,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:144]
 			{
 				var Name = "Cube"
-				var LinkId = 144
 				Transform 
 				{
 					var Translation = Real3{2.0625, 5.50000191, 0.0499973297}
@@ -5849,14 +5704,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:145]
 			{
 				var Name = "Cube"
-				var LinkId = 145
 				Transform 
 				{
 					var Translation = Real3{-0.0124988556, 5.50000191, 0.0499973297}
@@ -5891,14 +5745,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:146]
 			{
 				var Name = "Cube"
-				var LinkId = 146
 				Transform 
 				{
 					var Translation = Real3{-1.06249762, 4.50000191, 0.0499973297}
@@ -5933,14 +5786,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:147]
 			{
 				var Name = "Cube"
-				var LinkId = 147
 				Transform 
 				{
 					var Translation = Real3{1.037503, 4.50000191, 0.0499973297}
@@ -5975,14 +5827,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:148]
 			{
 				var Name = "Cube"
-				var LinkId = 148
 				Transform 
 				{
 					var Translation = Real3{4.16250038, 5.50000191, 0.0499973297}
@@ -6017,14 +5868,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:149]
 			{
 				var Name = "Cube"
-				var LinkId = 149
 				Transform 
 				{
 					var Translation = Real3{-2.11249924, 5.50000191, 0.0499973297}
@@ -6059,14 +5909,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:150]
 			{
 				var Name = "Cube"
-				var LinkId = 150
 				Transform 
 				{
 					var Translation = Real3{3.11250162, 4.50000191, 0.0499973297}
@@ -6101,14 +5950,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:151]
 			{
 				var Name = "Cube"
-				var LinkId = 151
 				Transform 
 				{
 					var Translation = Real3{-2.60000134, 4.5, 0.0499992371}
@@ -6143,14 +5991,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:152]
 			{
 				var Name = "Cube"
-				var LinkId = 152
 				Transform 
 				{
 					var Translation = Real3{-2.59999943, 2.5, 0.0499992371}
@@ -6185,14 +6032,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:153]
 			{
 				var Name = "Cube"
-				var LinkId = 153
 				Transform 
 				{
 					var Translation = Real3{-2.60000134, 0.5, 0.0499992371}
@@ -6227,14 +6073,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:154]
 			{
 				var Name = "Cube"
-				var LinkId = 154
 				Transform 
 				{
 					var Translation = Real3{5.70000172, 1.5, 0.0499992371}
@@ -6269,14 +6114,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:155]
 			{
 				var Name = "Cube"
-				var LinkId = 155
 				Transform 
 				{
 					var Translation = Real3{5.70000172, 3.5, 0.0499992371}
@@ -6311,14 +6155,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:156]
 			{
 				var Name = "Cube"
-				var LinkId = 156
 				Transform 
 				{
 					var Translation = Real3{5.70000172, 5.5, 0.0499992371}
@@ -6353,14 +6196,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:157]
 			{
 				var Name = "Cube"
-				var LinkId = 157
 				Transform 
 				{
 					var Translation = Real3{5.21250105, 6.49999905, 0.0500011444}
@@ -6395,14 +6237,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:158]
 			{
 				var Name = "Cube"
-				var LinkId = 158
 				Transform 
 				{
 					var Translation = Real3{4.16249895, 7.49999905, 0.0500011444}
@@ -6437,14 +6278,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:159]
 			{
 				var Name = "Cube"
-				var LinkId = 159
 				Transform 
 				{
 					var Translation = Real3{2.06249857, 7.49999905, 0.0500011444}
@@ -6479,14 +6319,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:160]
 			{
 				var Name = "Cube"
-				var LinkId = 160
 				Transform 
 				{
 					var Translation = Real3{-2.60000277, 6.49999714, 0.0500030518}
@@ -6521,14 +6360,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:161]
 			{
 				var Name = "Cube"
-				var LinkId = 161
 				Transform 
 				{
 					var Translation = Real3{-2.11250067, 7.49999905, 0.0500011444}
@@ -6563,14 +6401,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:162]
 			{
 				var Name = "Cube"
-				var LinkId = 162
 				Transform 
 				{
 					var Translation = Real3{1.03750169, 6.49999905, 0.0500011444}
@@ -6605,14 +6442,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:163]
 			{
 				var Name = "Cube"
-				var LinkId = 163
 				Transform 
 				{
 					var Translation = Real3{5.70000029, 7.49999714, 0.0500030518}
@@ -6647,14 +6483,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:164]
 			{
 				var Name = "Cube"
-				var LinkId = 164
 				Transform 
 				{
 					var Translation = Real3{3.11250019, 6.49999905, 0.0500011444}
@@ -6689,14 +6524,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:165]
 			{
 				var Name = "Cube"
-				var LinkId = 165
 				Transform 
 				{
 					var Translation = Real3{-1.06249893, 6.49999905, 0.0500011444}
@@ -6731,14 +6565,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:166]
 			{
 				var Name = "Cube"
-				var LinkId = 166
 				Transform 
 				{
 					var Translation = Real3{-0.012500152, 7.49999905, 0.0500011444}
@@ -6773,16 +6606,15 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:167]
 	{
 		var Name = "SwingSmasherRoot"
-		var LinkId = 167
 		Transform 
 		{
 			var Translation = Real3{-33.7000008, 15.3000002, 0}
@@ -6791,10 +6623,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:168]
 			{
 				var Name = "StickConnection"
-				var LinkId = 168
 				Transform 
 				{
 					var Translation = Real3{0, 4.75, 3.75}
@@ -6829,14 +6660,13 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 			}
-			Cog 
+			Cog [ContextId:169]
 			{
 				var Name = "HammerRoot"
-				var LinkId = 169
 				Transform 
 				{
 					var Translation = Real3{0, 0.5, 0}
@@ -6845,10 +6675,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog 
+					Cog [ContextId:170]
 					{
 						var Name = "Anchor"
-						var LinkId = 170
 						Transform 
 						{
 							var Translation = Real3{0, 0, 0}
@@ -6883,14 +6712,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog 
+					Cog [ContextId:171]
 					{
 						var Name = "SmasherRoot"
-						var LinkId = 171
 						Transform 
 						{
 							var Translation = Real3{0, 0, 0}
@@ -6903,7 +6731,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.25, 0.25, 0.25}
 						}
 						RigidBody 
@@ -6918,10 +6746,9 @@ Level
 						}
 						Hierarchy 
 						{
-							Cog 
+							Cog [ContextId:172]
 							{
 								var Name = "Rod"
-								var LinkId = 172
 								Transform 
 								{
 									var Translation = Real3{0, -2.75, 0}
@@ -6946,14 +6773,13 @@ Level
 									var SendsEvents = true
 									var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 									var CollisionGroup = "4e740859314e5515:DefaultGroup"
-									var TranslationOffset = Real3{0, 0, 0}
+									var Offset = Real3{0, 0, 0}
 									var HalfSize = Real3{0.5, 0.5, 0.5}
 								}
 							}
-							Cog 
+							Cog [ContextId:173]
 							{
 								var Name = "HammerHead"
-								var LinkId = 173
 								Transform 
 								{
 									var Translation = Real3{0, -5.5, 0}
@@ -6978,16 +6804,15 @@ Level
 									var SendsEvents = true
 									var Material = "58c4d1c9fa2319a7:Heavy"
 									var CollisionGroup = "4e740859314e5515:DefaultGroup"
-									var TranslationOffset = Real3{0, 0, 0}
+									var Offset = Real3{0, 0, 0}
 									var HalfSize = Real3{0.5, 0.5, 0.5}
 								}
 							}
 						}
 					}
-					Cog 
+					Cog [ContextId:174]
 					{
 						var Name = "RevoluteJoint"
-						var LinkId = 174
 						ObjectLink 
 						{
 							var ObjectAPath = CogPath
@@ -7000,7 +6825,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 170
+								var Cog = 170
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -7015,7 +6840,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 171
+								var Cog = 171
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -7037,10 +6862,9 @@ Level
 							var LocalAngleB = Quaternion{0, 0.707106769, 0, 0.707106769}
 						}
 					}
-					Cog 
+					Cog [ContextId:175]
 					{
 						var Name = "Anchor"
-						var LinkId = 175
 						Transform 
 						{
 							var Translation = Real3{0, 2.14444447, 0}
@@ -7062,10 +6886,9 @@ Level
 					}
 				}
 			}
-			Cog 
+			Cog [ContextId:176]
 			{
 				var Name = "StickJoint"
-				var LinkId = 176
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -7078,7 +6901,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 168
+						var Cog = 168
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -7093,7 +6916,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 173
+						var Cog = 173
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -7128,10 +6951,9 @@ Level
 					var AtomIds = 1
 				}
 			}
-			Cog [Id:0x58c4ef9e27e1bf00]
+			Cog [Id:0x58c4ef9e27e1bf00][ContextId:177]
 			{
 				var Name = "InteractionPodium"
-				var LinkId = 177
 				Transform 
 				{
 					var Translation = Real3{4.63259411, -5.05000019, 2.04999995}
@@ -7140,10 +6962,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog [Id:0x58c4ec3ad435adef]
+					Cog [Id:0x58c4ec3ad435adef][ContextId:178]
 					{
 						var Name = "Panel"
-						var LinkId = 178
 						Transform 
 						{
 							var Translation = Real3{0, 0.273171782, 0}
@@ -7178,7 +6999,7 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 						JointMotorActiveInteraction 
@@ -7193,7 +7014,7 @@ Level
 								var UpdatePathOnCogChange = true
 								var UpdateCogOnInitialize = true
 								var ResolvedNullErrorOccurred = false
-								var ResolvedCog = 176
+								var Cog = 176
 								var PathPreference0 = CogPathPreference.CogRelative
 								var PathPreference1 = CogPathPreference.SpaceRelative
 								var PathPreference2 = CogPathPreference.Absolute
@@ -7203,10 +7024,9 @@ Level
 						{
 						}
 					}
-					Cog [Id:0x58c4ec3ad435adf7]
+					Cog [Id:0x58c4ec3ad435adf7][ContextId:179]
 					{
 						var Name = "Stand"
-						var LinkId = 179
 						Transform 
 						{
 							var Translation = Real3{0, -0.273171782, 0}
@@ -7241,14 +7061,13 @@ Level
 							var SendsEvents = true
 							var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 							var CollisionGroup = "4e740859314e5515:DefaultGroup"
-							var TranslationOffset = Real3{0, 0, 0}
+							var Offset = Real3{0, 0, 0}
 							var HalfSize = Real3{0.5, 0.5, 0.5}
 						}
 					}
-					Cog [Id:0x58c4ec3ad435adf9]
+					Cog [Id:0x58c4ec3ad435adf9][ContextId:180]
 					{
 						var Name = "SpriteText"
-						var LinkId = 180
 						Transform 
 						{
 							var Translation = Real3{-0.0352497287, 0.313413501, -0.00327730295}
@@ -7278,10 +7097,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:181]
 	{
 		var Name = "Floor"
-		var LinkId = 181
 		Transform 
 		{
 			var Translation = Real3{-40.1000023, 9, 0}
@@ -7306,14 +7124,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:182]
 	{
 		var Name = "Wall"
-		var LinkId = 182
 		Transform 
 		{
 			var Translation = Real3{-31.25, 14.5, 5.5}
@@ -7338,14 +7155,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:183]
 	{
 		var Name = "Floor"
-		var LinkId = 183
 		Transform 
 		{
 			var Translation = Real3{-50.1000023, 9, 0}
@@ -7370,14 +7186,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:184]
 	{
 		var Name = "Floor"
-		var LinkId = 184
 		Transform 
 		{
 			var Translation = Real3{-46.1333389, 12.7062731, -45.2056618}
@@ -7402,14 +7217,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:185]
 	{
 		var Name = "Ramp"
-		var LinkId = 185
 		Transform 
 		{
 			var Translation = Real3{-52.6000023, 5.016922, -19.7273598}
@@ -7434,14 +7248,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:186]
 	{
 		var Name = "Wall"
-		var LinkId = 186
 		Transform 
 		{
 			var Translation = Real3{-46.1333389, 6.22421169, -40.6056595}
@@ -7466,14 +7279,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:187]
 	{
 		var Name = "Floor"
-		var LinkId = 187
 		Transform 
 		{
 			var Translation = Real3{-46, 1.22251403, -25}
@@ -7498,14 +7310,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:188]
 	{
 		var Name = "Wall"
-		var LinkId = 188
 		Transform 
 		{
 			var Translation = Real3{-47.0499992, 3.95000005, -4.4000001}
@@ -7530,14 +7341,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:189]
 	{
 		var Name = "Wall"
-		var LinkId = 189
 		Transform 
 		{
 			var Translation = Real3{-46.1500015, 14.3500004, -50.5389938}
@@ -7562,14 +7372,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:190]
 	{
 		var Name = "Ceiling"
-		var LinkId = 190
 		Transform 
 		{
 			var Translation = Real3{-46.1000023, 20.5, -30}
@@ -7594,14 +7403,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:191]
 	{
 		var Name = "Wall"
-		var LinkId = 191
 		Transform 
 		{
 			var Translation = Real3{-36.75, 10, -30}
@@ -7626,14 +7434,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:192]
 	{
 		var Name = "Wall"
-		var LinkId = 192
 		Transform 
 		{
 			var Translation = Real3{-55.6000023, 10, -30}
@@ -7658,14 +7465,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:193]
 	{
 		var Name = "Wall"
-		var LinkId = 193
 		Transform 
 		{
 			var Translation = Real3{-55.6000023, 14.5, -3.25}
@@ -7690,14 +7496,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:194]
 	{
 		var Name = "Wall"
-		var LinkId = 194
 		Transform 
 		{
 			var Translation = Real3{-55.6000023, 14.5, 3.25}
@@ -7722,14 +7527,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:195]
 	{
 		var Name = "Floor"
-		var LinkId = 195
 		Transform 
 		{
 			var Translation = Real3{-60.3500023, 9, 0}
@@ -7754,14 +7558,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:196]
 	{
 		var Name = "Wall"
-		var LinkId = 196
 		Transform 
 		{
 			var Translation = Real3{-41.25, 14.5, 5.5}
@@ -7786,14 +7589,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:197]
 	{
 		var Name = "Wall"
-		var LinkId = 197
 		Transform 
 		{
 			var Translation = Real3{-51.25, 14.5, 5.5}
@@ -7818,14 +7620,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:198]
 	{
 		var Name = "Ceiling"
-		var LinkId = 198
 		Transform 
 		{
 			var Translation = Real3{-45.25, 20, 0}
@@ -7850,14 +7651,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:199]
 	{
 		var Name = "Wall"
-		var LinkId = 199
 		Transform 
 		{
 			var Translation = Real3{-55.6000023, 17, 0}
@@ -7882,14 +7682,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:200]
 	{
 		var Name = "SpriteText"
-		var LinkId = 200
 		Transform 
 		{
 			var Translation = Real3{-0.483584583, 2.78654766, 3.61302781}
@@ -7924,10 +7723,9 @@ Level
 			var Origin = Location.Center
 		}
 	}
-	Cog 
+	Cog [ContextId:201]
 	{
 		var Name = "SpriteText"
-		var LinkId = 201
 		Transform 
 		{
 			var Translation = Real3{-24.9729137, 1.64555955, -0.227775827}
@@ -7962,10 +7760,9 @@ Level
 			var Origin = Location.Center
 		}
 	}
-	Cog 
+	Cog [ContextId:202]
 	{
 		var Name = "SpriteText"
-		var LinkId = 202
 		Transform 
 		{
 			var Translation = Real3{-31.688549, 11.0382872, -4.99495077}
@@ -8000,10 +7797,9 @@ Level
 			var Origin = Location.Center
 		}
 	}
-	Cog 
+	Cog [ContextId:203]
 	{
 		var Name = "SpriteText"
-		var LinkId = 203
 		Transform 
 		{
 			var Translation = Real3{-55.0582542, 15.026474, -0.113876432}
@@ -8038,10 +7834,9 @@ Level
 			var Origin = Location.Center
 		}
 	}
-	Cog 
+	Cog [ContextId:204]
 	{
 		var Name = "SpriteText"
-		var LinkId = 204
 		Transform 
 		{
 			var Translation = Real3{-45.4574242, 4.70008039, -39.9646645}
@@ -8076,10 +7871,9 @@ Level
 			var Origin = Location.Center
 		}
 	}
-	Cog 
+	Cog [ContextId:205]
 	{
 		var Name = "SignRoot"
-		var LinkId = 205
 		Transform 
 		{
 			var Translation = Real3{-42.2069168, 10.5691357, -3.21917129}
@@ -8088,10 +7882,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:206]
 			{
 				var Name = "SpriteText"
-				var LinkId = 206
 				Transform 
 				{
 					var Translation = Real3{4.24642987e-09, 0.234764099, 0.0772895738}
@@ -8126,10 +7919,9 @@ Level
 					var Origin = Location.Center
 				}
 			}
-			Cog 
+			Cog [ContextId:207]
 			{
 				var Name = "Cube"
-				var LinkId = 207
 				Transform 
 				{
 					var Translation = Real3{0, 0.402864456, 0}
@@ -8154,17 +7946,16 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
 				{
 				}
 			}
-			Cog 
+			Cog [ContextId:208]
 			{
 				var Name = "Cube"
-				var LinkId = 208
 				Transform 
 				{
 					var Translation = Real3{0, -0.573943138, 0}
@@ -8189,7 +7980,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -8198,10 +7989,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:209]
 	{
 		var Name = "VisualConectionRoot"
-		var LinkId = 209
 		Transform 
 		{
 			var Translation = Real3{-55.235775, 13.4484186, -7.18107891}
@@ -8210,10 +8000,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:210]
 			{
 				var Name = "Point1"
-				var LinkId = 210
 				Transform 
 				{
 					var Translation = Real3{0, 1.25, 7.24596024}
@@ -8233,10 +8022,9 @@ Level
 					var Mesh = "4de0354322b3572e:Cylinder"
 				}
 			}
-			Cog 
+			Cog [ContextId:211]
 			{
 				var Name = "Point2"
-				var LinkId = 211
 				Transform 
 				{
 					var Translation = Real3{0, 1.25, -37.712265}
@@ -8256,10 +8044,9 @@ Level
 					var Mesh = "4de0354322b3572e:Cylinder"
 				}
 			}
-			Cog 
+			Cog [ContextId:212]
 			{
 				var Name = "Point3"
-				var LinkId = 212
 				Transform 
 				{
 					var Translation = Real3{9.54030228, -0.324357033, -37.7273483}
@@ -8282,10 +8069,9 @@ Level
 				{
 				}
 			}
-			Cog 
+			Cog [ContextId:213]
 			{
 				var Name = "ObjectLink"
-				var LinkId = 213
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -8298,7 +8084,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 210
+						var Cog = 210
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -8313,7 +8099,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 211
+						var Cog = 211
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -8326,10 +8112,9 @@ Level
 					var Color = Real4{1, 0, 0, 1}
 				}
 			}
-			Cog 
+			Cog [ContextId:214]
 			{
 				var Name = "ObjectLink"
-				var LinkId = 214
 				ObjectLink 
 				{
 					var ObjectAPath = CogPath
@@ -8342,7 +8127,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 211
+						var Cog = 211
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -8357,7 +8142,7 @@ Level
 						var UpdatePathOnCogChange = true
 						var UpdateCogOnInitialize = true
 						var ResolvedNullErrorOccurred = false
-						var ResolvedCog = 212
+						var Cog = 212
 						var PathPreference0 = CogPathPreference.CogRelative
 						var PathPreference1 = CogPathPreference.SpaceRelative
 						var PathPreference2 = CogPathPreference.Absolute
@@ -8372,10 +8157,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:215]
 	{
 		var Name = "SignRoot"
-		var LinkId = 215
 		Transform 
 		{
 			var Translation = Real3{31.0459061, 1.58319092, -6.99765539}
@@ -8384,10 +8168,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:216]
 			{
 				var Name = "SpriteText"
-				var LinkId = 216
 				Transform 
 				{
 					var Translation = Real3{4.24642987e-09, 0.33037281, 0.0772895738}
@@ -8422,10 +8205,9 @@ Level
 					var Origin = Location.Center
 				}
 			}
-			Cog 
+			Cog [ContextId:217]
 			{
 				var Name = "Cube"
-				var LinkId = 217
 				Transform 
 				{
 					var Translation = Real3{0, 0.402864456, 0}
@@ -8450,17 +8232,16 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
 				{
 				}
 			}
-			Cog 
+			Cog [ContextId:218]
 			{
 				var Name = "Cube"
-				var LinkId = 218
 				Transform 
 				{
 					var Translation = Real3{0, -0.573943138, 0}
@@ -8485,7 +8266,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -8494,10 +8275,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:219]
 	{
 		var Name = "Cube"
-		var LinkId = 219
 		Transform 
 		{
 			var Translation = Real3{45.4980774, 1.14351559, -0.131506503}
@@ -8532,14 +8312,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:220]
 	{
 		var Name = "SignRoot"
-		var LinkId = 220
 		Transform 
 		{
 			var Translation = Real3{43.7013664, 1.58319092, -2.55789948}
@@ -8548,10 +8327,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:221]
 			{
 				var Name = "SpriteText"
-				var LinkId = 221
 				Transform 
 				{
 					var Translation = Real3{4.24642987e-09, 0.33037281, 0.0772895738}
@@ -8586,10 +8364,9 @@ Level
 					var Origin = Location.Center
 				}
 			}
-			Cog 
+			Cog [ContextId:222]
 			{
 				var Name = "Cube"
-				var LinkId = 222
 				Transform 
 				{
 					var Translation = Real3{0, 0.402864456, 0}
@@ -8614,17 +8391,16 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
 				{
 				}
 			}
-			Cog 
+			Cog [ContextId:223]
 			{
 				var Name = "Cube"
-				var LinkId = 223
 				Transform 
 				{
 					var Translation = Real3{0, -0.573943138, 0}
@@ -8649,7 +8425,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -8658,10 +8434,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:224]
 	{
 		var Name = "SignRoot"
-		var LinkId = 224
 		Transform 
 		{
 			var Translation = Real3{52.8020058, 1.5, 2.4958992}
@@ -8670,10 +8445,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:225]
 			{
 				var Name = "SpriteText"
-				var LinkId = 225
 				Transform 
 				{
 					var Translation = Real3{4.24642987e-09, 0.33037281, 0.0772895738}
@@ -8708,10 +8482,9 @@ Level
 					var Origin = Location.Center
 				}
 			}
-			Cog 
+			Cog [ContextId:226]
 			{
 				var Name = "Cube"
-				var LinkId = 226
 				Transform 
 				{
 					var Translation = Real3{0, 0.402864456, 0}
@@ -8736,17 +8509,16 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
 				{
 				}
 			}
-			Cog 
+			Cog [ContextId:227]
 			{
 				var Name = "Cube"
-				var LinkId = 227
 				Transform 
 				{
 					var Translation = Real3{0, -0.573943138, 0}
@@ -8771,7 +8543,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -8780,10 +8552,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:228]
 	{
 		var Name = "SignRoot"
-		var LinkId = 228
 		Transform 
 		{
 			var Translation = Real3{64.7952423, 1.5, -2.49999976}
@@ -8792,10 +8563,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:229]
 			{
 				var Name = "SpriteText"
-				var LinkId = 229
 				Transform 
 				{
 					var Translation = Real3{4.24642987e-09, 0.33037281, 0.0772895738}
@@ -8830,10 +8600,9 @@ Level
 					var Origin = Location.Center
 				}
 			}
-			Cog 
+			Cog [ContextId:230]
 			{
 				var Name = "Cube"
-				var LinkId = 230
 				Transform 
 				{
 					var Translation = Real3{0, 0.402864456, 0}
@@ -8858,17 +8627,16 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
 				{
 				}
 			}
-			Cog 
+			Cog [ContextId:231]
 			{
 				var Name = "Cube"
-				var LinkId = 231
 				Transform 
 				{
 					var Translation = Real3{0, -0.573943138, 0}
@@ -8893,7 +8661,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
@@ -8902,10 +8670,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:232]
 	{
 		var Name = "Floor"
-		var LinkId = 232
 		Transform 
 		{
 			var Translation = Real3{60.2099991, 0, 0}
@@ -8930,14 +8697,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:233]
 	{
 		var Name = "Floor"
-		var LinkId = 233
 		Transform 
 		{
 			var Translation = Real3{50.2000008, 0.459999979, 0}
@@ -8961,10 +8727,9 @@ Level
 			var AlbedoValue = Real4{1, 0, 0, 0}
 		}
 	}
-	Cog 
+	Cog [ContextId:234]
 	{
 		var Name = "Ground"
-		var LinkId = 234
 		Transform 
 		{
 			var Translation = Real3{18.9899998, 4.52999973, 11.0199995}
@@ -8989,14 +8754,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:235]
 	{
 		var Name = "Ground"
-		var LinkId = 235
 		Transform 
 		{
 			var Translation = Real3{19, 14.5, 0}
@@ -9021,14 +8785,13 @@ Level
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var TranslationOffset = Real3{0, 0, 0}
+			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog 
+	Cog [ContextId:236]
 	{
 		var Name = "SignRoot"
-		var LinkId = 236
 		Transform 
 		{
 			var Translation = Real3{-64.5, 10.5, 0}
@@ -9037,10 +8800,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:237]
 			{
 				var Name = "SpriteText"
-				var LinkId = 237
 				Transform 
 				{
 					var Translation = Real3{4.24642987e-09, 0.350189209, 0.0772895738}
@@ -9071,10 +8833,9 @@ Level
 					var Origin = Location.Center
 				}
 			}
-			Cog 
+			Cog [ContextId:238]
 			{
 				var Name = "Cube"
-				var LinkId = 238
 				Transform 
 				{
 					var Translation = Real3{0, 0.402864456, 0}
@@ -9099,17 +8860,16 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 
 				{
 				}
 			}
-			Cog 
+			Cog [ContextId:239]
 			{
 				var Name = "Cube"
-				var LinkId = 239
 				Transform 
 				{
 					var Translation = Real3{0, -0.573943138, 0}
@@ -9134,7 +8894,7 @@ Level
 					var SendsEvents = true
 					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 					var CollisionGroup = "4e740859314e5515:DefaultGroup"
-					var TranslationOffset = Real3{0, 0, 0}
+					var Offset = Real3{0, 0, 0}
 					var HalfSize = Real3{0.5, 0.5, 0.5}
 				}
 				Hierarchy 

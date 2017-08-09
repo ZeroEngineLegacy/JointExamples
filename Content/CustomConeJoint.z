@@ -1,3 +1,10 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright 2017 DigiPen USA Corporation, All Rights Reserved
+// Author: Joshua Davis
+// Last updated by: Joshua Davis
+// Last update: 7/31/2017
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // A more complicated example that shows constructing a cone joint. A cone locks two 
 // positions together just like a position joint, but in addition it decomposes the two
 // delta rotation between the two object's orientations into a twist and a cone rotation.
@@ -41,11 +48,11 @@ class CustomConeJoint : ZilchComponent
     result.W = 2 * Math.ACos(rotation.W);
     var invSinAngle = Math.Sqrt(Math.Max(1.0 - rotation.W * rotation.W, 0));
     if(Math.Abs(invSinAngle) > 0.001)
-        invSinAngle = 1.0 / invSinAngle;
+      invSinAngle = 1.0 / invSinAngle;
     result.XYZ = Math.Normalize(rotation.XYZ * invSinAngle);
     if(Math.Length(result.XYZ) < 0.0000001)
     {
-        result.W = 0;
+      result.W = 0;
     }
     return result;
   }
@@ -69,6 +76,7 @@ class CustomConeJoint : ZilchComponent
     
     // Convert the quaternion to an axis angle and extract the rotation about the twist axis
     var axisAngle = this.ToAxisAngle(twistRotation);
+    //Console.WriteLine(axisAngle, twistRotation);
     var twistAxis = axisAngle.XYZ;
     var twistAngle = axisAngle.W;
     // If the axis is pointing the wrong direction then flip the angle
@@ -76,9 +84,9 @@ class CustomConeJoint : ZilchComponent
         twistAngle = -twistAngle;
     // Deal with the angle being outside [-pi, pi]
     if(twistAngle > Math.Pi)
-        twistAngle = twistAngle - 2.0 * Math.Pi;
+      twistAngle = twistAngle - 2.0 * Math.Pi;
     if(twistAngle < -Math.Pi)
-        twistAngle = twistAngle + 2.0 * Math.Pi;
+      twistAngle = twistAngle + 2.0 * Math.Pi;
     
     // Set the jacobian for the twist
     this.TwistConstraint.SetJacobian(Real3.Zero, -cogAWorldTwistAxis, Real3.Zero, cogBWorldTwistAxis);

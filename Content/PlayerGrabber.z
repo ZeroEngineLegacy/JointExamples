@@ -1,3 +1,10 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright 2017 DigiPen USA Corporation, All Rights Reserved
+// Author: Joshua Davis
+// Last updated by: Joshua Davis
+// Last update: 7/31/2017
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // Performs a raycast to try and hold an object in front of the target object. The constraints used
 // are basically a weld, but without error correction on the rotational terms.
 class PlayerGrabber : ZilchComponent

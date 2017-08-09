@@ -1,3 +1,10 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright 2017 DigiPen USA Corporation, All Rights Reserved
+// Author: Joshua Davis
+// Last updated by: Joshua Davis
+// Last update: 7/31/2017
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // A simple example of using joints to control a first person player.
 // The player moves along their orientation's forward and right vectors using constrained linear axes.
 // Rotation is achieved by locking orienation about the right and forward vectors and then
